@@ -1,8 +1,11 @@
 <!DOCTYPE HTML>
 <html>
-
 <?php 
 	require_once 'dbConn.php'; 
+
+	//Received Color Code
+	$colorCode = "green";
+
 
 	$MID = "2";
 
@@ -34,27 +37,43 @@
 	
 	
 
-	//Received Color Code
-	$colorCode = "green";
+	
 
 
 	//Symptoms Details
-	$positiveFamMember = "Yes";
-	$haveFever = "No";
-	$stayedAbroad = "No";
-	$soreThroat = "Yes";
-
-	//Medical History Details
 	$fever = "No";
 	$cough = "Yes";
-	$jointPain = "Yes";
-	$diabetes = "No";
-?>
+	$soreThroat = "Yes";
+	$diffInBreath = "Yes";
+	$bodyAches = "No";
+	$cold = "Yes";
+	$lossOfSmell = "No";
+	$diarrhoea = "Yes";
+	$urineOutput = "No";
 
+	//Close Contact Hostory
+	$arrivedFromAbroad = "Yes";
+	$arrivedDate = "0000-00-00";
+		//in contact with person,
+	$suspectedHave = "Yes";
+	$cameFromAbroad = "No";
+	$liveInRiskArea = "Yes";
+	$inQrnCamp = "No";
+	$employeedIn = "No";
+
+	//Medical History
+	$heartDis = "Yes";
+	$highBP = "No";
+	$diabetes = "No";
+	$lungDis = "No";
+	$otherDis = "No";
+
+
+?>
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Healthcare Template</title>
+	<title>Covid-19</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -117,14 +136,14 @@
 									</div>
 									<div class="col-md-3">
 										<div class="num">
-											<span class="icon"><i class="icon-phone"></i></span>
-											<p><a href="#">111-222-333</a><br><a href="#">99-222-333</a></p>
+											<!-- <span class="icon"><i class="icon-phone"></i></span> -->
+											<!-- <p><a href="#">111-222-333</a><br><a href="#">99-222-333</a></p> -->
 										</div>
 									</div>
 									<div class="col-md-3">
 										<div class="loc">
-											<span class="icon"><i class="icon-location"></i></span>
-											<p><a href="#">88 Route West 21th Street, Suite 721 New York NY 10016</a>
+											<!-- <span class="icon"><i class="icon-location"></i></span> -->
+											<!-- <p><a href="#">88 Route West 21th Street, Suite 721 New York NY 10016</a> -->
 											</p>
 										</div>
 									</div>
@@ -139,12 +158,12 @@
 							<div class="col-xs-8">
 								<div class="menu-1">
 									<ul>
-										<li class="active"><a href="index.php">Home</a></li>
+										<li class="active"><a href="index.html">Home</a></li>
 										<li class="has-dropdown">
-											<a href="doctors.php">Doctors</a>
+											<a href="doctors.html">Doctors</a>
 										</li>
 										<li class="has-dropdown">
-											<a href="departments.php">Hospitals</a>
+											<a href="departments.html">Hospitals</a>
 
 										</li>
 
@@ -162,10 +181,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-14 animate-box">
-						<h2>Patient calls and Information.</h2>
+						<h2>Patient Information.</h2>
 						<hr>
-
-
 
 					</div>
 
@@ -261,83 +278,167 @@
 					<div class="col-md-12 animate-box">
 						<div class="row">
 							<div class="col-md-3">
-								<h4><b>Symptoms</b> </h4>
+								<h4> <b>Symptoms</b> </h4>
 								<table class="table table-borderless">
 
 									<tbody>
 										<tr>
-											<th scope="row">Positive family member</th>
-											<td><?php echo $positiveFamMember; ?></td>
+											<td scope="row">Fever</td>
+											<td class="text-success"><?php echo $fever; ?></td>
 										</tr>
 										<tr>
-											<th scope="row">Have Fever</th>
-											<td><?php echo $haveFever; ?></td>
+											<td scope="row">Cough</td>
+											<td class="text-danger"><?php echo $cough; ?></td>
 										</tr>
 										<tr>
-											<th scope="row">Stayed Abroad</th>
-											<td><?php echo $stayedAbroad; ?></td>
+											<td scope="row">Sore throat</td>
+											<td class="text-success"><?php echo $soreThroat; ?></td>
+											<!-- if yes class should be changed to text-danger  -->
 										</tr>
 										<tr>
-											<th scope="row">Sore Throat</th>
-											<td><?php echo $soreThroat; ?></td>
+											<td scope="row">Difficulty in breathing</td>
+											<td class="text-success"><?php echo $diffInBreath; ?></td>
+											<!-- if yes class should be changed to text-danger  -->
+										</tr>
+										<tr>
+											<td scope="row">Body Aches and Pain</td>
+											<td class="text-success"><?php echo $bodyAches; ?></td>
+											<!-- if yes class should be changed to text-danger  -->
+										</tr>
+										<tr>
+											<td scope="row">Cold</td>
+											<td class="text-success"><?php echo $cold; ?></td>
+											<!-- if yes class should be changed to text-danger  -->
+										</tr>
+										<tr>
+											<td scope="row">Loss of smell</td>
+											<td class="text-success"><?php echo $lossOfSmell; ?></td>
+											<!-- if yes class should be changed to text-danger  -->
+										</tr>
+										<tr>
+											<td scope="row">Diarrhoea</td>
+											<td class="text-success"><?php echo $diarrhoea; ?></td>
+											<!-- if yes class should be changed to text-danger  -->
+										</tr>
+										<tr>
+											<td scope="row">Urine Output</td>
+											<td class="text-success"><?php echo $urineOutput; ?></td>
+											<!-- if yes class should be changed to text-danger  -->
 										</tr>
 									</tbody>
 								</table>
+
 							</div>
+							<div class="col-md-4">
+								<h4><b>Close Contact History</b> </h4>
+								<table class="table table-borderless">
+
+									<tbody>
+										<tr>
+											<td scope="row">Arrived from Abroad</td>
+											<td class="text-success"><?php echo $arrivedFromAbroad; ?></td>
+
+										</tr>
+										<tr>
+											<td scope="row">Arrived Date</th>
+											<td class="text-success"><?php echo $arrivedDate; ?></td>
+										</tr>
+										<tr>
+											<th scope="row">Have you come in contact with, a Person</th>
+
+										</tr>
+										<tr>
+											<td scope="row">Suspected to have Covid-19?</td>
+											<td class="text-success"><?php echo $suspectedHave; ?></td>
+										</tr>
+										<tr>
+											<td scope="row">Who came from abroad?</td>
+											<td class="text-success"><?php echo $cameFromAbroad; ?></td>
+										</tr>
+										<tr>
+											<td scope="row">Living in a high risk area?</td>
+											<td class="text-success"><?php echo $liveInRiskArea; ?></td>
+										</tr>
+										<tr>
+											<td scope="row">In a quarantine camp?</td>
+											<td class="text-success"><?php echo $inQrnCamp; ?></td>
+										</tr>
+										<tr>
+											<td scope="row">Employed in a quarantine camp, tourism industry, airport,
+												harbour</td>
+											<td class="text-success"><?php echo $employeedIn; ?></td>
+										</tr>
+									</tbody>
+								</table>
+
+							</div>
+
 							<div class="col-md-3">
 								<h4> <b>Medical History</b> </h4>
 								<table class="table table-borderless">
 
 									<tbody>
 										<tr>
-											<th scope="row">Fever</th>
-											<td><?php echo $fever; ?></td>
+											<td scope="row">Heart Diseases</td>
+											<td class="text-success"><?php echo $heartDis; ?></td>
 										</tr>
 										<tr>
-											<th scope="row">Cough</th>
-											<td><?php echo $cough; ?></td>
+											<td scope="row">High Blood Pressure</td>
+											<td class="text-success"><?php echo $highBP; ?></td>
 										</tr>
 										<tr>
-											<th scope="row">Joint Pain</th>
-											<td><?php echo $jointPain; ?></td>
+											<td scope="row">Diabetes</td>
+											<td class="text-success"><?php echo $diabetes; ?></td>
 										</tr>
 										<tr>
-											<th scope="row">Diabetes</th>
-											<td><?php echo $diabetes; ?></td>
+											<td scope="row">Lung Diseses</td>
+											<td class="text-success"><?php echo $lungDis; ?></td>
+										</tr>
+										<tr>
+											<th scope="row">Other Diseases</th>
+											<td class="text-success"><?php echo $otherDis; ?></td>
 										</tr>
 									</tbody>
 								</table>
-							</div>
-							<form method="POST" action="submit.php">
-								<div class="col-md-3">
-									<h4> <b>Color Code</b> </h4>
-									<!-- Material unchecked -->
-									<input type="radio" id="male" name="colCode" value="red">
-								  	<label for="male">Red</label><br>
-								  	<input type="radio" id="female" name="colCode" value="orange">
-								  	<label for="female">Orange</label><br>
-								  	<input type="radio" id="other" name="colCode" value="green">
-								  	<label for="other">Green</label>
-								</div>
-								<div class="col-md-3">
-									<h4> <b>Patient's Contact Info</b> </h4>
-									<input type="radio" id="hospitalize" name="docRec" value="hospitalize">
-								  	<label for="hospitalize">Hospitalize</label><br>
-								  	<input type="radio" id="selfqrn" name="docRec" value="selfqrn">
-								  	<label for="selfqrn">Self Quarantine</label><br>
-								  	<input type="radio" id="shouldcont" name="docRec" value="shouldcont">
-								  	<label for="shouldcont">Should Continue</label>
 
+							</div>
+
+							<div class="col-md-2">
+								<h4> <b>Patient's Contact Info</b> </h4>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="exampleRadios1"
+										id="exampleRadios4" value="option4" checked>
+									<label class="form-check-label" for="exampleRadios4">
+										Hospitalize
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="exampleRadios1"
+										id="exampleRadios5" value="option5">
+									<label class="form-check-label" for="exampleRadios5">
+										Self Quarantine
+									</label>
+								</div>
+								<div class="form-check">
+									<input class="form-check-input" type="radio" name="exampleRadios1"
+										id="exampleRadios6" value="option6">
+									<label class="form-check-label" for="exampleRadios6">
+										Should Review
+									</label>
+								</div>
+
+								
 									<br><br><br><br>
 									<button type="submit" name="btnSendMoh" class="btn btn-danger btn-lg" style="width: 100%">Send to MOH</button>
 									<button type="button" class="btn btn-primary btn-lg" style="width: 100%">Next Patient</button>
-								</div>
-							</form>
+							</div>
+
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
 
 		<footer id="colorlib-footer" role="contentinfo">
 			<div class="overlay"></div>
@@ -347,12 +448,14 @@
 					<p>
 						<small class="block">&copy;
 							Copyright &copy;
-							<script>document.write(new Date().getFullYear());</script> All rights reserved | This
-							template is made with <i class="icon-heart" aria-hidden="true"></i> by <a
-								href="https://colorlib.com" target="_blank">KDU</a>
-							<small class="block">Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a>
+							<script>document.write(new Date().getFullYear());</script> All rights reserved
+							|</i> Developed by <a href="https://www.kdu.ac.lk/" target="_blank">General Sir John
+								Kotelawala
+								Defence University</a>
+							<!-- <small class="block">Demo Images: <a href="https://www.kdu.ac.lk/"
+									target="_blank">Unsplash</a>
 								,
-								<a href="https://www.pexels.com/" target="_blank">Pexels</a></small>
+								<a href="https://www.pexels.com/" target="_blank">Pexels</a></small> -->
 					</p>
 				</div>
 			</div>
