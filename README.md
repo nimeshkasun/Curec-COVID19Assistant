@@ -1,0 +1,2 @@
+# Curec-COVID19Assistant
+ 
