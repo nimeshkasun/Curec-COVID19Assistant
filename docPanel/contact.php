@@ -7,7 +7,7 @@
 	$colorCode = "green";
 
 
-	$MID = "2";
+	$MID = "1";
 
 	$result = $conn->query("SELECT Name, NIC, Gender, Age, City, phone FROM member WHERE MID='$MID'");
 	if ($result->num_rows > 0) {
@@ -22,52 +22,68 @@
 		}
 	}
 
-	/*$result = $conn->query("SELECT personHighrisk, fever, ArriveFromAbroad, soreThroat, Age, City, phone FROM member WHERE MID='$MID'");
+	$result = $conn->query("SELECT fever, cough, soreThroat, difficultBreathe, bodyArchPain, cold, lossOfSmell, diarrhoea, urineOutput, ArriveFromAbroad, dateifYes, contactSuspect, personAbroad, personHighrisk, personQuarantine, personWorkQuarantine, heartDiseace, bloodPressure, Diabetes, LungDisease, OtherDisease FROM record WHERE MID='$MID'");
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
-				//Patient Details
-		    $pName = $row['Name']; 
-		    $pNic = $row['NIC'];  
-		    $pGender = $row['Gender'];  
-		    $pAge = $row['Age'];  
-		    $pLocation = $row['City'];  
-		    $pPhoneNumber = $row['phone'];
+			//Symptoms Details
+			$fever = $row['fever'];
+			$cough = $row['cough'];
+			$soreThroat = $row['soreThroat'];
+			$diffInBreath = $row['difficultBreathe'];
+			$bodyAches = $row['bodyArchPain'];
+			$cold = $row['cold'];
+			$lossOfSmell = $row['lossOfSmell'];
+			$diarrhoea = $row['diarrhoea'];
+			$urineOutput = $row['urineOutput'];
+
+			//Close Contact Hostory
+			$arrivedFromAbroad = $row['ArriveFromAbroad'];
+			$arrivedDate = $row['dateifYes'];
+				//in contact with person,
+			$suspectedHave = $row['contactSuspect'];
+			$cameFromAbroad = $row['personAbroad'];
+			$liveInRiskArea = $row['personHighrisk'];
+			$inQrnCamp = $row['personQuarantine'];
+			$employeedIn = $row['personWorkQuarantine'];
+
+			//Medical History
+			$heartDis = $row['heartDiseace'];
+			$highBP = $row['bloodPressure'];
+			$diabetes = $row['Diabetes'];
+			$lungDis = $row['LungDisease'];
+			$otherDis = $row['OtherDisease'];
 		}
-	}*/
+	}else {
+			$fever = "No Data";
+			$cough = "No Data";
+			$soreThroat = "No Data";
+			$diffInBreath = "No Data";
+			$bodyAches = "No Data";
+			$cold = "No Data";
+			$lossOfSmell = "No Data";
+			$diarrhoea = "No Data";
+			$urineOutput = "No Data";
+
+			//Close Contact Hostory
+			$arrivedFromAbroad = "No Data";
+			$arrivedDate = "No Data";
+				//in contact with person,
+			$suspectedHave = "No Data";
+			$cameFromAbroad = "No Data";
+			$liveInRiskArea = "No Data";
+			$inQrnCamp = "No Data";
+			$employeedIn = "No Data";
+
+			//Medical History
+			$heartDis = "No Data";
+			$highBP = "No Data";
+			$diabetes = "No Data";
+			$lungDis = "No Data";
+			$otherDis = "No Data";
+	}
 	
-	
 
 	
-
-
-	//Symptoms Details
-	$fever = "No";
-	$cough = "Yes";
-	$soreThroat = "Yes";
-	$diffInBreath = "Yes";
-	$bodyAches = "No";
-	$cold = "Yes";
-	$lossOfSmell = "No";
-	$diarrhoea = "Yes";
-	$urineOutput = "No";
-
-	//Close Contact Hostory
-	$arrivedFromAbroad = "Yes";
-	$arrivedDate = "0000-00-00";
-		//in contact with person,
-	$suspectedHave = "Yes";
-	$cameFromAbroad = "No";
-	$liveInRiskArea = "Yes";
-	$inQrnCamp = "No";
-	$employeedIn = "No";
-
-	//Medical History
-	$heartDis = "Yes";
-	$highBP = "No";
-	$diabetes = "No";
-	$lungDis = "No";
-	$otherDis = "No";
-
 
 ?>
 <head>
