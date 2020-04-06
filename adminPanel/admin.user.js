@@ -13,5 +13,3 @@ var status = document.getElementById("status");
 var description = document.getElementById("description");
 var price = document.getElementById("price");
 var image = document.getElementById("image");
-
-
