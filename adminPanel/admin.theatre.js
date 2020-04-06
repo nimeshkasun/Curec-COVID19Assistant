@@ -1,4 +1,4 @@
-function addtheatre(){
+function addtheatre() {
 
     var name = document.getElementById("name").value;
     var movie = document.getElementById("movie").value;
@@ -7,31 +7,31 @@ function addtheatre(){
     var nextmovie = document.getElementById("nextmovie").value;
     var reservedseats = document.getElementById("reservations").value;
 
-    
+
     var firebaseref = firebase.database().ref('Theatres/');
 
     firebaseref.push().set({
-        TheatreName : name ,
-        Movie : movie,
-        RemainingSeats : remainingseats,
-        TimeSlot : timeslot,
-        NextMovie : nextmovie,
-        ReservedSeats : reservedseats,
-   } );
-    
-    
-    document.getElementById("name").value = "" ;
-    document.getElementById("movie").value = "" ;
-    document.getElementById("remainingseats").value = "" ;
-    document.getElementById("timeslot").value = "" ;
-    document.getElementById("nextmovie").value = "" ;
-     document.getElementById("reservations").value = "" ;
+        TheatreName: name,
+        Movie: movie,
+        RemainingSeats: remainingseats,
+        TimeSlot: timeslot,
+        NextMovie: nextmovie,
+        ReservedSeats: reservedseats,
+    });
+
+
+    document.getElementById("name").value = "";
+    document.getElementById("movie").value = "";
+    document.getElementById("remainingseats").value = "";
+    document.getElementById("timeslot").value = "";
+    document.getElementById("nextmovie").value = "";
+    document.getElementById("reservations").value = "";
 
     alert("Theatre added Succesfully");
 }
 
 
-function searchtheatre(){
+function searchtheatre() {
 
     var name = document.getElementById("name").value;
     var Id = document.getElementById("id");
@@ -43,10 +43,10 @@ function searchtheatre(){
 
     const firebaseref = firebase.database().ref();
 
-    firebaseref.child('Theatres').orderByChild('TheatreName').equalTo(name).on("value", function(theatresnapshot) {
+    firebaseref.child('Theatres').orderByChild('TheatreName').equalTo(name).on("value", function (theatresnapshot) {
         console.log(theatresnapshot.val());
 
-        theatresnapshot.forEach(function(data) {
+        theatresnapshot.forEach(function (data) {
             var alldata = data.val()
             console.log(data.key);
 
@@ -64,37 +64,38 @@ function searchtheatre(){
 
 
 
-function updatetheatre(){
-        // A post entry.
-      
-        // Get a key for a new Post.
-        var newPostKey = firebase.database().ref().child('posts').push().key;
-      
-        // Write the new post's data simultaneously in the posts list and the user's post list.
-        var updates = {};
-        updates['/posts/' + newPostKey] = postData;
-        updates['/user-posts/' + uid + '/' + newPostKey] = postData;
-      
-        return firebase.database().ref().update(updates);
-      }
+function updatetheatre() {
+    // A post entry.
+
+    // Get a key for a new Post.
+    var newPostKey = firebase.database().ref().child('posts').push().key;
+
+    // Write the new post's data simultaneously in the posts list and the user's post list.
+    var updates = {};
+    updates['/posts/' + newPostKey] = postData;
+    updates['/user-posts/' + uid + '/' + newPostKey] = postData;
+
+    return firebase.database().ref().update(updates);
+}
 
 
 
 
 
-function ClearFields(){
-        
-    document.getElementById("id").value = " ";
-    document.getElementById("name").value = "" ;
-    document.getElementById("movie").value = "" ;
-    document.getElementById("remainingseats").value = "" ;
-    document.getElementById("timeslot").value = "" ;
-    document.getElementById("nextmovie").value = "" ;
-     document.getElementById("reservations").value = "" ;
+function ClearFields() {
+
+    document.getElementById("mohId").value = " ";
+    document.getElementById("fname").value = "";
+    document.getElementById("lname").value = "";
+    document.getElementById("nic").value = "";
+    document.getElementById("workingarea").value = "";
+    document.getElementById("telenumber").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("password").value = "";
 
 }
 
-function deletetheatre(){
+function deletetheatre() {
 
     var Id = document.getElementById("id").value;
 
@@ -102,12 +103,12 @@ function deletetheatre(){
     firebase.database().ref('Theatres/' + Id).remove();
 
     document.getElementById("id").value = " ";
-    document.getElementById("name").value = "" ;
-    document.getElementById("movie").value = "" ;
-    document.getElementById("remainingseats").value = "" ;
-    document.getElementById("timeslot").value = "" ;
-    document.getElementById("nextmovie").value = "" ;
-     document.getElementById("reservations").value = "" ;
+    document.getElementById("name").value = "";
+    document.getElementById("movie").value = "";
+    document.getElementById("remainingseats").value = "";
+    document.getElementById("timeslot").value = "";
+    document.getElementById("nextmovie").value = "";
+    document.getElementById("reservations").value = "";
 
 
 
