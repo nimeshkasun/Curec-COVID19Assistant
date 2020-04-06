@@ -1,13 +1,57 @@
 <!DOCTYPE HTML>
 <html>
 <?php 
+
 	require_once 'dbConn.php'; 
 
-	//Received Color Code
-	$colorCode = "green";
+/*SELECT record.RID, `MID`, `SID`, `Date_time`, `timestamp`, `fever`, `cough`, `soreThroat`, `difficultBreathe`, `bodyArchPain`, `cold`, `lossOfSmell`, `diarrhoea`, `urineOutput`, `ArriveFromAbroad`, `dateifYes`, `contactSuspect`, `personAbroad`, `personHighrisk`, `personQuarantine`, `personWorkQuarantine`, `heartDiseace`, `bloodPressure`, `Diabetes`, `LungDisease`, `OtherDisease` FROM record,priority_queue WHERE record.RID=priority_queue.RID AND status = 1 ORDER by priority DESC,RID ASC;*/
+
+	$MID = "";
+	$recordId="";
+	$pID="";
+
+	if(!isset($_SESSION["MID"])){
+		$result = $conn->query("SELECT RID, priority, status FROM priority_queue WHERE status='1' ORDER BY priority DESC, RID ASC");
+		if ($result->num_rows > 0) {
+			while($row = $result->fetch_assoc()) {
+			    $recordId = $row['RID'];
+			    $pID = $row['priority'];
+			   
+			}
+		}
+
+		$result = $conn->query("SELECT MID FROM record WHERE RID = '$recordId'");
+		if ($result->num_rows > 0) {
+			while($row = $result->fetch_assoc()) {
+			    $MID = $row['MID'];
+			   
+			}
+		}
+	}
+
+	//echo $recordId, " ", $pID, " ", $MID;
+	session_start();
+	$_SESSION["DID"] = "1";
+	$_SESSION["MID"] = $MID;
+	$_SESSION["RID"] = $recordId;
+
+	
+
+	//Saved Color Code
+	$colorCode = "noColor";
+	$result = $conn->query("SELECT Comment, status FROM diagnose WHERE MID='$MID'");
+	if ($result->num_rows > 0) {
+		while($row = $result->fetch_assoc()) {
+				//Patient Details
+		    $comment = $row['Comment']; 
+		    $colorCode = $row['status'];
+		   
+		}
+	}
+	
 
 
-	$MID = "1";
+	
 
 	$result = $conn->query("SELECT Name, NIC, Gender, Age, City, phone FROM member WHERE MID='$MID'");
 	if ($result->num_rows > 0) {
@@ -22,7 +66,7 @@
 		}
 	}
 
-	$result = $conn->query("SELECT fever, cough, soreThroat, difficultBreathe, bodyArchPain, cold, lossOfSmell, diarrhoea, urineOutput, ArriveFromAbroad, dateifYes, contactSuspect, personAbroad, personHighrisk, personQuarantine, personWorkQuarantine, heartDiseace, bloodPressure, Diabetes, LungDisease, OtherDisease FROM record WHERE MID='$MID'");
+	$result = $conn->query("SELECT fever, cough, soreThroat, difficultBreathe, bodyArchPain, cold, lossOfSmell, diarrhoea, urineOutput, ArriveFromAbroad, dateifYes, contactSuspect, personAbroad, personHighrisk, personQuarantine, personWorkQuarantine, heartDiseace, bloodPressure, Diabetes, LungDisease, OtherDisease FROM record WHERE MID='$MID' AND RID='$recordId'");
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
 			//Symptoms Details
@@ -213,25 +257,27 @@
 									<div class="row form-group">
 										<div class="col-md-12">
 											<?php
-												switch ($colorCode) {
-													case 'red':
-														echo "<button type='button' class='btn btn-danger btn-lg btn-block' style='width: 100%' disabled>Red
-													Noticed Patient</button>";
-														break;
+												if($colorCode != "noColor"){
+													switch ($colorCode) {
+														case '1':
+															echo "<button type='button' class='btn btn-danger btn-lg btn-block' style='width: 100%' disabled>Red
+														Noticed Patient</button>";
+															break;
 
-													case 'orange':
-														echo "<button type='button' class='btn btn-warning btn-lg btn-block'style='width: 100%' disabled>Orange
-													Noticed Patient</button>";
-														break;
+														case '2':
+															echo "<button type='button' class='btn btn-warning btn-lg btn-block'style='width: 100%' disabled>Orange
+														Noticed Patient</button>";
+															break;
 
-													case 'green':
-														echo "<button type='button' class='btn btn-success btn-lg btn-block'style='width: 100%' disabled>Green
-													Noticed Patient</button>";
-														break;
-													
-													default:
-														echo "<button type='button' class='btn btn-success btn-lg btn-block'style='width: 100%' disabled>Color Code Missing</button>";
-														break;
+														case '3':
+															echo "<button type='button' class='btn btn-success btn-lg btn-block'style='width: 100%' disabled>Green
+														Noticed Patient</button>";
+															break;
+														
+														default:
+															echo "<button type='button' class='btn btn-success btn-lg btn-block'style='width: 100%' disabled>Color Code Missing</button>";
+															break;
+													}
 												}
 											?>
 
@@ -418,37 +464,21 @@
 								</table>
 
 							</div>
+							<form method="POST" action="submit.php">
+								<div class="col-md-2">
+										<h4> <b>Patient's Contact Info</b> </h4>
+										<input type="radio" id="hospitalize" name="docRec" value="hospitalize">
+									  	<label for="hospitalize">Hospitalize</label><br>
+									  	<input type="radio" id="selfqrn" name="docRec" value="selfqrn">
+									  	<label for="selfqrn">Self Quarantine</label><br>
+									  	<input type="radio" id="shouldcont" name="docRec" value="shouldcont">
+									  	<label for="shouldcont">Should Continue</label>
 
-							<div class="col-md-2">
-								<h4> <b>Patient's Contact Info</b> </h4>
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="exampleRadios1"
-										id="exampleRadios4" value="option4" checked>
-									<label class="form-check-label" for="exampleRadios4">
-										Hospitalize
-									</label>
+										<br><br><br><br>
+										<button type="submit" name="btnSendMoh" class="btn btn-danger btn-lg" style="width: 100%">Send to MOH</button>
+										<button type="submit" name="btnNextPat" class="btn btn-primary btn-lg" style="width: 100%">Next Patient</button>
 								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="exampleRadios1"
-										id="exampleRadios5" value="option5">
-									<label class="form-check-label" for="exampleRadios5">
-										Self Quarantine
-									</label>
-								</div>
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="exampleRadios1"
-										id="exampleRadios6" value="option6">
-									<label class="form-check-label" for="exampleRadios6">
-										Should Review
-									</label>
-								</div>
-
-								
-									<br><br><br><br>
-									<button type="submit" name="btnSendMoh" class="btn btn-danger btn-lg" style="width: 100%">Send to MOH</button>
-									<button type="button" class="btn btn-primary btn-lg" style="width: 100%">Next Patient</button>
-							</div>
-
+							</form>
 						</div>
 					</div>
 				</div>
