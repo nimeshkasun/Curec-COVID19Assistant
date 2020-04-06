@@ -1,13 +1,41 @@
 <!DOCTYPE HTML>
 <html>
 <?php 
-	$MID = "1";
 
+	require_once 'dbConn.php'; 
+
+/*SELECT record.RID, `MID`, `SID`, `Date_time`, `timestamp`, `fever`, `cough`, `soreThroat`, `difficultBreathe`, `bodyArchPain`, `cold`, `lossOfSmell`, `diarrhoea`, `urineOutput`, `ArriveFromAbroad`, `dateifYes`, `contactSuspect`, `personAbroad`, `personHighrisk`, `personQuarantine`, `personWorkQuarantine`, `heartDiseace`, `bloodPressure`, `Diabetes`, `LungDisease`, `OtherDisease` FROM record,priority_queue WHERE record.RID=priority_queue.RID AND status = 1 ORDER by priority DESC,RID ASC;*/
+
+	$MID = "";
+	$recordId="";
+	$pID="";
+
+	if(!isset($_SESSION["MID"])){
+		$result = $conn->query("SELECT RID, priority, status FROM priority_queue WHERE status='1' ORDER BY priority DESC, RID ASC");
+		if ($result->num_rows > 0) {
+			while($row = $result->fetch_assoc()) {
+			    $recordId = $row['RID'];
+			    $pID = $row['priority'];
+			   
+			}
+		}
+
+		$result = $conn->query("SELECT MID FROM record WHERE RID = '$recordId'");
+		if ($result->num_rows > 0) {
+			while($row = $result->fetch_assoc()) {
+			    $MID = $row['MID'];
+			   
+			}
+		}
+	}
+
+	//echo $recordId, " ", $pID, " ", $MID;
 	session_start();
 	$_SESSION["DID"] = "1";
 	$_SESSION["MID"] = $MID;
+	$_SESSION["RID"] = $recordId;
 
-	require_once 'dbConn.php'; 
+	
 
 	//Saved Color Code
 	$colorCode = "noColor";
@@ -38,7 +66,7 @@
 		}
 	}
 
-	$result = $conn->query("SELECT fever, cough, soreThroat, difficultBreathe, bodyArchPain, cold, lossOfSmell, diarrhoea, urineOutput, ArriveFromAbroad, dateifYes, contactSuspect, personAbroad, personHighrisk, personQuarantine, personWorkQuarantine, heartDiseace, bloodPressure, Diabetes, LungDisease, OtherDisease FROM record WHERE MID='$MID'");
+	$result = $conn->query("SELECT fever, cough, soreThroat, difficultBreathe, bodyArchPain, cold, lossOfSmell, diarrhoea, urineOutput, ArriveFromAbroad, dateifYes, contactSuspect, personAbroad, personHighrisk, personQuarantine, personWorkQuarantine, heartDiseace, bloodPressure, Diabetes, LungDisease, OtherDisease FROM record WHERE MID='$MID' AND RID='$recordId'");
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
 			//Symptoms Details
