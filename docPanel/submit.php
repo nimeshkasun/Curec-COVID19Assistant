@@ -3,6 +3,7 @@
 		session_start();
 		$did = $_SESSION["DID"];
 		$mid = $_SESSION["MID"];
+		$rid = $_SESSION["RID"];
 
 		require_once 'dbConn.php';
 			/*if(isset($_POST['btnSendMoh'])){
@@ -38,10 +39,17 @@
 				}
 
 				$sql = "INSERT INTO diagnose(DID, MID, Comment, status) VALUES ('$did', '$mid', '$docDecision', '$colorCode')";
-				
+				$_SESSION["MID"] = "";
+				$_SESSION["RID"] = "";
 				if(mysqli_query($conn,$sql)){
+					$delete = "DELETE FROM priority_queue WHERE RID='$rid'";
+					if(mysqli_query($conn,$delete)){
+				    	header('location: contact.php');
+					}
+					echo("Error description: " . $conn -> error);
 					header('location: contact.php');
 				}else {
+					echo("Error description: " . $conn -> error);
 					header('location: contact.php');
 				}
 	

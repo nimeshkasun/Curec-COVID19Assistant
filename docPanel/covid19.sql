@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 05, 2020 at 06:39 PM
+-- Generation Time: Apr 06, 2020 at 07:58 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -33,8 +33,8 @@ CREATE TABLE `diagnose` (
   `DID` int(11) NOT NULL,
   `MID` int(11) NOT NULL,
   `Comment` varchar(255) NOT NULL,
-  `status` tinyint(1) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
+  `status` tinyint(4) NOT NULL,
+  `timestamp` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -42,7 +42,12 @@ CREATE TABLE `diagnose` (
 --
 
 INSERT INTO `diagnose` (`DigID`, `DID`, `MID`, `Comment`, `status`, `timestamp`) VALUES
-(31, 1, 1, 'hospitalize', 1, '2020-04-05 16:38:28');
+(19, 1, 1, 'selfqrn', 2, '2020-04-06 11:15:33'),
+(20, 1, 1, 'shouldcont', 3, '2020-04-06 11:16:06'),
+(21, 1, 1, 'selfqrn', 2, '2020-04-06 11:19:18'),
+(22, 1, 1, 'shouldcont', 3, '2020-04-06 11:20:23'),
+(23, 1, 1, 'hospitalize', 1, '2020-04-06 11:26:35'),
+(24, 1, 2, 'shouldcont', 3, '2020-04-06 11:27:01');
 
 -- --------------------------------------------------------
 
@@ -181,6 +186,29 @@ CREATE TABLE `phi` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `priority_queue`
+--
+
+CREATE TABLE `priority_queue` (
+  `RID` int(11) NOT NULL,
+  `priority` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  `arived_time` datetime NOT NULL DEFAULT current_timestamp(),
+  `answer_time` datetime NOT NULL,
+  `end_time` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `priority_queue`
+--
+
+INSERT INTO `priority_queue` (`RID`, `priority`, `status`, `arived_time`, `answer_time`, `end_time`) VALUES
+(6, 2, 1, '2020-04-05 17:17:54', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(7, 3, 1, '2020-04-05 17:17:54', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `record`
 --
 
@@ -220,10 +248,9 @@ CREATE TABLE `record` (
 --
 
 INSERT INTO `record` (`RID`, `MID`, `SID`, `Date_time`, `timestamp`, `fever`, `cough`, `soreThroat`, `difficultBreathe`, `bodyArchPain`, `cold`, `lossOfSmell`, `diarrhoea`, `urineOutput`, `ArriveFromAbroad`, `dateifYes`, `contactSuspect`, `personAbroad`, `personHighrisk`, `personQuarantine`, `personWorkQuarantine`, `heartDiseace`, `bloodPressure`, `Diabetes`, `LungDisease`, `OtherDisease`, `Value1`, `Value2`) VALUES
-(1, 1, 0, '0000-00-00', '2020-04-04 08:49:30', '127', '127', '127', '127', '127', '127', '127', '127', '127', '127', '2020-04-04', '127', '127', '127', '127', '127', '127', '127', '127', '127', '127', '', ''),
-(2, 1, 0, '0000-00-00', '2020-04-04 09:50:46', '2131362193', '2131362194', '2131362195', '2131362196', '2131362197', '2131362198', '2131362199', '2131362200', '2131362201', '2131362193', '2020-04-04', '2131362194', '2131362195', '2131362196', '2131362197', '2131362198', '2131362193', '2131362194', '2131362195', '2131362196', '2131362197', '', ''),
-(3, 1, 0, '0000-00-00', '2020-04-04 10:12:21', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No', 'Reduced', 'Yes', '2020-04-04', 'Yes', 'No', 'Yes', 'No', 'Yes', 'Yes', 'No', 'Yes', 'No', 'Yes', '', ''),
-(4, 1, 0, '0000-00-00', '2020-04-04 10:26:42', 'Yes', 'Yes', 'No', 'Yes', 'Yes', 'No', 'Yes', 'Yes', 'Normal', 'Yes', '2020-03-04', 'No', 'Yes', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No', '', '');
+(5, 1, 0, '0000-00-00', '2020-04-05 17:15:21', 'Yes', 'Yes', 'Yes', 'Yes', 'No', 'No', 'No', 'No', 'Normal', 'Yes', '2020-04-24', 'No', 'No', 'No', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No', '', ''),
+(6, 2, 0, '0000-00-00', '2020-04-05 17:17:54', 'No', 'No', 'No', 'Yes', 'No', 'No', 'No', 'No', 'Normal', 'Yes', '2020-04-16', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'Yes', 'Yes', 'No', '', ''),
+(7, 1, 0, '0000-00-00', '2020-04-05 17:17:54', 'No', 'Yes', 'No', 'Yes', 'No', 'No', 'No', 'No', 'Normal', 'Yes', '2020-04-16', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'Yes', 'Yes', 'No', '', '');
 
 -- --------------------------------------------------------
 
@@ -309,6 +336,12 @@ ALTER TABLE `phi`
   ADD UNIQUE KEY `phone` (`phone`);
 
 --
+-- Indexes for table `priority_queue`
+--
+ALTER TABLE `priority_queue`
+  ADD UNIQUE KEY `RID` (`RID`);
+
+--
 -- Indexes for table `record`
 --
 ALTER TABLE `record`
@@ -330,7 +363,7 @@ ALTER TABLE `symtoms`
 -- AUTO_INCREMENT for table `diagnose`
 --
 ALTER TABLE `diagnose`
-  MODIFY `DigID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `DigID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `doctor`
@@ -372,7 +405,7 @@ ALTER TABLE `phi`
 -- AUTO_INCREMENT for table `record`
 --
 ALTER TABLE `record`
-  MODIFY `RID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `RID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `symtoms`
@@ -405,6 +438,12 @@ ALTER TABLE `notification`
   ADD CONSTRAINT `notification_ibfk_1` FOREIGN KEY (`DigID`) REFERENCES `diagnose` (`DigID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `notification_ibfk_2` FOREIGN KEY (`MOH`) REFERENCES `moh` (`MID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `notification_ibfk_3` FOREIGN KEY (`PHI`) REFERENCES `phi` (`PID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `priority_queue`
+--
+ALTER TABLE `priority_queue`
+  ADD CONSTRAINT `priority_queue_ibfk_1` FOREIGN KEY (`RID`) REFERENCES `record` (`RID`);
 
 --
 -- Constraints for table `record`
