@@ -294,13 +294,11 @@
                             <strong>Medical Officer of Health</strong> Updates
                         </div>
                         <div class="card-body card-block">
-                            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-
+                            <form class="form-horizontal">
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label class=" form-control-label">MOH ID </label>
                                     </div>
-
-                                    <div class="col-12 col-md-9"><input type="text" id="id" name="text-input"
+                                    <div class="col-12 col-md-9"><input type="text" id="mohId" name="text-input"
                                             class="form-control" required></div>
                                 </div>
 
@@ -308,7 +306,7 @@
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">First
                                             Name
                                         </label></div>
-                                    <div class="col-12 col-md-9"><input type="text" id="name" name="text-input"
+                                    <div class="col-12 col-md-9"><input type="text" id="fname" name="text-input"
                                             class="form-control" required></div>
                                 </div>
 
@@ -316,7 +314,7 @@
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Last
                                             Name
                                         </label></div>
-                                    <div class="col-12 col-md-9"><input type="text" id="name" name="text-input"
+                                    <div class="col-12 col-md-9"><input type="text" id="lname" name="text-input"
                                             class="form-control" required></div>
                                 </div>
 
@@ -324,56 +322,57 @@
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">NIC
                                             Number
                                         </label></div>
-                                    <div class="col-12 col-md-9"><input type="text" id="movie" name="text-input"
-                                            class="form-control" required></div>
+                                    <div class="col-12 col-md-9"><input type="text" id="nic" name="text-input"
+                                            class="form-control" required minlength="10" maxlength="12"></div>
                                 </div>
 
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input"
                                             class=" form-control-label">Working
                                             Area</label></div>
-                                    <div class="col-12 col-md-9"><input type="text" id="movie" name="text-input"
+                                    <div class="col-12 col-md-9"><input type="text" id="workingarea" name="text-input"
                                             class="form-control" required></div>
                                 </div>
 
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="email-input"
                                             class=" form-control-label">Telephone Number</label></div>
-                                    <div class="col-12 col-md-9"><input type="number" id="remainingseats"
-                                            name="text-input" class="form-control" required></div>
+                                    <div class="col-12 col-md-9"><input type="number" id="telenumber" name="text-input"
+                                            class="form-control" required></div>
                                 </div>
 
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Email
                                         </label></div>
-                                    <div class="col-12 col-md-9"><input type="email" id="timeslot" name="text-input"
+                                    <div class="col-12 col-md-9"><input type="email" id="email" name="text-input"
                                             class="form-control" required></div>
                                 </div>
 
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input"
                                             class=" form-control-label">Password </label></div>
-                                    <div class="col-12 col-md-9"><input type="password" id="nextmovie" name="time-input"
+                                    <div class="col-12 col-md-9"><input type="password" id="password" name="time-input"
                                             class="form-control" required></div>
                                 </div>
 
                                 <div class="card-footer">
-                                    <button type="button" class="btn btn-primary btn-sm" onclick="searchtheatre();">
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="">
                                         <i class="fa fa-search"></i> By Name
                                     </button>
-                                    <button type="button" class="btn btn-primary btn-sm" onclick="addtheatre()">
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="">
                                         <i class="fa fa-plus"></i> Add
                                     </button>
-                                    <button type="button" class="btn btn-primary btn-sm" onclick="updatetheatre()">
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="">
                                         <i class="fa fa-wrench"></i> Update
                                     </button>
-                                    <button type="button" class="btn btn-danger btn-sm" onclick="deletetheatre()">
+                                    <button type="button" class="btn btn-danger btn-sm" onclick="">
                                         <i class="fa fa-trash"></i> Delete
                                     </button>
-                                    <button type="button" class="btn btn-danger btn-sm" onclick="ClearFields()">
+                                    <button type="button" class="btn btn-danger btn-sm" onclick="ClearFields();">
                                         <i class="fas fa-eraser"></i> Clear Fields
                                     </button>
                                 </div>
+                            </form>
                         </div>
                     </div>
 
