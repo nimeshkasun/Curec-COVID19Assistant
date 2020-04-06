@@ -294,12 +294,10 @@
                             <strong>Medical Officer of Health</strong> Updates
                         </div>
                         <div class="card-body card-block">
-                            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-
+                            <form class="form-horizontal">
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label class=" form-control-label">MOH ID </label>
                                     </div>
-
                                     <div class="col-12 col-md-9"><input type="text" id="mohId" name="text-input"
                                             class="form-control" required></div>
                                 </div>
@@ -325,7 +323,7 @@
                                             Number
                                         </label></div>
                                     <div class="col-12 col-md-9"><input type="text" id="nic" name="text-input"
-                                            class="form-control" required></div>
+                                            class="form-control" required minlength="10" maxlength="12"></div>
                                 </div>
 
                                 <div class="row form-group">
@@ -374,6 +372,7 @@
                                         <i class="fas fa-eraser"></i> Clear Fields
                                     </button>
                                 </div>
+                            </form>
                         </div>
                     </div>
 
