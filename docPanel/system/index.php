@@ -1,6 +1,8 @@
 <!DOCTYPE HTML>
 <html>
-
+<?php
+	include 'logincheck.php';
+?>
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -100,6 +102,9 @@
 										</li>
 										<li class="has-dropdown">
 											<a href="departments.php">Hospitals</a>
+										</li>
+										<li class="has-dropdown">
+											<a href="logout.php">Log Out</a>
 										</li>
 
 									</ul>

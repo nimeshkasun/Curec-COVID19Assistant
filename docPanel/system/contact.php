@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <?php 
-
+	include 'logincheck.php';
 	require_once 'dbConn.php'; 
 
 /*SELECT record.RID, `MID`, `SID`, `Date_time`, `timestamp`, `fever`, `cough`, `soreThroat`, `difficultBreathe`, `bodyArchPain`, `cold`, `lossOfSmell`, `diarrhoea`, `urineOutput`, `ArriveFromAbroad`, `dateifYes`, `contactSuspect`, `personAbroad`, `personHighrisk`, `personQuarantine`, `personWorkQuarantine`, `heartDiseace`, `bloodPressure`, `Diabetes`, `LungDisease`, `OtherDisease` FROM record,priority_queue WHERE record.RID=priority_queue.RID AND status = 1 ORDER by priority DESC,RID ASC;*/
@@ -30,8 +30,6 @@
 	}
 
 	//echo $recordId, " ", $pID, " ", $MID;
-	session_start();
-	$_SESSION["DID"] = "1";
 	$_SESSION["MID"] = $MID;
 	$_SESSION["RID"] = $recordId;
 
@@ -64,6 +62,13 @@
 		    $pLocation = $row['City'];  
 		    $pPhoneNumber = $row['phone'];
 		}
+	}else{
+		$pName = "No Data"; 
+		$pNic = "No Data"; 
+		$pGender = "No Data"; 
+		$pAge = "No Data"; 
+		$pLocation = "No Data"; 
+		$pPhoneNumber = "No Data"; 
 	}
 
 	$result = $conn->query("SELECT fever, cough, soreThroat, difficultBreathe, bodyArchPain, cold, lossOfSmell, diarrhoea, urineOutput, ArriveFromAbroad, dateifYes, contactSuspect, personAbroad, personHighrisk, personQuarantine, personWorkQuarantine, heartDiseace, bloodPressure, Diabetes, LungDisease, OtherDisease FROM record WHERE MID='$MID' AND RID='$recordId'");
@@ -218,13 +223,15 @@
 							<div class="col-xs-8">
 								<div class="menu-1">
 									<ul>
-										<li class="active"><a href="index.html">Home</a></li>
+										<li class="active"><a href="index.php">Home</a></li>
 										<li class="has-dropdown">
-											<a href="doctors.html">Doctors</a>
+											<a href="doctors.php">Doctors</a>
 										</li>
 										<li class="has-dropdown">
-											<a href="departments.html">Hospitals</a>
-
+											<a href="departments.php">Hospitals</a>
+										</li>
+										<li class="has-dropdown">
+											<a href="logout.php">Log Out</a>
 										</li>
 
 									</ul>

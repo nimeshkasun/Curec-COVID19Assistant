@@ -96,6 +96,9 @@
 										<li class="has-dropdown active">
 											<a href="departments.php">Departments</a>
 										</li>
+										<li class="has-dropdown">
+											<a href="logout.php">Log Out</a>
+										</li>
 									</ul>
 								</div>
 							</div>
