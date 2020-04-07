@@ -6,15 +6,63 @@
 		$rid = $_SESSION["RID"];
 
 		require_once 'dbConn.php';
-			/*if(isset($_POST['btnSendMoh'])){
-				$newColorCode=mysqli_real_escape_string($conn,$_POST['colCode']);
-				$sql = "INSERT INTO tblData(newColorCode, docDecision) VALUES ('$newColorCode', '$docDecision')";
-						
-				if(mysqli_query($conn,$sql)){
-					header('location: contact.php');
+			if(isset($_POST['btnSendMoh'])){
+
+				$docName = "";
+				$pName = ""; 
+				$pNic = "";  
+				$pGender = "";  
+				$pAge = "";  
+				$pLocation = "";  
+				$pPhoneNumber = "";
+
+					$result = $conn->query("SELECT name, phone FROM doctor WHERE DID = '$did' ");
+					if ($result->num_rows > 0) {
+						while($row = $result->fetch_assoc()) {
+						    $docName = $row['name'];
+						}
+					}
+
+					$result = $conn->query("SELECT Name, NIC, Gender, Age, City, phone FROM member WHERE MID='$mid'");
+					if ($result->num_rows > 0) {
+						while($row = $result->fetch_assoc()) {
+								//Patient Details
+						    $pName = $row['Name']; 
+						    $pNic = $row['NIC'];  
+						    $pGender = $row['Gender'];  
+						    $pAge = $row['Age'];  
+						    $pLocation = $row['City'];  
+						    $pPhoneNumber = $row['phone'];
+						}
+					}
+
+				$docDecision=mysqli_real_escape_string($conn,$_POST['docRec']);
+				$docDecisionDecoded="";
+
+				switch ($docDecision) {
+					case 'hospitalize':
+						$docDecisionDecoded = "hospitalize immediately";
+						break;
+					
+					case 'selfqrn':
+						$docDecisionDecoded = "self-quarantine";
+						break;
+
+					case 'shouldcont':
+						$docDecisionDecoded = "continue monitoring";
+						break;
+
+					default:
+						$docDecisionDecoded = "continue monitoring";
+						break;
 				}
-	
-			}*/
+
+				//$email=mysqli_real_escape_string($conn,$_POST['email']);
+				$email = 'nimesh.ekanayaka7@gmail.com';
+				include 'mail/mail.php';
+				header('location: contact.php');
+
+			}
 
 			if(isset($_POST['btnNextPat'])){
 				$docDecision=mysqli_real_escape_string($conn,$_POST['docRec']);
