@@ -294,11 +294,11 @@
                             <strong>Medical Officer of Health</strong> Updates
                         </div>
                         <div class="card-body card-block">
-                            <form class="form-horizontal">
+                            <form class="form-horizontal" method="post" enctype="multipart/form-data">
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label class=" form-control-label">MOH ID </label>
                                     </div>
-                                    <div class="col-12 col-md-9"><input type="text" id="mohId" name="text-input"
+                                    <div class="col-12 col-md-9"><input type="text" id="mohId" name="mohID"
                                             class="form-control" required></div>
                                 </div>
 
@@ -306,7 +306,7 @@
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">First
                                             Name
                                         </label></div>
-                                    <div class="col-12 col-md-9"><input type="text" id="fname" name="text-input"
+                                    <div class="col-12 col-md-9"><input type="text" id="fname" name="firstname"
                                             class="form-control" required></div>
                                 </div>
 
@@ -314,7 +314,7 @@
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Last
                                             Name
                                         </label></div>
-                                    <div class="col-12 col-md-9"><input type="text" id="lname" name="text-input"
+                                    <div class="col-12 col-md-9"><input type="text" id="lname" name="lastname"
                                             class="form-control" required></div>
                                 </div>
 
@@ -322,7 +322,7 @@
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">NIC
                                             Number
                                         </label></div>
-                                    <div class="col-12 col-md-9"><input type="text" id="nic" name="text-input"
+                                    <div class="col-12 col-md-9"><input type="text" id="nic" name="nic"
                                             class="form-control" required minlength="10" maxlength="12"></div>
                                 </div>
 
@@ -330,28 +330,28 @@
                                     <div class="col col-md-3"><label for="text-input"
                                             class=" form-control-label">Working
                                             Area</label></div>
-                                    <div class="col-12 col-md-9"><input type="text" id="workingarea" name="text-input"
+                                    <div class="col-12 col-md-9"><input type="text" id="workingarea" name="workArea"
                                             class="form-control" required></div>
                                 </div>
 
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="email-input"
                                             class=" form-control-label">Telephone Number</label></div>
-                                    <div class="col-12 col-md-9"><input type="number" id="telenumber" name="text-input"
+                                    <div class="col-12 col-md-9"><input type="number" id="telenumber" name="telephone"
                                             class="form-control" required></div>
                                 </div>
 
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Email
                                         </label></div>
-                                    <div class="col-12 col-md-9"><input type="email" id="email" name="text-input"
+                                    <div class="col-12 col-md-9"><input type="email" id="email" name="email"
                                             class="form-control" required></div>
                                 </div>
 
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input"
                                             class=" form-control-label">Password </label></div>
-                                    <div class="col-12 col-md-9"><input type="password" id="password" name="time-input"
+                                    <div class="col-12 col-md-9"><input type="password" id="password" name="password"
                                             class="form-control" required></div>
                                 </div>
 
@@ -359,7 +359,7 @@
                                     <button type="button" class="btn btn-primary btn-sm" onclick="">
                                         <i class="fa fa-search"></i> By Name
                                     </button>
-                                    <button type="button" class="btn btn-primary btn-sm" onclick="">
+                                    <button type="submit" class="btn btn-primary btn-sm" name="insertMOH" onclick="" formaction='php/insertMOH.php'>
                                         <i class="fa fa-plus"></i> Add
                                     </button>
                                     <button type="button" class="btn btn-primary btn-sm" onclick="">

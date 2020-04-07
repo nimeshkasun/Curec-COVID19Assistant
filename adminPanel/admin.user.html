@@ -293,19 +293,19 @@
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label class=" form-control-label">PHI ID </label></div>
 
-                                    <div class="col-12 col-md-9"><input type="text" id="userid" name="text-input"
+                                    <div class="col-12 col-md-9"><input type="text" id="userid" name="phiID"
                                             class="form-control" required></div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">First
                                             Name </label></div>
-                                    <div class="col-12 col-md-9"><input type="text" id="firstname" name="text-input"
+                                    <div class="col-12 col-md-9"><input type="text" id="firstname" name="firstName"
                                             class="form-control" required></div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Last
                                             Name </label></div>
-                                    <div class="col-12 col-md-9"><input type="text" id="lastname" name="text-input"
+                                    <div class="col-12 col-md-9"><input type="text" id="lastname" name="lastName"
                                             class="form-control" required></div>
                                 </div>
 
@@ -313,14 +313,14 @@
                                     <div class="col col-md-3"><label for="email-input" class=" form-control-label">NIC
                                             Number
                                         </label></div>
-                                    <div class="col-12 col-md-9"><input type="text" id="email" name="email-input"
+                                    <div class="col-12 col-md-9"><input type="text" id="email" name="nic"
                                             class="form-control" required minlength="10" maxlength="12"></div>
                                 </div>
 
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="email-input" class=" form-control-label">Email
                                             Input</label></div>
-                                    <div class="col-12 col-md-9"><input type="email" id="email" name="email-input"
+                                    <div class="col-12 col-md-9"><input type="email" id="email" name="email"
                                             class="form-control" required></div>
                                 </div>
 
@@ -328,14 +328,14 @@
                                     <div class="col col-md-3"><label for="email-input"
                                             class=" form-control-label">Working Area
                                         </label></div>
-                                    <div class="col-12 col-md-9"><input type="text" id="email" name="email-input"
+                                    <div class="col-12 col-md-9"><input type="text" id="email" name="workArea"
                                             class="form-control" required></div>
                                 </div>
 
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Mobile
                                         </label></div>
-                                    <div class="col-12 col-md-9"><input type="number" id="mobile" name="text-input"
+                                    <div class="col-12 col-md-9"><input type="number" id="mobile" name="telephone"
                                             class="form-control" required></div>
                                 </div>
 
@@ -343,7 +343,7 @@
                                     <div class="col col-md-3"><label for="password-input"
                                             class=" form-control-label">Password</label></div>
                                     <div class="col-12 col-md-9"><input type="password" id="password"
-                                            name="password-input" class="form-control" required>
+                                            name="password" class="form-control" required>
                                         <small class="help-block form-text">Please enter a complex password</small>
                                     </div>
                                 </div>
@@ -352,7 +352,7 @@
                                     <button type="button" class="btn btn-primary btn-sm" onclick="SearchUser()">
                                         <i class="fa fa-search"></i> By Name
                                     </button>
-                                    <button type="button" class="btn btn-primary btn-sm" onclick="AddUser()">
+                                    <button type="submit" class="btn btn-primary btn-sm" name="insertPHI" formaction='php/insertPhi.php' onclick="AddUser()">
                                         <i class="fa fa-plus"></i> Add
                                     </button>
                                     <button type="button" class="btn btn-primary btn-sm" onclick="UpdateUser()">
