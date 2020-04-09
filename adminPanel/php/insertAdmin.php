@@ -24,5 +24,9 @@ if (isset($_POST['insertAdmin'])){
 
 }
 
+if (isset[$_POST['']]){
+    
+}
+
 
 ?>
