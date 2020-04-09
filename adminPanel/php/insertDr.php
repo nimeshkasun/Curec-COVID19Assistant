@@ -33,5 +33,43 @@
 
     }
 
+if (isset($_POST['drUpdate'])){
+    $medicalID = $_POST['medicalID'];
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
+    $nic = $_POST['nic'];
+    $workingAres = $_POST['workArea'];
+    $telephone = $_POST['tel'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $sql = "UPDATE `doctor` SET `name`='$firstName',`lastname`='$lastName',`phone`='$telephone',`nic`='$nic',`workArea`='$workingAres',`email`='$email',`password`='$password' WHERE `medicalRegID`='$medicalID'";
+   //UPDATE `doctor` SET `DID`=[value-1],`name`=[value-2],`lastname`=[value-3],`phone`=[value-4],`status`=[value-5],`medicalRegID`=[value-6],`nic`=[value-7],`workArea`=[value-8],`email`=[value-9],`password`=[value-10] WHERE 1
+    $insertResult = mysqli_query($connection,$sql);
+
+    if ($insertResult){
+        echo "<script>alert('Successfully Updated')</script>";
+        echo "<script>window.open('../admin.movie.php','_self')</script>;";
+    }
+    else {
+        echo "<script>alert('Failed')</script>";
+    }
+
+}
+if (isset($_POST['drDelete'])){
+    $medicalID = $_POST['medicalID'];
+    $sql = "DELETE FROM `doctor` WHERE `medicalRegID`='$medicalID'";
+    $deleteResult = mysqli_query($connection,$sql);
+
+    if ($deleteResult){
+        echo "<script>alert('Successfully Deleted')</script>";
+        echo "<script>window.open('../admin.movie.php','_self')</script>;";
+    }
+    else {
+        echo "<script>alert('Failed, Check Again you have search dr first')</script>";
+    }
+
+}
+
 
 ?>

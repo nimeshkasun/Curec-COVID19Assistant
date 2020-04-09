@@ -1,3 +1,59 @@
+<?php
+include('php/DBconn.php');
+    $mediID = "";
+    $firstname ="";
+    $lastname = "";
+    $nic = "";
+    $workarea="";
+    $telephone = "";
+    $email = "";
+    $password = "";
+if($_POST && array_key_exists("action", $_POST)){
+
+    // CARRY OUT SANITIZATION AND DATA VALIDATION HERE!!!!!!!!!
+
+    // CARRY OUT RELAVANT ACTION
+    switch($_POST['action'])
+    {
+        case "search":
+            $mediID = $_POST['medicalID'];
+            $sql = "SELECT * FROM `doctor` WHERE medicalRegID='$mediID'";
+            $result = mysqli_query($connection,$sql);
+            $res=mysqli_num_rows($result);
+            while ($row = mysqli_fetch_array($result)){
+                $firstname = $row['name'];
+                $lastname =  $row['lastname'];
+                $telephone = $row['phone'];
+                $mediID = $_POST['medicalID'];
+                $nic  =$row['nic'];
+                $workarea =  $row['workArea'];
+                $email = $row['email'];
+                $password = $row['password'];
+            }
+
+            if ($res<1){
+                echo "<script>alert('Doctor not found for Given ID')</script>";
+            }
+            //echo "<script>alert('Search Function')</script>";
+
+            break;
+
+    }
+}
+else {
+    $mediID = "";
+    $firstname ="";
+    $lastname = "";
+    $nic = "";
+    $workarea="";
+    $telephone = "";
+    $email = "";
+    $password = "";
+}
+
+?>
+
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -296,26 +352,26 @@
                             <strong>Doctor</strong> Updates
                         </div>
                         <div class="card-body card-block">
-                            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                            <form action="admin.movie.php" method="post" enctype="multipart/form-data" id="drForm" name="drForm" class="form-horizontal">
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label class=" form-control-label">Medical Registration ID
                                         </label>
                                     </div>
-                                    <div class="col-12 col-md-9"><input type="text" id="MovieId" name="medicalID"
+                                    <div class="col-12 col-md-9"><input type="text" id="MovieId" name="medicalID" value="<?php echo $mediID; ?>"
                                             class="form-control"></div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">First
                                             Name
                                         </label></div>
-                                    <div class="col-12 col-md-9"><input type="text" id="MovieName" name="firstName"
+                                    <div class="col-12 col-md-9"><input type="text" id="MovieName" name="firstName" value="<?php echo $firstname; ?>"
                                             placeholder="First Name" class="form-control" required></div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Last
                                             Name
                                         </label></div>
-                                    <div class="col-12 col-md-9"><input type="text" id="MovieName" name="lastName"
+                                    <div class="col-12 col-md-9"><input type="text" id="MovieName" name="lastName" value="<?php echo $lastname; ?>"
                                             placeholder="Last Name" class="form-control" required></div>
                                 </div>
 
@@ -324,7 +380,7 @@
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">NIC
                                             Number
                                         </label></div>
-                                    <div class="col-12 col-md-9"><input type="text" id="MovieName" name="nic"
+                                    <div class="col-12 col-md-9"><input type="text" id="MovieName" name="nic" value="<?php echo $nic; ?>"
                                             placeholder="123456789V" class="form-control" required minlength="10"
                                             maxlength="12"></div>
                                 </div>
@@ -332,21 +388,21 @@
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input"
                                             class=" form-control-label">Working Area </label></div>
-                                    <div class="col-12 col-md-9"><input type="text" id="MainActor" name="workArea"
+                                    <div class="col-12 col-md-9"><input type="text" id="MainActor" name="workArea" value="<?php echo $workarea; ?>"
                                             class="form-control" required></div>
                                 </div>
 
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input"
                                             class=" form-control-label">Telephone Number </label></div>
-                                    <div class="col-12 col-md-9"><input type="number" id="doctortele" name="tel"
+                                    <div class="col-12 col-md-9"><input type="number" id="doctortele" name="tel" value="<?php echo $telephone; ?>"
                                             placeholder="0123456789" class="form-control" required></div>
                                 </div>
 
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Email
                                             Address </label></div>
-                                    <div class="col-12 col-md-9"><input type="email" id="MovieProducer"
+                                    <div class="col-12 col-md-9"><input type="email" id="MovieProducer" value="<?php echo $email; ?>"
                                             name="email" placeholder="abc@abc.com" class="form-control" required>
                                     </div>
                                 </div>
@@ -354,7 +410,7 @@
                                     <div class="col col-md-3"><label for="text-input"
                                             class=" form-control-label">Password
                                         </label></div>
-                                    <div class="col-12 col-md-9"><input type="password" id="MovieProducer"
+                                    <div class="col-12 col-md-9"><input type="password" id="MovieProducer" value="<?php echo $password; ?>"
                                             name="password" class="form-control" required></div>
                                 </div>
 
@@ -364,19 +420,21 @@
                                     <div class="col-12 col-md-9"><input type="file" id="docimage" name="file-input"
                                             class="form-control-file"></div>
                                 </div>
-
+                                <input type="hidden" id="action" name="action"  value="" />
 
                                 <div class="card-footer">
-                                    <button type="button" class="btn btn-primary btn-sm" onclick="anyfunction();">
+                                    
+                                    <button type="button" name="searchbyName" id="myButton" class="btn btn-primary btn-sm" formaction='admin.movie.php' onclick="performAction('search');" >
                                         <i class="fa fa-search"></i> By Name
                                     </button>
+                                    
                                     <button type="submit" name="insertDr" class="btn btn-primary btn-sm" formaction='php/insertDr.php' onclick="anyfunction() ">
                                         <i class="fa fa-plus"></i> Add
                                     </button>
-                                    <button type="button" class="btn btn-primary btn-sm" onclick="anyfunction()">
+                                    <button type="submit" class="btn btn-primary btn-sm" name="drUpdate"  onclick="anyfunction()" formaction='php/insertDr.php'  >
                                         <i class="fa fa-wrench"></i> Update
                                     </button>
-                                    <button type="button" class="btn btn-danger btn-sm" onclick="anyfunction()">
+                                    <button type="submit" class="btn btn-danger btn-sm" name="drDelete" onclick="return checkDelete();" formaction='php/insertDr.php'>
                                         <i class="fa fa-trash"></i> Delete
                                     </button>
                                     <button type="button" class="btn btn-danger btn-sm" onclick="anyfunction()">
@@ -426,6 +484,19 @@
                     });
                 })(jQuery);
             </script>
+            <script type="text/javascript">
+                function performAction(action)
+                {
+                    // ASSIGN THE ACTION
+                    var action = action;
+
+                    // UPDATE THE HIDDEN FIELD
+                    document.getElementById("action").value = action;
+
+                    // SUBMIT THE FORM
+                    document.drForm.submit();
+                }
+            </script>
 
 
 
@@ -444,6 +515,11 @@
             </script>
 
             <script src="admin.movie.js"></script>
+            <script language="JavaScript" type="text/javascript">
+                function checkDelete(){
+                    return confirm('Are you sure that you want to delete this doctor from Database?');
+                }
+            </script>
 
 
 </body>
