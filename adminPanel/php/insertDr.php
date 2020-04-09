@@ -25,7 +25,7 @@
 
         if ($insertResult){
             echo "<script>alert('Successfully entered')</script>";
-            echo "<script>window.open('../admin.movie.html','_self')</script>;";
+            echo "<script>window.open('../admin.movie.php','_self')</script>;";
         }
         else {
             echo "<script>alert('Duplicate entries found')</script>";
@@ -53,6 +53,7 @@ if (isset($_POST['drUpdate'])){
     }
     else {
         echo "<script>alert('Failed')</script>";
+        echo "<script>window.open('../admin.movie.php','_self')</script>;";
     }
 
 }
@@ -67,6 +68,7 @@ if (isset($_POST['drDelete'])){
     }
     else {
         echo "<script>alert('Failed, Check Again you have search dr first')</script>";
+        echo "<script>window.open('../admin.movie.php','_self')</script>;";
     }
 
 }
