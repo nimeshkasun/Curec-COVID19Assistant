@@ -8,24 +8,33 @@ if(isset($_POST['logIn']))
 		    	$email = ""; 
 		    	$un = ""; 
 		    	$pw = ""; 
+		    	$api = ""; 
+		    	$session = ""; 
+		    	$token = ""; 
 
-		$username=mysqli_real_escape_string($conn,$_POST['un']);
+		$email=mysqli_real_escape_string($conn,$_POST['email']);
 		$password=mysqli_real_escape_string($conn,$_POST['pw']);
-		$result = $conn->query("SELECT DID, name, email, username, password FROM doctor WHERE username='$username'");
+		$result = $conn->query("SELECT DID, name, email, password FROM doctor WHERE email='$email'");
 		if ($result->num_rows > 0) {
 		    while($row = $result->fetch_assoc()) {
 		    	$did = $row['DID']; 
 		    	$name = $row['name'];  
 		    	$email = $row['email'];  
-		    	$un = $row['username'];  
-		    	$pw = $row['password'];  
+		    	$pw = $row['password']; 
 			}
 		}
 
 		if($password == $pw){
 			session_start();
 			$_SESSION["DID"] = $did;
+			$_SESSION["MID"] = "";
+			$_SESSION["SID"] = "";
+			$_SESSION["TID"] = "";
 			$_SESSION["loggedIn"] = "true";
+
+			$update = "UPDATE doctor SET status='2' WHERE DID='$did'";
+			mysqli_query($conn,$update);
+
 			header('location: ./system/');
 		}else{
 			header('location: index.php');

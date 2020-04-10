@@ -4,21 +4,48 @@
 	include 'logincheck.php';
 	require_once 'dbConn.php'; 
 
-/*SELECT record.RID, `MID`, `SID`, `Date_time`, `timestamp`, `fever`, `cough`, `soreThroat`, `difficultBreathe`, `bodyArchPain`, `cold`, `lossOfSmell`, `diarrhoea`, `urineOutput`, `ArriveFromAbroad`, `dateifYes`, `contactSuspect`, `personAbroad`, `personHighrisk`, `personQuarantine`, `personWorkQuarantine`, `heartDiseace`, `bloodPressure`, `Diabetes`, `LungDisease`, `OtherDisease` FROM record,priority_queue WHERE record.RID=priority_queue.RID AND status = 1 ORDER by priority DESC,RID ASC;*/
+        $did = $_SESSION["DID"];
+        $apiKey = "46665872";
+		echo "
+        <script type='text/javascript'>var apiKey = '$apiKey';</script>";
 
-	$MID = "";
+	if($_SESSION["MID"] != ""){
+		$MID = $_SESSION["MID"];
+		$sessionId = $_SESSION["SID"];
+        $token = $_SESSION["TID"];
+        echo "
+		<script type='text/javascript'>var sessionId = '$sessionId';</script>
+		<script type='text/javascript'>var token = '$token';</script>";
+	}else{
+		$MID = "";
+		$sessionId = "";
+        $token = "";
+        
+	}
+	
 	$recordId="";
 	$pID="";
 
-	if(!isset($_SESSION["MID"])){
-		$result = $conn->query("SELECT RID, priority, status FROM priority_queue WHERE status='1' ORDER BY priority DESC, RID ASC");
+	if($_SESSION["MID"] == ""){
+		$result = $conn->query("SELECT RID, priority, status, sessionId, docToken FROM priority_queue WHERE status='1' ORDER BY priority DESC, RID ASC");
 		if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
 			    $recordId = $row['RID'];
 			    $pID = $row['priority'];
-			   
+			    $sessionId = $row['sessionId'];
+			    $token = $row['docToken'];
+
+			    echo "
+				<script type='text/javascript'>var sessionId = '$sessionId';</script>
+				<script type='text/javascript'>var token = '$token';</script>";
 			}
 		}
+
+		
+
+		$update = "UPDATE priority_queue SET status='2' WHERE RID='$recordId'";
+		mysqli_query($conn,$update);
+		
 
 		$result = $conn->query("SELECT MID FROM record WHERE RID = '$recordId'");
 		if ($result->num_rows > 0) {
@@ -29,8 +56,11 @@
 		}
 	}
 
-	//echo $recordId, " ", $pID, " ", $MID;
+	//echo $recordId, " ", $MID;
+
 	$_SESSION["MID"] = $MID;
+	$_SESSION["SID"] = $sessionId;
+	$_SESSION["TID"] = $token;
 	$_SESSION["RID"] = $recordId;
 
 	
@@ -138,7 +168,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Covid-19</title>
+	<title>Curec | Doctors Dashboard</title>
+	<link href="images/favicon.svg" rel="shortcut icon"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -182,6 +213,9 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
+	
+	<link href='css/app.css' rel='stylesheet' type='text/css'>
+    <script src='https://static.opentok.com/v2/js/opentok.min.js'></script>
 </head>
 
 <body>
@@ -330,10 +364,24 @@
 							</div>
 							<div class="col-md-8">
 
-								<div class="embed-responsive embed-responsive-16by9">
+								<!-- <div class="embed-responsive embed-responsive-16by9">
 									<iframe class="embed-responsive-item"
 										src="https://www.youtube.com/watch?v=s8TZvdiekAk"></iframe>
+								</div> -->
+
+								<div class="embed-responsive embed-responsive-16by9" style="height: 800px">
+									<div id='videos'>
+								        <div id='subscriber'></div>
+								        <div id='publisher'></div>
+								    </div>
+									<script type='text/javascript' src='js/app.js'></script>
 								</div>
+
+								<!-- <div id='videos' style="width: 100%">
+							        <div id='subscriber'></div>
+							        <div id='publisher'></div>
+							    </div>
+								<script type='text/javascript' src='js/app.js'></script> -->
 
 
 							</div>
@@ -472,9 +520,9 @@
 
 							</div>
 							<form method="POST" action="submit.php">
-								<div class="col-md-2">
+								<div class="col-md-2" reqired>
 										<h4> <b>Patient's Contact Info</b> </h4>
-										<input type="radio" id="hospitalize" name="docRec" value="hospitalize">
+										<input type="radio" id="hospitalize" name="docRec" value="hospitalize" required>
 									  	<label for="hospitalize">Hospitalize</label><br>
 									  	<input type="radio" id="selfqrn" name="docRec" value="selfqrn">
 									  	<label for="selfqrn">Self Quarantine</label><br>
@@ -484,6 +532,7 @@
 										<br><br><br><br>
 										<button type="submit" name="btnSendMoh" class="btn btn-danger btn-lg" style="width: 100%">Send to MOH</button>
 										<button type="submit" name="btnNextPat" class="btn btn-primary btn-lg" style="width: 100%">Next Patient</button>
+										<button type="submit" name="btnFinish" class="btn btn-warning btn-lg" style="width: 100%">Finish & Exit</button>
 								</div>
 							</form>
 						</div>
