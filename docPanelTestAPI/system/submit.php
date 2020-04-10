@@ -89,6 +89,8 @@
 				$sql = "INSERT INTO diagnose(DID, MID, Comment, status) VALUES ('$did', '$mid', '$docDecision', '$colorCode')";
 				$_SESSION["MID"] = "";
 				$_SESSION["RID"] = "";
+				$_SESSION["SID"] = "";
+				$_SESSION["TID"] = "";
 				if(mysqli_query($conn,$sql)){
 					$delete = "DELETE FROM priority_queue WHERE RID='$rid'";
 					if(mysqli_query($conn,$delete)){
@@ -129,6 +131,8 @@
 				$sql = "INSERT INTO diagnose(DID, MID, Comment, status) VALUES ('$did', '$mid', '$docDecision', '$colorCode')";
 				$_SESSION["MID"] = "";
 				$_SESSION["RID"] = "";
+				$_SESSION["SID"] = "";
+				$_SESSION["TID"] = "";
 				if(mysqli_query($conn,$sql)){
 					$delete = "DELETE FROM priority_queue WHERE RID='$rid'";
 					if(mysqli_query($conn,$delete)){

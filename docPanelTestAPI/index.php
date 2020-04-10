@@ -14,7 +14,7 @@
     <div class="login">
         <h1>Login</h1>
         <form method="POST" action="validate.php">
-            <input type="text" name="un" placeholder="Username" required="required" />
+            <input type="text" name="email" placeholder="Email" required="required" />
             <input type="password" name="pw" placeholder="Password" required="required" />
             <button type="submit" name="logIn" class="btn btn-primary btn-block btn-large">Let me in.</button>
         </form>

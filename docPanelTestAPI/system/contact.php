@@ -4,42 +4,43 @@
 	include 'logincheck.php';
 	require_once 'dbConn.php'; 
 
-		
-		/*$apiKey="46662182";
-        $sessionId = "1_MX40NjY2MjE4Mn5-MTU4NjQwNzMxODc3MX5VeHprZ0R3bGJYU0h4alR6R0xVbjFoZVN-fg";
-        $token = "T1==cGFydG5lcl9pZD00NjY2MjE4MiZzaWc9ZmZkYWIzMWQzZDZjZTI4MDk0YzM2NzAwODliYzQ2ZjE2ZGE4Njg0ZDpzZXNzaW9uX2lkPTFfTVg0ME5qWTJNakU0TW41LU1UVTROalF3TnpNeE9EYzNNWDVWZUhwclowUjNiR0pZVTBoNGFsUjZSMHhWYmpGb1pWTi1mZyZjcmVhdGVfdGltZT0xNTg2NDA3MzUxJm5vbmNlPTAuMjQzMDY2MTEyMDM2ODYyMjQmcm9sZT1wdWJsaXNoZXImZXhwaXJlX3RpbWU9MTU4ODk5OTM1MCZpbml0aWFsX2xheW91dF9jbGFzc19saXN0PQ==";
-*/
-
         $did = $_SESSION["DID"];
-        $apiKey = $_SESSION["API"];
-        $sessionId = $_SESSION["SESSION"];
-        $token = $_SESSION["TOKEN"];
-
-        echo "
-		<script type='text/javascript'>var apiKey = '$apiKey';</script>
-		<script type='text/javascript'>var sessionId = '$sessionId';</script>
-		<script type='text/javascript'>var token = '$token';</script>";
+        $apiKey = "46665872";
+		echo "
+        <script type='text/javascript'>var apiKey = '$apiKey';</script>";
 
 	if($_SESSION["MID"] != ""){
 		$MID = $_SESSION["MID"];
+		$sessionId = $_SESSION["SID"];
+        $token = $_SESSION["TID"];
 	}else{
 		$MID = "";
+		$sessionId = "";
+        $token = "";
+        
 	}
 	
 	$recordId="";
 	$pID="";
 
 	if($_SESSION["MID"] == ""){
-		$result = $conn->query("SELECT RID, priority, status FROM priority_queue WHERE status='1' ORDER BY priority DESC, RID ASC");
+		$result = $conn->query("SELECT RID, priority, status, sessionId, docToken FROM priority_queue WHERE status='1' ORDER BY priority DESC, RID ASC");
 		if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
 			    $recordId = $row['RID'];
 			    $pID = $row['priority'];
-			   
+			    $sessionId = $row['sessionId'];
+			    $token = $row['docToken'];
+
+			    echo "
+				<script type='text/javascript'>var sessionId = '$sessionId';</script>
+				<script type='text/javascript'>var token = '$token';</script>";
 			}
 		}
 
-		$update = "UPDATE priority_queue SET DID='$did', status='2' WHERE RID='$recordId'";
+		
+
+		$update = "UPDATE priority_queue SET status='2' WHERE RID='$recordId'";
 		mysqli_query($conn,$update);
 		
 
@@ -52,8 +53,11 @@
 		}
 	}
 
-	//echo $recordId, " ", $pID, " ", $MID;
+	//echo $recordId, " ", $MID;
+
 	$_SESSION["MID"] = $MID;
+	$_SESSION["SID"] = $sessionId;
+	$_SESSION["TID"] = $token;
 	$_SESSION["RID"] = $recordId;
 
 	

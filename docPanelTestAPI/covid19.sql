@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2020 at 01:52 PM
+-- Generation Time: Apr 10, 2020 at 10:37 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -25,6 +25,32 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `AID` int(100) NOT NULL,
+  `firstname` varchar(200) NOT NULL,
+  `lastname` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `designation` varchar(50) NOT NULL,
+  `telephone` int(10) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `nic` varchar(10) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`AID`, `firstname`, `lastname`, `email`, `designation`, `telephone`, `password`, `nic`) VALUES
+(2, 'Raman', 'Balla', 'raman@gmail.com', 'Ballek', 774545448, '147', '978887788v'),
+(4, 'Sanara', 'Premarathne', 'sanara@gmail.com', 'TEST', 777447788, 'qwerty', '994455660v'),
+(5, 'Savindu Shaggy', 'Bandara', 'bsavindu1998@gmail.com', 'Undergraduate', 766616649, '1234', '981121864v');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `diagnose`
 --
 
@@ -33,7 +59,7 @@ CREATE TABLE `diagnose` (
   `DID` int(11) NOT NULL,
   `MID` int(11) NOT NULL,
   `Comment` varchar(255) NOT NULL,
-  `status` tinyint(1) NOT NULL,
+  `status` tinyint(4) NOT NULL,
   `timestamp` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -42,29 +68,15 @@ CREATE TABLE `diagnose` (
 --
 
 INSERT INTO `diagnose` (`DigID`, `DID`, `MID`, `Comment`, `status`, `timestamp`) VALUES
-(5, 1, 1, '', 3, '2020-04-09 16:30:57'),
-(6, 1, 1, '', 3, '2020-04-09 16:34:23'),
-(7, 1, 1, '', 3, '2020-04-09 16:35:48'),
-(8, 1, 1, 'selfqrn', 2, '2020-04-09 16:36:22'),
-(9, 1, 2, 'selfqrn', 2, '2020-04-09 16:39:17'),
-(10, 1, 2, 'selfqrn', 2, '2020-04-09 16:39:31'),
-(11, 1, 1, '', 3, '2020-04-09 16:46:03'),
-(12, 1, 1, '', 3, '2020-04-09 16:46:10'),
-(13, 1, 1, '', 3, '2020-04-09 16:57:33'),
-(14, 1, 2, '', 3, '2020-04-09 16:59:40'),
-(15, 1, 1, 'selfqrn', 2, '2020-04-09 16:59:59'),
-(16, 1, 2, '', 3, '2020-04-09 17:01:30'),
-(17, 1, 1, '', 3, '2020-04-09 17:02:31'),
-(18, 1, 2, '', 3, '2020-04-09 17:04:01'),
-(19, 1, 1, '', 3, '2020-04-09 17:05:20'),
-(20, 1, 2, '', 3, '2020-04-09 17:05:52'),
-(21, 1, 1, '', 3, '2020-04-09 17:06:25'),
-(22, 1, 1, '', 3, '2020-04-09 17:06:56'),
-(23, 1, 1, '', 3, '2020-04-09 17:07:58'),
-(24, 1, 1, '', 3, '2020-04-09 17:11:20'),
-(25, 1, 2, '', 3, '2020-04-09 17:12:33'),
-(26, 1, 1, 'selfqrn', 2, '2020-04-09 17:14:14'),
-(27, 1, 1, 'hospitalize', 1, '2020-04-09 17:18:55');
+(19, 1, 1, 'selfqrn', 2, '2020-04-06 11:15:33'),
+(20, 1, 1, 'shouldcont', 3, '2020-04-06 11:16:06'),
+(21, 1, 1, 'selfqrn', 2, '2020-04-06 11:19:18'),
+(22, 1, 1, 'shouldcont', 3, '2020-04-06 11:20:23'),
+(23, 1, 1, 'hospitalize', 1, '2020-04-06 11:26:35'),
+(24, 1, 2, 'shouldcont', 3, '2020-04-06 11:27:01'),
+(25, 1, 1, 'shouldcont', 3, '2020-04-10 13:57:17'),
+(26, 1, 1, 'shouldcont', 3, '2020-04-10 13:58:14'),
+(27, 1, 2, 'selfqrn', 2, '2020-04-10 13:59:01');
 
 -- --------------------------------------------------------
 
@@ -75,23 +87,23 @@ INSERT INTO `diagnose` (`DigID`, `DID`, `MID`, `Comment`, `status`, `timestamp`)
 CREATE TABLE `doctor` (
   `DID` int(11) NOT NULL,
   `name` varchar(200) NOT NULL,
+  `lastname` varchar(200) NOT NULL,
   `phone` int(10) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `username` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
   `status` tinyint(1) NOT NULL,
-  `apiKey` varchar(255) NOT NULL,
-  `sessionId` longtext NOT NULL,
-  `token` longtext NOT NULL
+  `medicalRegID` varchar(200) NOT NULL,
+  `nic` varchar(10) NOT NULL,
+  `workArea` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `doctor`
 --
 
-INSERT INTO `doctor` (`DID`, `name`, `phone`, `email`, `username`, `password`, `status`, `apiKey`, `sessionId`, `token`) VALUES
-(1, 'Nimesh', 771010151, 'nimesh.ekanayaka7@gmail.com', 'doctor1', '12345', 2, '46662182', '1_MX40NjY2MjE4Mn5-MTU4NjQwNzMxODc3MX5VeHprZ0R3bGJYU0h4alR6R0xVbjFoZVN-fg', 'T1==cGFydG5lcl9pZD00NjY2MjE4MiZzaWc9ZmZkYWIzMWQzZDZjZTI4MDk0YzM2NzAwODliYzQ2ZjE2ZGE4Njg0ZDpzZXNzaW9uX2lkPTFfTVg0ME5qWTJNakU0TW41LU1UVTROalF3TnpNeE9EYzNNWDVWZUhwclowUjNiR0pZVTBoNGFsUjZSMHhWYmpGb1pWTi1mZyZjcmVhdGVfdGltZT0xNTg2NDA3MzUxJm5vbmNlPTAuMjQzMDY2MTEyMDM2ODYyMjQmcm9sZT1wdWJsaXNoZXImZXhwaXJlX3RpbWU9MTU4ODk5OTM1MCZpbml0aWFsX2xheW91dF9jbGFzc19saXN0PQ=='),
-(2, 'Kasun', 756868545, 'chamod.ekanayaka7@gmail.com', 'doctor2', '12345', 1, '46662142', '1_MX40NjY2MjE0Mn5-MTU4NjQwNjUxNTk4M35lZmtycUFReHVaVVljb0lOWWVtM2d0dE9-fg', 'T1==cGFydG5lcl9pZD00NjY2MjE0MiZzaWc9ODlmZWY0YTBjNDA0M2FiOGI3NjUzYWYwNGJhOTA1MzIxMTM3ZTFjNTpzZXNzaW9uX2lkPTFfTVg0ME5qWTJNakUwTW41LU1UVTROalF3TmpVeE5UazRNMzVsWm10eWNVRlJlSFZhVlZsamIwbE9XV1Z0TTJkMGRFOS1mZyZjcmVhdGVfdGltZT0xNTg2NDA2NTU0Jm5vbmNlPTAuMzE0MjY2MTg1NjEyNzA1OCZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNTg4OTk4NTU0JmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9');
+INSERT INTO `doctor` (`DID`, `name`, `lastname`, `phone`, `status`, `medicalRegID`, `nic`, `workArea`, `email`, `password`) VALUES
+(1, 'Nimesh', 'Ekanayake', 718810575, 2, '', '', '', 'user1@user.com', '12345'),
+(7, 'Upsala', 'Dissanayake', 784545454, 1, 'asa', '984447565v', 'Colombo', 'user2@user.com', '12345');
 
 -- --------------------------------------------------------
 
@@ -175,10 +187,23 @@ INSERT INTO `member` (`MID`, `FID`, `Name`, `NIC`, `Gender`, `Age`, `Bloodtype`,
 
 CREATE TABLE `moh` (
   `MID` int(11) NOT NULL,
+  `officernumber` varchar(50) NOT NULL,
   `name` varchar(200) NOT NULL,
+  `lastname` varchar(200) NOT NULL,
+  `nic` varchar(10) NOT NULL,
   `phone` int(10) NOT NULL,
-  `Colony` varchar(100) NOT NULL
+  `email` varchar(200) NOT NULL,
+  `Colony` varchar(100) NOT NULL,
+  `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `moh`
+--
+
+INSERT INTO `moh` (`MID`, `officernumber`, `name`, `lastname`, `nic`, `phone`, `email`, `Colony`, `password`) VALUES
+(3, '', 'Palitha', 'Yapa', '681459875v', 710127344, 'palitha@gmail.com', 'Colombo', '123456789'),
+(4, 'MOH2258', 'Nimesh', 'Kasun', '914567825v', 75778899, 'nimeshkasun@gmail.com', 'Negambo', '123456');
 
 -- --------------------------------------------------------
 
@@ -202,9 +227,14 @@ CREATE TABLE `notification` (
 
 CREATE TABLE `phi` (
   `PID` int(11) NOT NULL,
+  `phiNumber` varchar(200) NOT NULL,
   `name` varchar(200) NOT NULL,
+  `lastName` varchar(200) NOT NULL,
+  `nic` varchar(10) NOT NULL,
+  `email` varchar(200) NOT NULL,
   `phone` int(11) NOT NULL,
-  `Colony` varchar(100) NOT NULL
+  `Colony` varchar(100) NOT NULL,
+  `password` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -220,16 +250,17 @@ CREATE TABLE `priority_queue` (
   `arived_time` datetime NOT NULL DEFAULT current_timestamp(),
   `answer_time` datetime NOT NULL,
   `end_time` datetime NOT NULL,
-  `DID` int(11) NOT NULL
+  `sessionId` text NOT NULL,
+  `docToken` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `priority_queue`
 --
 
-INSERT INTO `priority_queue` (`RID`, `priority`, `status`, `arived_time`, `answer_time`, `end_time`, `DID`) VALUES
-(5, 5, 1, '2020-04-05 17:17:54', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0),
-(6, 6, 1, '2020-04-05 17:17:54', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0);
+INSERT INTO `priority_queue` (`RID`, `priority`, `status`, `arived_time`, `answer_time`, `end_time`, `sessionId`, `docToken`) VALUES
+(5, 2, 1, '2020-04-05 17:17:54', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2_MX40NjY2NTg3Mn5-MTU4NjQ5MzgyODc5Nn5ORUhmKzJIQkJQTkgyR3FsQWNrVkREWGx-UH4', 'T1==cGFydG5lcl9pZD00NjY2NTg3MiZzaWc9OTMzNDAzNzM3ZGUwZTkwNDAxZTMzZTFkMTY4MTVmZDBhZjk5MWQwOTpzZXNzaW9uX2lkPTJfTVg0ME5qWTJOVGczTW41LU1UVTROalE1TXpneU9EYzVObjVPUlVobUt6SklRa0pRVGtneVIzRnNRV05yVmtSRVdHeC1VSDQmY3JlYXRlX3RpbWU9MTU4NjQ5MzgyOCZyb2xlPXB1Ymxpc2hlciZub25jZT0xNTg2NDkzODI4Ljk2NTc5OTU1NDAzNSZpbml0aWFsX2xheW91dF9jbGFzc19saXN0PQ=='),
+(6, 5, 1, '2020-04-05 17:17:54', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2_MX40NjY2NTg3Mn5-MTU4NjQ5MzgyODc5Nn5ORUhmKzJIQkJQTkgyR3FsQWNrVkREWGx-UH4', 'T1==cGFydG5lcl9pZD00NjY2NTg3MiZzaWc9OTMzNDAzNzM3ZGUwZTkwNDAxZTMzZTFkMTY4MTVmZDBhZjk5MWQwOTpzZXNzaW9uX2lkPTJfTVg0ME5qWTJOVGczTW41LU1UVTROalE1TXpneU9EYzVObjVPUlVobUt6SklRa0pRVGtneVIzRnNRV05yVmtSRVdHeC1VSDQmY3JlYXRlX3RpbWU9MTU4NjQ5MzgyOCZyb2xlPXB1Ymxpc2hlciZub25jZT0xNTg2NDkzODI4Ljk2NTc5OTU1NDAzNSZpbml0aWFsX2xheW91dF9jbGFzc19saXN0PQ==');
 
 -- --------------------------------------------------------
 
@@ -273,12 +304,9 @@ CREATE TABLE `record` (
 --
 
 INSERT INTO `record` (`RID`, `MID`, `SID`, `Date_time`, `timestamp`, `fever`, `cough`, `soreThroat`, `difficultBreathe`, `bodyArchPain`, `cold`, `lossOfSmell`, `diarrhoea`, `urineOutput`, `ArriveFromAbroad`, `dateifYes`, `contactSuspect`, `personAbroad`, `personHighrisk`, `personQuarantine`, `personWorkQuarantine`, `heartDiseace`, `bloodPressure`, `Diabetes`, `LungDisease`, `OtherDisease`, `Value1`, `Value2`) VALUES
-(1, 1, 0, '0000-00-00', '2020-04-04 08:49:30', '127', '127', '127', '127', '127', '127', '127', '127', '127', '127', '2020-04-04', '127', '127', '127', '127', '127', '127', '127', '127', '127', '127', '', ''),
-(2, 1, 0, '0000-00-00', '2020-04-04 09:50:46', '2131362193', '2131362194', '2131362195', '2131362196', '2131362197', '2131362198', '2131362199', '2131362200', '2131362201', '2131362193', '2020-04-04', '2131362194', '2131362195', '2131362196', '2131362197', '2131362198', '2131362193', '2131362194', '2131362195', '2131362196', '2131362197', '', ''),
-(3, 1, 0, '0000-00-00', '2020-04-04 10:12:21', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No', 'Reduced', 'Yes', '2020-04-04', 'Yes', 'No', 'Yes', 'No', 'Yes', 'Yes', 'No', 'Yes', 'No', 'Yes', '', ''),
-(4, 1, 0, '0000-00-00', '2020-04-04 10:26:42', 'Yes', 'Yes', 'No', 'Yes', 'Yes', 'No', 'Yes', 'Yes', 'Normal', 'Yes', '2020-03-04', 'No', 'Yes', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No', '', ''),
-(5, 1, 0, '0000-00-00', '2020-04-05 17:15:21', 'No', 'No', 'No', 'Yes', 'No', 'No', 'No', 'No', 'Normal', 'Yes', '2020-04-24', 'No', 'No', 'No', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No', '', ''),
-(6, 2, 0, '0000-00-00', '2020-04-05 17:17:54', 'No', 'No', 'No', 'Yes', 'No', 'No', 'No', 'No', 'Normal', 'Yes', '2020-04-16', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'Yes', 'Yes', 'No', '', '');
+(5, 1, 0, '0000-00-00', '2020-04-05 17:15:21', 'Yes', 'Yes', 'Yes', 'Yes', 'No', 'No', 'No', 'No', 'Normal', 'Yes', '2020-04-24', 'No', 'No', 'No', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No', '', ''),
+(6, 2, 0, '0000-00-00', '2020-04-05 17:17:54', 'No', 'No', 'No', 'Yes', 'No', 'No', 'No', 'No', 'Normal', 'Yes', '2020-04-16', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'Yes', 'Yes', 'No', '', ''),
+(7, 1, 0, '0000-00-00', '2020-04-05 17:17:54', 'No', 'Yes', 'No', 'Yes', 'No', 'No', 'No', 'No', 'Normal', 'Yes', '2020-04-16', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'Yes', 'Yes', 'No', '', '');
 
 -- --------------------------------------------------------
 
@@ -305,6 +333,12 @@ INSERT INTO `symtoms` (`SID`, `Name`, `Definition`, `Unit`) VALUES
 --
 
 --
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`AID`);
+
+--
 -- Indexes for table `diagnose`
 --
 ALTER TABLE `diagnose`
@@ -317,8 +351,7 @@ ALTER TABLE `diagnose`
 --
 ALTER TABLE `doctor`
   ADD PRIMARY KEY (`DID`),
-  ADD UNIQUE KEY `phone` (`phone`),
-  ADD UNIQUE KEY `username` (`username`);
+  ADD UNIQUE KEY `phone` (`phone`);
 
 --
 -- Indexes for table `family`
@@ -389,6 +422,12 @@ ALTER TABLE `symtoms`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `AID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `diagnose`
 --
 ALTER TABLE `diagnose`
@@ -398,13 +437,13 @@ ALTER TABLE `diagnose`
 -- AUTO_INCREMENT for table `doctor`
 --
 ALTER TABLE `doctor`
-  MODIFY `DID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `DID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `family`
 --
 ALTER TABLE `family`
-  MODIFY `FID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `FID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `login`
@@ -422,25 +461,25 @@ ALTER TABLE `member`
 -- AUTO_INCREMENT for table `moh`
 --
 ALTER TABLE `moh`
-  MODIFY `MID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `MID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `phi`
 --
 ALTER TABLE `phi`
-  MODIFY `PID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `PID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `record`
 --
 ALTER TABLE `record`
-  MODIFY `RID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `RID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `symtoms`
 --
 ALTER TABLE `symtoms`
-  MODIFY `SID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `SID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
