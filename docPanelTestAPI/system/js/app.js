@@ -1,5 +1,5 @@
 // replace these values with those generated in your TokBox Account
-/*var apiKey = "46634042";*/
+/*var apiKey = "46665872";*/
 var apiKey = apiKey;
 var sessionId = sessionId;
 var token = token;
