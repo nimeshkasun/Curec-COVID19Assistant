@@ -24,6 +24,7 @@ public class Backgroundworker extends AsyncTask<HashMap<String,String>, Void, St
     MainActivity ParentM;
     Registration ParentR;
     Login ParentL;
+    Results ParentRe;
     Activity_Phase2 ParentP;
     AlertDialog alertDialog;
     String type ="";
@@ -43,11 +44,15 @@ public class Backgroundworker extends AsyncTask<HashMap<String,String>, Void, St
         context = ctx;
         ParentP = parent;
     }
+    Backgroundworker(Results parent,Context ctx) {
+        context = ctx;
+        ParentRe = parent;
+    }
     @Override
     protected String doInBackground(HashMap<String, String>... params) {
         HashMap<String, String> param = params[0];
         type = param.get("type");
-        String login_url = "http://192.168.8.102/curec/PHP/mobile.php";
+        String login_url = "http://192.168.43.64/curec/PHP/mobile.php";
             try {
                 URL url = new URL(login_url);
                 HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
@@ -136,6 +141,13 @@ public class Backgroundworker extends AsyncTask<HashMap<String,String>, Void, St
             //alertDialog.show();
             ParentP.displayResult(result);
         }
+
+        if(type.equals("creatSession")){
+
+            ParentRe.displayResult(result);
+
+        }
+
 
     }
 

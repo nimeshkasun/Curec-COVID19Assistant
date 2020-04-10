@@ -124,6 +124,7 @@
                         android:orientation="horizontal"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
+                        android:onClick="callDoctor"
                         android:layout_margin="50dp">
 
                         <ImageView

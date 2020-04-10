@@ -24,6 +24,8 @@ public class Activity_Phase2 extends AppCompatActivity {
     private HashMap<String, String> param;
     private AlertDialog alertDialog;
 
+    private String prio;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +48,7 @@ public class Activity_Phase2 extends AppCompatActivity {
         radioGroup4 = (RadioGroup)findViewById(R.id.radioGroup4);
         radioGroup5 = (RadioGroup)findViewById(R.id.radioGroup5);
         Submit = (Button)findViewById(R.id.submit);
-
+        prio = "";
 
     }
 
@@ -165,12 +167,12 @@ public class Activity_Phase2 extends AppCompatActivity {
         param.put("Diabetes",Diabetesbtn.getText().toString());
         param.put("lung",lungbtn.getText().toString());
         param.put("other",otherbtn.getText().toString());
-        String prio = priority_level(param);
+        prio = priority_level(param);
         param.put("MID","1");
-        param.put("Priority",prio);
 
-        //Backgroundworker backgroundworker = new Backgroundworker(this,this);
-        //backgroundworker.execute(param);
+
+        Backgroundworker backgroundworker = new Backgroundworker(this,this);
+        backgroundworker.execute(param);
 
         //Intent intent = new Intent(Activity_Phase2.this, Results.class);
         //startActivity(intent);
@@ -182,7 +184,8 @@ public class Activity_Phase2 extends AppCompatActivity {
         Integer temp = Integer.parseInt(result.replaceAll("[^\\d]",""));
         if(temp>0){
             Intent intent = new Intent(Activity_Phase2.this, Results.class);
-            intent.putExtra("Extra_RID",temp);
+            intent.putExtra("Extra_RID",String.valueOf(temp));
+            intent.putExtra("Prio_PID",prio);
             startActivity(intent);
             finish();
         }else {
@@ -234,10 +237,7 @@ public class Activity_Phase2 extends AppCompatActivity {
         }else {
             prio = "1";
         }
-        alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setTitle("Data input Status");
-        alertDialog.setMessage("Score = "+totpoints+" Priority = "+prio);
-        alertDialog.show();
+
         return prio;
     }
 

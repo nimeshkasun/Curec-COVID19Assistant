@@ -23,4 +23,5 @@
     <color name="splashred">#ff5d6c</color>
 
     <color name="transparent">#00000000</color>
+    <color name="publisher_border_color">#FFFFFF</color>
 </resources>
