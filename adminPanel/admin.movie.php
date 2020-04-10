@@ -120,10 +120,10 @@ else {
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-stethoscope"></i>Doctor</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-plus"></i><a href="admin.movie.html">Add</a></li>
-                            <li><i class="fa fa-wrench"></i><a href="admin.movie.html">Update</a></li>
-                            <li><i class="fa fa-search"></i><a href="admin.movie.html">Search</a></li>
-                            <li><i class="fa fa-trash"></i><a href="admin.movie.html">Make Inactive</a></li>
+                            <li><i class="fa fa-plus"></i><a href="admin.movie.php">Add</a></li>
+                            <li><i class="fa fa-wrench"></i><a href="admin.movie.php">Update</a></li>
+                            <li><i class="fa fa-search"></i><a href="admin.movie.php">Search</a></li>
+                            <li><i class="fa fa-trash"></i><a href="admin.movie.php">Make Inactive</a></li>
 
                         </ul>
                     </li>
@@ -131,20 +131,20 @@ else {
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-medkit"></i>PHI</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-search"></i><a href="admin.user.html"> Add</a></li>
-                            <li><i class="fa fa-trash"></i><a href="admin.user.html"> Update</a></li>
-                            <li><i class="fa fa-trash"></i><a href="admin.user.html"> Search</a></li>
-                            <li><i class="fa fa-trash"></i><a href="admin.user.html"> Make Inactive</a></li>
+                            <li><i class="fa fa-search"></i><a href="admin.user.php"> Add</a></li>
+                            <li><i class="fa fa-trash"></i><a href="admin.user.php"> Update</a></li>
+                            <li><i class="fa fa-trash"></i><a href="admin.user.php"> Search</a></li>
+                            <li><i class="fa fa-trash"></i><a href="admin.user.php"> Make Inactive</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-hospital-o"></i>MOH</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-wrench"></i><a href="admin.theatre.html">Add</a></li>
-                            <li><i class="menu-icon fa fa-search"></i><a href="admin.theatre.html">Update</a></li>
-                            <li><i class="menu-icon fa fa-trash"></i><a href="admin.theatre.html">Search</a></li>
-                            <li><i class="menu-icon fa fa-trash"></i><a href="admin.theatre.html">Make Inactive</a></li>
+                            <li><i class="menu-icon fa fa-wrench"></i><a href="admin.theatre.php">Add</a></li>
+                            <li><i class="menu-icon fa fa-search"></i><a href="admin.theatre.php">Update</a></li>
+                            <li><i class="menu-icon fa fa-trash"></i><a href="admin.theatre.php">Search</a></li>
+                            <li><i class="menu-icon fa fa-trash"></i><a href="admin.theatre.php">Make Inactive</a></li>
 
                         </ul>
                     </li>
@@ -152,10 +152,10 @@ else {
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-user-circle"></i>Admin</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-plus"></i><a href="admin.snacks.html"> Add</a></li>
-                            <li><i class="fa fa-wrench"></i><a href="admin.snacks.html"> Update</a></li>
-                            <li><i class="fa fa-search"></i><a href="admin.snacks.html"> Search</a></li>
-                            <li><i class="fa fa-trash"></i><a href="admin.snacks.html"> Make Inactive</a></li>
+                            <li><i class="fa fa-plus"></i><a href="admin.snacks.php"> Add</a></li>
+                            <li><i class="fa fa-wrench"></i><a href="admin.snacks.php"> Update</a></li>
+                            <li><i class="fa fa-search"></i><a href="admin.snacks.php"> Search</a></li>
+                            <li><i class="fa fa-trash"></i><a href="admin.snacks.php"> Make Inactive</a></li>
                         </ul>
                     </li>
 
@@ -357,21 +357,21 @@ else {
                                     <div class="col col-md-3"><label class=" form-control-label">Medical Registration ID
                                         </label>
                                     </div>
-                                    <div class="col-12 col-md-9"><input type="text" id="MovieId" name="medicalID" value="<?php echo $mediID; ?>"
+                                    <div class="col-12 col-md-9"><input type="text" id="medicalid" name="medicalID" value="<?php echo $mediID; ?>"
                                             class="form-control"></div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">First
                                             Name
                                         </label></div>
-                                    <div class="col-12 col-md-9"><input type="text" id="MovieName" name="firstName" value="<?php echo $firstname; ?>"
+                                    <div class="col-12 col-md-9"><input type="text" id="firstname" name="firstName" value="<?php echo $firstname; ?>"
                                             placeholder="First Name" class="form-control" required></div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Last
                                             Name
                                         </label></div>
-                                    <div class="col-12 col-md-9"><input type="text" id="MovieName" name="lastName" value="<?php echo $lastname; ?>"
+                                    <div class="col-12 col-md-9"><input type="text" id="lastname" name="lastName" value="<?php echo $lastname; ?>"
                                             placeholder="Last Name" class="form-control" required></div>
                                 </div>
 
@@ -380,7 +380,7 @@ else {
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">NIC
                                             Number
                                         </label></div>
-                                    <div class="col-12 col-md-9"><input type="text" id="MovieName" name="nic" value="<?php echo $nic; ?>"
+                                    <div class="col-12 col-md-9"><input type="text" id="nic" name="nic" value="<?php echo $nic; ?>"
                                             placeholder="123456789V" class="form-control" required minlength="10"
                                             maxlength="12"></div>
                                 </div>
@@ -388,21 +388,21 @@ else {
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input"
                                             class=" form-control-label">Working Area </label></div>
-                                    <div class="col-12 col-md-9"><input type="text" id="MainActor" name="workArea" value="<?php echo $workarea; ?>"
+                                    <div class="col-12 col-md-9"><input type="text" id="workarea" name="workArea" value="<?php echo $workarea; ?>"
                                             class="form-control" required></div>
                                 </div>
 
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input"
                                             class=" form-control-label">Telephone Number </label></div>
-                                    <div class="col-12 col-md-9"><input type="number" id="doctortele" name="tel" value="<?php echo $telephone; ?>"
+                                    <div class="col-12 col-md-9"><input type="number" id="tele" name="tel" value="<?php echo $telephone; ?>"
                                             placeholder="0123456789" class="form-control" required></div>
                                 </div>
 
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Email
                                             Address </label></div>
-                                    <div class="col-12 col-md-9"><input type="email" id="MovieProducer" value="<?php echo $email; ?>"
+                                    <div class="col-12 col-md-9"><input type="email" id="email" value="<?php echo $email; ?>"
                                             name="email" placeholder="abc@abc.com" class="form-control" required>
                                     </div>
                                 </div>
@@ -410,7 +410,7 @@ else {
                                     <div class="col col-md-3"><label for="text-input"
                                             class=" form-control-label">Password
                                         </label></div>
-                                    <div class="col-12 col-md-9"><input type="password" id="MovieProducer" value="<?php echo $password; ?>"
+                                    <div class="col-12 col-md-9"><input type="password" id="pw" value="<?php echo $password; ?>"
                                             name="password" class="form-control" required></div>
                                 </div>
 
@@ -437,7 +437,7 @@ else {
                                     <button type="submit" class="btn btn-danger btn-sm" name="drDelete" onclick="return checkDelete();" formaction='php/insertDr.php'>
                                         <i class="fa fa-trash"></i> Delete
                                     </button>
-                                    <button type="button" class="btn btn-danger btn-sm" onclick="anyfunction()">
+                                    <button type="button" class="btn btn-danger btn-sm" onclick="ClearFields();">
                                         <i class="fas fa-eraser"></i> Clear Fields
                                     </button>
                                 </div>
@@ -518,6 +518,21 @@ else {
             <script language="JavaScript" type="text/javascript">
                 function checkDelete(){
                     return confirm('Are you sure that you want to delete this doctor from Database?');
+                }
+            </script>
+
+            <script type="text/javascript">
+                function ClearFields()
+                {
+                    //document.getElementById("action").value = action;
+                    document.getElementById("medicalid").value = "";
+                    document.getElementById("firstname").value = "";
+                    document.getElementById("lastname").value ="";
+                    document.getElementById("nic").value ="";
+                    document.getElementById("workarea").value = ""; //telenumber email password
+                    document.getElementById("tele").value = "";
+                    document.getElementById("email").value = "";
+                    document.getElementById("pw").value = "";
                 }
             </script>
 

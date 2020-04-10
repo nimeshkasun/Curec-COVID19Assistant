@@ -1,3 +1,60 @@
+<?php
+include('php/DBconn.php');
+$mohID = "";
+$firstname ="";
+$lastname = "";
+$nic = "";
+$workarea="";
+$telephone = "";
+$email = "";
+$password = "";
+if($_POST && array_key_exists("action", $_POST)){
+
+    // CARRY OUT SANITIZATION AND DATA VALIDATION HERE!!!!!!!!!
+
+    // CARRY OUT RELAVANT ACTION
+    switch($_POST['action'])
+    {
+        case "search":
+            $mohID = $_POST['mohID'];
+            $sql = "SELECT * FROM `moh` WHERE officernumber='$mohID'";
+            $result = mysqli_query($connection,$sql);
+            $res=mysqli_num_rows($result);
+            while ($row = mysqli_fetch_array($result)){
+                $firstname = $row['name'];
+                $lastname =  $row['lastname'];
+                $telephone = $row['phone'];
+                $mohID = $_POST['mohID'];
+                $nic  =$row['nic'];
+                $workarea =  $row['Colony'];
+                $email = $row['email'];
+                $password = $row['password'];
+            }
+
+            if ($res<1){
+                echo "<script>alert('MOH not found for Given ID')</script>";
+            }
+            //echo "<script>alert('Search Function')</script>";
+
+            break;
+
+    }
+}
+else {
+    $mohID = "";
+    $firstname ="";
+    $lastname = "";
+    $nic = "";
+    $workarea="";
+    $telephone = "";
+    $email = "";
+    $password = "";
+}
+
+?>
+
+
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -63,10 +120,10 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-stethoscope"></i>Doctor</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-plus"></i><a href="admin.movie.html">Add</a></li>
-                            <li><i class="fa fa-wrench"></i><a href="admin.movie.html">Update</a></li>
-                            <li><i class="fa fa-search"></i><a href="admin.movie.html">Search</a></li>
-                            <li><i class="fa fa-trash"></i><a href="admin.movie.html">Make Inactive</a></li>
+                            <li><i class="fa fa-plus"></i><a href="admin.movie.php">Add</a></li>
+                            <li><i class="fa fa-wrench"></i><a href="admin.movie.php">Update</a></li>
+                            <li><i class="fa fa-search"></i><a href="admin.movie.php">Search</a></li>
+                            <li><i class="fa fa-trash"></i><a href="admin.movie.php">Make Inactive</a></li>
 
                         </ul>
                     </li>
@@ -74,20 +131,20 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-medkit"></i>PHI</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-search"></i><a href="admin.user.html"> Add</a></li>
-                            <li><i class="fa fa-trash"></i><a href="admin.user.html"> Update</a></li>
-                            <li><i class="fa fa-trash"></i><a href="admin.user.html"> Search</a></li>
-                            <li><i class="fa fa-trash"></i><a href="admin.user.html"> Make Inactive</a></li>
+                            <li><i class="fa fa-search"></i><a href="admin.user.php"> Add</a></li>
+                            <li><i class="fa fa-trash"></i><a href="admin.user.php"> Update</a></li>
+                            <li><i class="fa fa-trash"></i><a href="admin.user.php"> Search</a></li>
+                            <li><i class="fa fa-trash"></i><a href="admin.user.php"> Make Inactive</a></li>
                         </ul>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-hospital-o"></i>MOH</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-wrench"></i><a href="admin.theatre.html">Add</a></li>
-                            <li><i class="menu-icon fa fa-search"></i><a href="admin.theatre.html">Update</a></li>
-                            <li><i class="menu-icon fa fa-trash"></i><a href="admin.theatre.html">Search</a></li>
-                            <li><i class="menu-icon fa fa-trash"></i><a href="admin.theatre.html">Make Inactive</a></li>
+                            <li><i class="menu-icon fa fa-wrench"></i><a href="admin.theatre.php">Add</a></li>
+                            <li><i class="menu-icon fa fa-search"></i><a href="admin.theatre.php">Update</a></li>
+                            <li><i class="menu-icon fa fa-trash"></i><a href="admin.theatre.php">Search</a></li>
+                            <li><i class="menu-icon fa fa-trash"></i><a href="admin.theatre.php">Make Inactive</a></li>
 
                         </ul>
                     </li>
@@ -95,10 +152,10 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-user-circle"></i>Admin</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-plus"></i><a href="admin.snacks.html"> Add</a></li>
-                            <li><i class="fa fa-wrench"></i><a href="admin.snacks.html"> Update</a></li>
-                            <li><i class="fa fa-search"></i><a href="admin.snacks.html"> Search</a></li>
-                            <li><i class="fa fa-trash"></i><a href="admin.snacks.html"> Make Inactive</a></li>
+                            <li><i class="fa fa-plus"></i><a href="admin.snacks.php"> Add</a></li>
+                            <li><i class="fa fa-wrench"></i><a href="admin.snacks.php"> Update</a></li>
+                            <li><i class="fa fa-search"></i><a href="admin.snacks.php"> Search</a></li>
+                            <li><i class="fa fa-trash"></i><a href="admin.snacks.php"> Make Inactive</a></li>
                         </ul>
                     </li>
 
@@ -294,11 +351,11 @@
                             <strong>Medical Officer of Health</strong> Updates
                         </div>
                         <div class="card-body card-block">
-                            <form class="form-horizontal" method="post" enctype="multipart/form-data">
+                            <form class="form-horizontal" name="mohForm" id="mohForm" method="post" enctype="multipart/form-data">
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label class=" form-control-label">MOH ID </label>
                                     </div>
-                                    <div class="col-12 col-md-9"><input type="text" id="mohId" name="mohID"
+                                    <div class="col-12 col-md-9"><input type="text" id="mohId" name="mohID" value="<?php echo $mohID; ?>"
                                             class="form-control" required></div>
                                 </div>
 
@@ -306,7 +363,7 @@
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">First
                                             Name
                                         </label></div>
-                                    <div class="col-12 col-md-9"><input type="text" id="fname" name="firstname"
+                                    <div class="col-12 col-md-9"><input type="text" id="fname" name="firstname" value="<?php echo $firstname; ?>"
                                             class="form-control" required></div>
                                 </div>
 
@@ -314,7 +371,7 @@
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Last
                                             Name
                                         </label></div>
-                                    <div class="col-12 col-md-9"><input type="text" id="lname" name="lastname"
+                                    <div class="col-12 col-md-9"><input type="text" id="lname" name="lastname" value="<?php echo $lastname; ?>"
                                             class="form-control" required></div>
                                 </div>
 
@@ -322,7 +379,7 @@
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">NIC
                                             Number
                                         </label></div>
-                                    <div class="col-12 col-md-9"><input type="text" id="nic" name="nic"
+                                    <div class="col-12 col-md-9"><input type="text" id="nic" name="nic" value="<?php echo $nic; ?>"
                                             class="form-control" required minlength="10" maxlength="12"></div>
                                 </div>
 
@@ -330,42 +387,43 @@
                                     <div class="col col-md-3"><label for="text-input"
                                             class=" form-control-label">Working
                                             Area</label></div>
-                                    <div class="col-12 col-md-9"><input type="text" id="workingarea" name="workArea"
+                                    <div class="col-12 col-md-9"><input type="text" id="workingarea" name="workArea" value="<?php echo $workarea; ?>"
                                             class="form-control" required></div>
                                 </div>
 
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="email-input"
                                             class=" form-control-label">Telephone Number</label></div>
-                                    <div class="col-12 col-md-9"><input type="number" id="telenumber" name="telephone"
+                                    <div class="col-12 col-md-9"><input type="number" id="telenumber" name="telephone" value="<?php echo $telephone; ?>"
                                             class="form-control" required></div>
                                 </div>
 
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input" class=" form-control-label">Email
                                         </label></div>
-                                    <div class="col-12 col-md-9"><input type="email" id="email" name="email"
+                                    <div class="col-12 col-md-9"><input type="email" id="email" name="email" value="<?php echo $email; ?>"
                                             class="form-control" required></div>
                                 </div>
 
                                 <div class="row form-group">
                                     <div class="col col-md-3"><label for="text-input"
                                             class=" form-control-label">Password </label></div>
-                                    <div class="col-12 col-md-9"><input type="password" id="password" name="password"
+                                    <div class="col-12 col-md-9"><input type="password" id="password" name="password" value="<?php echo $password; ?>"
                                             class="form-control" required></div>
                                 </div>
+                                <input type="hidden" id="action" name="action"  value="" />
 
                                 <div class="card-footer">
-                                    <button type="button" class="btn btn-primary btn-sm" onclick="">
+                                    <button type="button" name="searchbyName" id="myButton" formaction='admin.theatre.php' class="btn btn-primary btn-sm" onclick="performAction('search');">
                                         <i class="fa fa-search"></i> By Name
                                     </button>
                                     <button type="submit" class="btn btn-primary btn-sm" name="insertMOH" onclick="" formaction='php/insertMOH.php'>
                                         <i class="fa fa-plus"></i> Add
                                     </button>
-                                    <button type="button" class="btn btn-primary btn-sm" onclick="">
+                                    <button type="submit" class="btn btn-primary btn-sm" name="updateMOH" formaction='php/insertMOH.php'  onclick="">
                                         <i class="fa fa-wrench"></i> Update
                                     </button>
-                                    <button type="button" class="btn btn-danger btn-sm" onclick="">
+                                    <button type="submit" class="btn btn-danger btn-sm" name="deleteMOH" formaction='php/insertMOH.php' onclick="return checkDelete();">
                                         <i class="fa fa-trash"></i> Delete
                                     </button>
                                     <button type="button" class="btn btn-danger btn-sm" onclick="ClearFields();">
@@ -432,6 +490,41 @@
         </script>
 
         <script src="admin.theatre.js"></script>
+
+        <script type="text/javascript">
+            function performAction(action)
+            {
+                // ASSIGN THE ACTION
+                var action = action;
+
+                // UPDATE THE HIDDEN FIELD
+                document.getElementById("action").value = action;
+
+                // SUBMIT THE FORM
+                document.mohForm.submit();
+            }
+        </script>
+
+        <script type="text/javascript">
+            function ClearFields()
+            {
+                //document.getElementById("action").value = action;
+                document.getElementById("mohId").value = "";
+                document.getElementById("fname").value = "";
+                document.getElementById("lname").value ="";
+                document.getElementById("nic").value ="";
+                document.getElementById("workingarea").value = ""; //telenumber email password
+                document.getElementById("telenumber").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("password").value = "";
+            }
+        </script>
+
+        <script language="JavaScript" type="text/javascript">
+            function checkDelete(){
+                return confirm('Are you sure that you want to delete this MOH from Database?');
+            }
+        </script>
 
 </body>
 
