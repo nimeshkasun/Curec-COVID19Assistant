@@ -21,7 +21,7 @@ if(isset($_POST['logIn']))
 		if($password == $pw){
 			session_start();
 			$_SESSION["AID"] = $aid;
-			$_SESSION["loggedIn"] = "true";
+			$_SESSION["loggedInAdmin"] = "true";
 
 			header('location: ./system/admin.dashboard.php');
 		}else{
