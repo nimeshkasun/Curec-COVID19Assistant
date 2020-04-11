@@ -2,11 +2,11 @@
 
 //Don't change --start
 	//Username to use for SMTP authentication - use full email address for gmail
-	$mail->Username = "pinonlinebanking";
-	$Username = "pinonlinebanking";
+	$mail->Username = "curecassistant";
+	$Username = "curecassistant";
 	
 	//Password to use for SMTP authentication
-	$mail->Password = "Pin@2020";
+	$mail->Password = "KDUcurec34";
 //Dont change --end
 
 ?>

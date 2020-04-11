@@ -114,7 +114,7 @@ if(isset($_POST['type'])){
             echo "Empty fields";
         }
         else {
-            $sql = "SELECT `Name` FROM member WHERE LID='$LID'";
+            $sql = "SELECT `MID`,`Name` FROM member WHERE LID='$LID'";
             $db = new DbConnect;
             if(!$conn = $db->connect())
                 {
@@ -125,13 +125,20 @@ if(isset($_POST['type'])){
                     $stmt = $conn->prepare($sql);
                     $stmt->execute();
                     $name ="";
+                    $mid ="";
                     
                     if($result = $stmt->fetchAll(PDO::FETCH_ASSOC))
                         {
                             foreach ($result as $rows) {
                                     $name =$rows['Name'];
+                                    $mid =$rows['MID'];
                                 }
-                                echo "$name";
+                                $myObj1 = new \stdClass();
+                                $myObj1->MID = $mid;
+                                $myObj1->Name = $name;
+                    
+                                $myJSON1 = json_encode($myObj1);
+                                echo "$myJSON1";
                         }        
                 }
             
