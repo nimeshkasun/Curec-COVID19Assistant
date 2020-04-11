@@ -9,7 +9,7 @@ if(isset($_POST['logIn']))
 
 		$email=mysqli_real_escape_string($conn,$_POST['email']);
 		$password=mysqli_real_escape_string($conn,$_POST['pw']);
-		$result = $conn->query("SELECT AID, email, password FROM tblAdmin WHERE email='$email'");
+		$result = $conn->query("SELECT AID, email, password FROM tbladmin WHERE email='$email'");
 		if ($result->num_rows > 0) {
 		    while($row = $result->fetch_assoc()) {
 		    	$aid = $row['DID']; 
