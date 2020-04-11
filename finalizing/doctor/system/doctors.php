@@ -67,7 +67,7 @@
 							<div class="top">
 								<div class="row">
 									<div class="col-md-6">
-										<div id="colorlib-logo"><a href="index.php">Covid-<span>19</span></a></div>
+										<div id="colorlib-logo"><img src="images/logo.png" style="width: 30%;"></div>
 									</div>
 									<div class="col-md-3">
 										<div class="num">

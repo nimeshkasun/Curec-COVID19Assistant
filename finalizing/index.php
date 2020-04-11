@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Curec | COVID-19 Personal Assistant</title>
-	<link href="access/system/images/favicon.svg" rel="shortcut icon"/>
+	<link href="images/favicon.svg" rel="shortcut icon"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -69,7 +69,7 @@
 							<div class="top">
 								<div class="row">
 									<div class="col-md-6">
-										<div id="colorlib-logo"><a href="index.php">Covid-<span>19</span></a></div>
+										<div id="colorlib-logo"><img src="images/logo.png" style="width: 30%;"></div>
 									</div>
 									<div class="col-md-3">
 										<div class="num">
@@ -103,9 +103,11 @@
 											<a href="departments.php">Hospitals</a>
 										</li>
 										<li class="has-dropdown">
-											<a href="./access/">Doctor Login</a>
+											<a href="./doctor/">Doctor Login</a>
 										</li>
-
+										<li class="has-dropdown">
+											<a href="./admin/">Admin Login</a>
+										</li>
 									</ul>
 								</div>
 							</div>
