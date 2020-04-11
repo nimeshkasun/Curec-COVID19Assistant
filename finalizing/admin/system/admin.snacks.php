@@ -18,7 +18,7 @@ if($_POST && array_key_exists("action", $_POST)){
     {
         case "search":
             $nic = $_POST['nic'];
-            $sql = "SELECT * FROM `admin` WHERE `nic`='$nic'";
+            $sql = "SELECT * FROM `tblAdmin` WHERE `nic`='$nic'";
             $result = mysqli_query($connection,$sql);
             $res=mysqli_num_rows($result);
             while ($row = mysqli_fetch_array($result)){
