@@ -10,7 +10,7 @@ if (isset($_POST['insertAdmin'])){
     $password = $_POST['pw'];
     $nic = $_POST['nic'];
     
-    $sql = "INSERT INTO `tblAdmin`( `firstname`, `lastname`, `email`, `designation`, `telephone`, `password`, `nic`) VALUES ('$firstname','$lastname','$email','$designation','$tel','$password','$nic')";
+    $sql = "INSERT INTO `tbladmin`( `firstname`, `lastname`, `email`, `designation`, `telephone`, `password`, `nic`) VALUES ('$firstname','$lastname','$email','$designation','$tel','$password','$nic')";
     $insertResult = mysqli_query($connection,$sql);
 
     if ($insertResult){
@@ -32,7 +32,7 @@ if (isset($_POST['updateAdmin'])){
     $tel = $_POST['tel'];
     $password = $_POST['pw'];
     $nic = $_POST['nic'];
-    $sql = "UPDATE `tblAdmin` SET `firstname`='$firstname',`lastname`='$lastname',`email`='$email',`designation`='$designation',`telephone`='$tel',`password`='$password' WHERE `nic`='$nic'";
+    $sql = "UPDATE `tbladmin` SET `firstname`='$firstname',`lastname`='$lastname',`email`='$email',`designation`='$designation',`telephone`='$tel',`password`='$password' WHERE `nic`='$nic'";
     $updateResult = mysqli_query($connection,$sql);
     if ($updateResult){
         echo "<script>alert('Successfully Updated')</script>";
@@ -46,7 +46,7 @@ if (isset($_POST['updateAdmin'])){
 }
 if (isset($_POST['deleteAdmin'])){
     $nic = $_POST['nic'];
-    $sql = "DELETE FROM `tblAdmin` WHERE `nic`='$nic'";
+    $sql = "DELETE FROM `tbladmin` WHERE `nic`='$nic'";
     $deleteResult = mysqli_query($connection,$sql);
     if ($deleteResult){
         echo "<script>alert('Successfully Deleted')</script>";
