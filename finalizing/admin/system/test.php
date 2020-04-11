@@ -1,5 +1,7 @@
 <?php
-
+<?php
+    include 'logincheck.php';
+?>
 if($_POST && array_key_exists("action", $_POST)){
 
     // CARRY OUT SANITIZATION AND DATA VALIDATION HERE!!!!!!!!!

@@ -1,5 +1,5 @@
 <?php
-$servername = "localhost";
+/*$servername = "localhost";
 $dbusername = "root";
 $db_password = "";
 $dbname = "covid19";
@@ -14,6 +14,9 @@ if ($dbconfig){
 else {
     echo "Connection Failed";
 }
+*/
+
+require_once '../../doctor/system/dbConn.php';
 
 
 ?>

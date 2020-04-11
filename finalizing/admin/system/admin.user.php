@@ -1,4 +1,5 @@
 <?php
+include 'logincheck.php';
 include('php/DBconn.php');
 $phiID = "";
 $firstname ="";
@@ -65,6 +66,8 @@ else {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Covid-19 - Admin</title>
+        <link href="../../doctor/system/images/favicon.svg" rel="shortcut icon"/>
+
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -99,15 +102,15 @@ else {
                     aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="admin.dashboard.html"><img src="../img/logo.png" alt="Logo"></a>
-                <a class="navbar-brand hidden" href="admin.dashboard.html"><img src="../img/logo.png" alt="Logo"></a>
+                <a class="navbar-brand" href="admin.dashboard.php"><img src="../img/logo.png" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="admin.dashboard.php"><img src="../img/logo.png" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="admin.dashboard.html"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
-                        <a href="../index.php"> <i class="menu-icon fa fa-home"></i>Back to Login </a>
+                        <a href="admin.dashboard.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+            <a href="logout.php"> <i class="menu-icon fa fa-home"></i>Back to Login </a>
 
                     </li>
 
@@ -161,8 +164,8 @@ else {
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Tables</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="admin.basicTable.html">Basic Table</a></li>
-                            <li><i class="fa fa-table"></i><a href="admin.dataTable.html">Data Table</a></li>
+                            <li><i class="fa fa-table"></i><a href="admin.basicTable.php">Basic Table</a></li>
+                            <li><i class="fa fa-table"></i><a href="admin.dataTable.php">Data Table</a></li>
                         </ul>
                     </li>
 
@@ -284,7 +287,7 @@ else {
 
                             <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
 
-                            <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                            <a class="nav-link" href="logout.php"><i class="fa fa-power -off"></i>Logout</a>
                         </div>
                     </div>
 
@@ -327,7 +330,7 @@ else {
                     <div class="page-title">
                         <ol class="breadcrumb text-right">
                             <li class="active">PHI Updates</li>
-                            <li><a href="admin.dashboard.html">Dashboard</a></li>
+                            <li><a href="admin.dashboard.php">Dashboard</a></li>
 
                         </ol>
                     </div>
