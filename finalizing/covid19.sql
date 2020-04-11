@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2020 at 04:48 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.1
+-- Generation Time: Apr 11, 2020 at 06:32 AM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -44,9 +44,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`AID`, `firstname`, `lastname`, `email`, `designation`, `telephone`, `password`, `nic`) VALUES
-(2, 'Raman', 'Balla', 'raman@gmail.com', 'Ballek', 774545448, '147', '978887788v'),
-(4, 'Sanara', 'Premarathne', 'sanara@gmail.com', 'TEST', 777447788, 'qwerty', '994455660v'),
-(5, 'Savindu Shaggy', 'Bandara', 'bsavindu1998@gmail.com', 'Undergraduate', 766616649, '1234', '981121864v');
+(6, 'Nimesh', 'Ekanayake', 'admin@admin.com', 'Admin', 718810575, '12345', '962420710v');
 
 -- --------------------------------------------------------
 
@@ -102,8 +100,8 @@ CREATE TABLE `doctor` (
 --
 
 INSERT INTO `doctor` (`DID`, `name`, `lastname`, `phone`, `status`, `medicalRegID`, `nic`, `workArea`, `email`, `password`) VALUES
-(1, 'Nimesh', 'Ekanayake', 718810575, 2, '', '', '', 'user1@user.com', '12345'),
-(7, 'Upsala', 'Dissanayake', 784545454, 1, 'asa', '984447565v', 'Colombo', 'user2@user.com', '12345');
+(1, 'Nimesh', 'Ekanayake', 718810575, 2, 'MRID23001', '964545210v', 'Colombo', 'doc1@doctor.com', '12345'),
+(7, 'Upsala', 'Dissanayake', 784545454, 1, 'MRID3320', '984447565v', 'Colombo', 'doc2@doctor.com', '12345');
 
 -- --------------------------------------------------------
 
@@ -174,10 +172,10 @@ CREATE TABLE `member` (
 --
 
 INSERT INTO `member` (`MID`, `FID`, `Name`, `NIC`, `Gender`, `Age`, `Bloodtype`, `Location_lat`, `Location_lan`, `City`, `phone`, `LID`) VALUES
-(1, 0, 'Chanakya', '982852714v', 'M', 22, 'A+', 0, 0, '', 0, 1),
-(2, 0, 'Medhani', '199254900431', 'F', 28, 'B+', 0, 1111, '1111', 767516341, 2),
-(3, 0, 'Kasun', '121212', 'M', 12, 'A+', 1212, 1212, 'sbasvbc', 12222222, 4),
-(4, 0, 'NImesh', '111111', 'Male', 11, 'B-', 111, 111, 'asohas', 11111, 5);
+(1, 0, 'Chanakya', '982852714v', 'M', 22, 'A+', 0, 0, 'Ratmalana', 715858654, 1),
+(2, 0, 'Medhani', '199254900431', 'F', 28, 'B+', 0, 1111, 'Kekirawa', 767516341, 2),
+(3, 0, 'Kasun', '964545624v', 'M', 12, 'A+', 1212, 1212, 'Galle', 759898745, 4),
+(4, 0, 'NImesh', '972420710v', 'M', 24, 'B-', 111, 111, 'Matara', 112545658, 5);
 
 -- --------------------------------------------------------
 
@@ -202,8 +200,8 @@ CREATE TABLE `moh` (
 --
 
 INSERT INTO `moh` (`MID`, `officernumber`, `name`, `lastname`, `nic`, `phone`, `email`, `Colony`, `password`) VALUES
-(3, '', 'Palitha', 'Yapa', '681459875v', 710127344, 'palitha@gmail.com', 'Colombo', '123456789'),
-(4, 'MOH2258', 'Nimesh', 'Kasun', '914567825v', 75778899, 'nimeshkasun@gmail.com', 'Negambo', '123456');
+(3, 'MOH3302', 'Palitha', 'Yapa', '681459875v', 710127344, 'palitha@gmail.com', 'Colombo', '12345'),
+(4, 'MOH2258', 'Nimesh', 'Kasun', '914567825v', 75778899, 'nimeshkasun@gmail.com', 'Negambo', '12345');
 
 -- --------------------------------------------------------
 
@@ -259,8 +257,8 @@ CREATE TABLE `priority_queue` (
 --
 
 INSERT INTO `priority_queue` (`RID`, `priority`, `status`, `arived_time`, `answer_time`, `end_time`, `sessionId`, `docToken`) VALUES
-(5, 2, 2, '2020-04-05 17:17:54', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2_MX40NjY2NTg3Mn5-MTU4NjQ5MzgyODc5Nn5ORUhmKzJIQkJQTkgyR3FsQWNrVkREWGx-UH4', 'T1==cGFydG5lcl9pZD00NjY2NTg3MiZzaWc9OTMzNDAzNzM3ZGUwZTkwNDAxZTMzZTFkMTY4MTVmZDBhZjk5MWQwOTpzZXNzaW9uX2lkPTJfTVg0ME5qWTJOVGczTW41LU1UVTROalE1TXpneU9EYzVObjVPUlVobUt6SklRa0pRVGtneVIzRnNRV05yVmtSRVdHeC1VSDQmY3JlYXRlX3RpbWU9MTU4NjQ5MzgyOCZyb2xlPXB1Ymxpc2hlciZub25jZT0xNTg2NDkzODI4Ljk2NTc5OTU1NDAzNSZpbml0aWFsX2xheW91dF9jbGFzc19saXN0PQ=='),
-(13, 4, 2, '2020-04-10 20:11:38', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '1_MX40NjY2NTg3Mn5-MTU4NjUyOTY5OTA0MX5LejM0bG83dDNxRFQ5TURzT3lKK3FGRU9-UH4', 'T1==cGFydG5lcl9pZD00NjY2NTg3MiZzaWc9OTkwMTVhMWE5MmYyZDJiODYxNmUxODY2Y2EzMDdiMGZlZDcxZGEzMTpzZXNzaW9uX2lkPTFfTVg0ME5qWTJOVGczTW41LU1UVTROalV5T1RZNU9UQTBNWDVMZWpNMGJHODNkRE54UkZRNVRVUnpUM2xLSzNGR1JVOS1VSDQmY3JlYXRlX3RpbWU9MTU4NjUyOTY5OCZyb2xlPXB1Ymxpc2hlciZub25jZT0xNTg2NTI5Njk4Ljk1NTUyMzY0MzIyNzYmaW5pdGlhbF9sYXlvdXRfY2xhc3NfbGlzdD0=');
+(5, 2, 1, '2020-04-05 17:17:54', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2_MX40NjY2NTg3Mn5-MTU4NjUwOTQwMDI2NH53WUdKVUJueituaDRFZVRrMUNFU0tKeG9-fg', 'T1==cGFydG5lcl9pZD00NjY2NTg3MiZzaWc9YTNkOGFkMjNiMDAxMWQzOTA2YzZjNDljMDY3ZDUxODEwMDE3MTA3ZDpzZXNzaW9uX2lkPTJfTVg0ME5qWTJOVGczTW41LU1UVTROalV3T1RRd01ESTJOSDUzV1VkS1ZVSnVlaXR1YURSRlpWUnJNVU5GVTB0S2VHOS1mZyZjcmVhdGVfdGltZT0xNTg2NTA5NDI1Jm5vbmNlPTAuNDIzNDQ4NjQ1MDEyMzY4OSZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNTg5MTAxNDI2JmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9'),
+(6, 5, 1, '2020-04-05 17:17:54', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '2_MX40NjY2NTg3Mn5-MTU4NjUwOTQwMDI2NH53WUdKVUJueituaDRFZVRrMUNFU0tKeG9-fg', 'T1==cGFydG5lcl9pZD00NjY2NTg3MiZzaWc9YTNkOGFkMjNiMDAxMWQzOTA2YzZjNDljMDY3ZDUxODEwMDE3MTA3ZDpzZXNzaW9uX2lkPTJfTVg0ME5qWTJOVGczTW41LU1UVTROalV3T1RRd01ESTJOSDUzV1VkS1ZVSnVlaXR1YURSRlpWUnJNVU5GVTB0S2VHOS1mZyZjcmVhdGVfdGltZT0xNTg2NTA5NDI1Jm5vbmNlPTAuNDIzNDQ4NjQ1MDEyMzY4OSZyb2xlPXB1Ymxpc2hlciZleHBpcmVfdGltZT0xNTg5MTAxNDI2JmluaXRpYWxfbGF5b3V0X2NsYXNzX2xpc3Q9');
 
 -- --------------------------------------------------------
 
@@ -306,13 +304,7 @@ CREATE TABLE `record` (
 INSERT INTO `record` (`RID`, `MID`, `SID`, `Date_time`, `timestamp`, `fever`, `cough`, `soreThroat`, `difficultBreathe`, `bodyArchPain`, `cold`, `lossOfSmell`, `diarrhoea`, `urineOutput`, `ArriveFromAbroad`, `dateifYes`, `contactSuspect`, `personAbroad`, `personHighrisk`, `personQuarantine`, `personWorkQuarantine`, `heartDiseace`, `bloodPressure`, `Diabetes`, `LungDisease`, `OtherDisease`, `Value1`, `Value2`) VALUES
 (5, 1, 0, '0000-00-00', '2020-04-05 17:15:21', 'Yes', 'Yes', 'Yes', 'Yes', 'No', 'No', 'No', 'No', 'Normal', 'Yes', '2020-04-24', 'No', 'No', 'No', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No', '', ''),
 (6, 2, 0, '0000-00-00', '2020-04-05 17:17:54', 'No', 'No', 'No', 'Yes', 'No', 'No', 'No', 'No', 'Normal', 'Yes', '2020-04-16', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'Yes', 'Yes', 'No', '', ''),
-(7, 1, 0, '0000-00-00', '2020-04-05 17:17:54', 'No', 'Yes', 'No', 'Yes', 'No', 'No', 'No', 'No', 'Normal', 'Yes', '2020-04-16', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'Yes', 'Yes', 'No', '', ''),
-(8, 1, 0, '0000-00-00', '2020-04-10 19:44:18', 'Yes', 'No', 'No', 'Yes', 'No', 'No', 'No', 'Yes', 'Reduced', 'Yes', '2020-04-10', 'No', 'No', 'No', 'No', 'Yes', 'No', 'Yes', 'No', 'No', 'No', '', ''),
-(9, 1, 0, '0000-00-00', '2020-04-10 19:45:09', 'Yes', 'No', 'No', 'Yes', 'No', 'Yes', 'Yes', 'No', 'Reduced', 'Yes', '2020-04-10', 'No', 'Yes', 'No', 'No', 'No', 'No', 'Yes', 'No', 'No', 'No', '', ''),
-(10, 1, 0, '0000-00-00', '2020-04-10 19:45:43', 'Yes', 'No', 'No', 'Yes', 'No', 'No', 'No', 'No', 'Reduced', 'Yes', '2020-04-10', 'Yes', 'No', 'Yes', 'No', 'No', 'No', 'No', 'No', 'Yes', 'No', '', ''),
-(11, 1, 0, '0000-00-00', '2020-04-10 19:47:59', 'Yes', 'No', 'No', 'Yes', 'No', 'No', 'No', 'No', 'Reduced', 'Yes', '2020-04-10', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'Yes', 'No', '', ''),
-(12, 1, 0, '0000-00-00', '2020-04-10 20:02:02', 'Yes', 'No', 'No', 'Yes', 'No', 'No', 'No', 'No', 'Reduced', 'Yes', '2020-04-10', 'No', 'No', 'No', 'No', 'Yes', 'No', 'No', 'No', 'Yes', 'No', '', ''),
-(13, 1, 0, '0000-00-00', '2020-04-10 20:11:35', 'Yes', 'No', 'No', 'Yes', 'No', 'No', 'No', 'No', 'Reduced', 'Yes', '2020-04-10', 'No', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No', 'No', 'No', '', '');
+(7, 1, 0, '0000-00-00', '2020-04-05 17:17:54', 'No', 'Yes', 'No', 'Yes', 'No', 'No', 'No', 'No', 'Normal', 'Yes', '2020-04-16', 'No', 'No', 'No', 'No', 'No', 'No', 'No', 'Yes', 'Yes', 'No', '', '');
 
 -- --------------------------------------------------------
 
@@ -431,7 +423,7 @@ ALTER TABLE `symtoms`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `AID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `AID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `diagnose`
@@ -479,7 +471,7 @@ ALTER TABLE `phi`
 -- AUTO_INCREMENT for table `record`
 --
 ALTER TABLE `record`
-  MODIFY `RID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `RID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `symtoms`

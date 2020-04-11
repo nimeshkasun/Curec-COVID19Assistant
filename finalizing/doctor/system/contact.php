@@ -39,6 +39,8 @@
 				<script type='text/javascript'>var sessionId = '$sessionId';</script>
 				<script type='text/javascript'>var token = '$token';</script>";
 			}
+		}else{
+			header('location: emptyqueue.php');
 		}
 
 		
