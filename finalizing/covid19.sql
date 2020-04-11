@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2020 at 06:32 AM
+-- Generation Time: Apr 11, 2020 at 08:52 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -21,30 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `covid19`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `admin`
---
-
-CREATE TABLE `admin` (
-  `AID` int(100) NOT NULL,
-  `firstname` varchar(200) NOT NULL,
-  `lastname` varchar(200) NOT NULL,
-  `email` varchar(200) NOT NULL,
-  `designation` varchar(50) NOT NULL,
-  `telephone` int(10) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `nic` varchar(10) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `admin`
---
-
-INSERT INTO `admin` (`AID`, `firstname`, `lastname`, `email`, `designation`, `telephone`, `password`, `nic`) VALUES
-(6, 'Nimesh', 'Ekanayake', 'admin@admin.com', 'Admin', 718810575, '12345', '962420710v');
 
 -- --------------------------------------------------------
 
@@ -326,15 +302,33 @@ CREATE TABLE `symtoms` (
 INSERT INTO `symtoms` (`SID`, `Name`, `Definition`, `Unit`) VALUES
 (0, 'no', 'no', 'no');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbladmin`
+--
+
+CREATE TABLE `tbladmin` (
+  `AID` int(100) NOT NULL,
+  `firstname` varchar(200) NOT NULL,
+  `lastname` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `designation` varchar(50) NOT NULL,
+  `telephone` int(10) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `nic` varchar(10) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbladmin`
+--
+
+INSERT INTO `tbladmin` (`AID`, `firstname`, `lastname`, `email`, `designation`, `telephone`, `password`, `nic`) VALUES
+(6, 'Nimesh', 'Ekanayake', 'admin@admin.com', 'Admin', 718810575, '12345', '962420710v');
+
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `admin`
---
-ALTER TABLE `admin`
-  ADD PRIMARY KEY (`AID`);
 
 --
 -- Indexes for table `diagnose`
@@ -416,14 +410,14 @@ ALTER TABLE `symtoms`
   ADD PRIMARY KEY (`SID`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Indexes for table `tbladmin`
 --
+ALTER TABLE `tbladmin`
+  ADD PRIMARY KEY (`AID`);
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT for dumped tables
 --
-ALTER TABLE `admin`
-  MODIFY `AID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `diagnose`
@@ -478,6 +472,12 @@ ALTER TABLE `record`
 --
 ALTER TABLE `symtoms`
   MODIFY `SID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbladmin`
+--
+ALTER TABLE `tbladmin`
+  MODIFY `AID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
