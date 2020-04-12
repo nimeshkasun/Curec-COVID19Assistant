@@ -422,8 +422,28 @@
 									<div id='videos' >
 								        <div id='subscriber'></div>
 								        <div id='publisher'></div>
+										<div id="container">
+											<div id="publisherContainer"></div>
+											<a href="javascript:resizePublisher()">resize</a>
+										</div>
+										
 								    </div>
 									<script type='text/javascript' src='js/app.js'></script>
+									<script type="text/javascript">
+											var publisherOptions = {
+												insertMode: "append",
+												height: "100%",
+												width: "100%"
+											}
+											var publisher = OT.initPublisher("publisherContainer", publisherOptions);
+											session.publish(publisher);
+
+											function resizePublisher() {
+												var publisherContainer = document.getElementById("publisherContainer");
+												publisherContainer.style.width = "1000px";
+												publisherContainer.style.height = "750px";
+											}
+								</script>
 								</div>
 
 								<!-- <div id='videos' style="width: 100%">
