@@ -74,6 +74,10 @@
                                                 <li class="has-dropdown">
                                                     <a href="departments.php">Hospitals</a>
                                                 </li>
+                                                <li class="has-dropdown">
+                                                    <button type="button" class="btn btn-primary btn">
+                                                    <a href="logout.php">Log out</a></button>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>

@@ -81,6 +81,10 @@ include 'logincheck.php';
 												<li class="has-dropdown">
 													<a href="departments.php">Hospitals</a>
 												</li>
+												<li class="has-dropdown">
+                                                    <button type="button" class="btn btn-primary btn">
+                                                    <a href="logout.php">Log out</a></button>
+                                                </li>
 											</ul>
 										</div>
 									</div>
@@ -151,7 +155,7 @@ include 'logincheck.php';
 											</span></center>
 										<div class="desc">
 											<center>
-												<h3><a href="contact.php"> <b>Video Calls</b> </a></h3>
+												<h3><a href="contact.php#start"> <b>Video Calls</b> </a></h3>
 												<h5> Patients in Queue: </h5>
 												<p><?php echo $count; ?></p>
 											</center>
