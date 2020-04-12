@@ -165,11 +165,12 @@
 	
 
 ?>
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Curec | Doctors Dashboard</title>
-	<link href="images/favicon.svg" rel="shortcut icon"/>
+	<link href="images/favicon.svg" rel="shortcut icon" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -213,9 +214,9 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
-	
+
 	<link href='css/app.css' rel='stylesheet' type='text/css'>
-    <script src='https://static.opentok.com/v2/js/opentok.min.js'></script>
+	<script src='https://static.opentok.com/v2/js/opentok.min.js'></script>
 </head>
 
 <body>
@@ -354,9 +355,11 @@
 												</tbody>
 											</table>
 											<div class="text-center">
-												<button type="button" class="btn btn-success btn-sm" style="width: 45%">Answer
+												<button type="button" class="btn btn-success btn-sm"
+													style="width: 45%">Answer
 													Call</button>
-												<button type="button" class="btn btn-danger btn-sm" style="width: 45%">Hold Call</button>
+												<button type="button" class="btn btn-danger btn-sm"
+													style="width: 45%">Hold Call</button>
 											</div>
 										</div>
 									</div>
@@ -371,9 +374,9 @@
 
 								<div class="embed-responsive embed-responsive-16by9" style="height: 800px">
 									<div id='videos'>
-								        <div id='subscriber'></div>
-								        <div id='publisher'></div>
-								    </div>
+										<div id='subscriber'></div>
+										<div id='publisher'></div>
+									</div>
 									<script type='text/javascript' src='js/app.js'></script>
 								</div>
 
@@ -521,18 +524,21 @@
 							</div>
 							<form method="POST" action="submit.php">
 								<div class="col-md-2" reqired>
-										<h4> <b>Patient's Contact Info</b> </h4>
-										<input type="radio" id="hospitalize" name="docRec" value="hospitalize" required>
-									  	<label for="hospitalize">Hospitalize</label><br>
-									  	<input type="radio" id="selfqrn" name="docRec" value="selfqrn">
-									  	<label for="selfqrn">Self Quarantine</label><br>
-									  	<input type="radio" id="shouldcont" name="docRec" value="shouldcont">
-									  	<label for="shouldcont">Should Continue</label>
+									<h4> <b>Patient's Contact Info</b> </h4>
+									<input type="radio" id="hospitalize" name="docRec" value="hospitalize" required>
+									<label for="hospitalize">Hospitalize</label><br>
+									<input type="radio" id="selfqrn" name="docRec" value="selfqrn">
+									<label for="selfqrn">Self Quarantine</label><br>
+									<input type="radio" id="shouldcont" name="docRec" value="shouldcont">
+									<label for="shouldcont">Should Continue</label>
 
-										<br><br><br><br>
-										<button type="submit" name="btnSendMoh" class="btn btn-danger btn-lg" style="width: 100%">Send to MOH</button>
-										<button type="submit" name="btnNextPat" class="btn btn-primary btn-lg" style="width: 100%">Next Patient</button>
-										<button type="submit" name="btnFinish" class="btn btn-warning btn-lg" style="width: 100%">Finish & Exit</button>
+									<br><br><br><br>
+									<button type="submit" name="btnSendMoh" class="btn btn-danger btn-lg"
+										style="width: 100%">Send to MOH</button>
+									<button type="submit" name="btnNextPat" class="btn btn-primary btn-lg"
+										style="width: 100%">Next Patient</button>
+									<button type="submit" name="btnFinish" class="btn btn-warning btn-lg"
+										style="width: 100%">Finish & Exit</button>
 								</div>
 							</form>
 						</div>
@@ -550,14 +556,10 @@
 					<p>
 						<small class="block">&copy;
 							Copyright &copy;
-							<script>document.write(new Date().getFullYear());</script> All rights reserved
-							|</i> Developed by <a href="https://www.kdu.ac.lk/" target="_blank">General Sir John
-								Kotelawala
-								Defence University</a>
-							<!-- <small class="block">Demo Images: <a href="https://www.kdu.ac.lk/"
-									target="_blank">Unsplash</a>
-								,
-								<a href="https://www.pexels.com/" target="_blank">Pexels</a></small> -->
+							<script>document.write(new Date().getFullYear());</script> All rights reserved |
+							Developed by <a href="https://www.kdu.ac.lk/" target="_blank">General Sir John
+								Kotelawala Defence
+								University</a>
 					</p>
 				</div>
 			</div>

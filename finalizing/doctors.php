@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Curec | Curec | COVID-19 Personal Assistant</title>
-	<link href="images/favicon.svg" rel="shortcut icon"/>
+	<link href="images/favicon.svg" rel="shortcut icon" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -73,11 +73,11 @@
 										</div>
 									</div>
 									<div class="col-md-3">
-										<div class="loc">
+										<!-- <div class="loc">
 											<span class="icon"><i class="icon-location"></i></span>
 											<p><a href="#">88 Route West 21th Street, Suite 721 New York NY 10016</a>
 											</p>
-										</div>
+										</div> -->
 									</div>
 								</div>
 							</div>
@@ -282,12 +282,10 @@
 					<p>
 						<small class="block">&copy;
 							Copyright &copy;
-							<script>document.write(new Date().getFullYear());</script> All rights reserved | This
-							template is made with <i class="icon-heart" aria-hidden="true"></i> by <a
-								href="https://colorlib.com" target="_blank">KDU</a>
-							<small class="block">Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a>
-								,
-								<a href="https://www.pexels.com/" target="_blank">Pexels</a></small>
+							<script>document.write(new Date().getFullYear());</script> All rights reserved |
+							Developed by <a href="https://www.kdu.ac.lk/" target="_blank">General Sir John
+								Kotelawala Defence
+								University</a>
 					</p>
 				</div>
 			</div>

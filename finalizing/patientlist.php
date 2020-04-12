@@ -213,23 +213,21 @@
 
 
         <footer id="colorlib-footer" role="contentinfo">
-            <div class="overlay"></div>
+				<div class="overlay"></div>
 
-            <div class="row copyright">
-                <div class="col-md-12 text-center">
-                    <p>
-                        <small class="block">&copy;
-                            Copyright &copy;
-                            <script>document.write(new Date().getFullYear());</script> All rights reserved | This
-                            template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="#"
-                                target="_blank">KDU</a>
-                            <small class="block">Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a>
-                                ,
-                                <a href="https://www.pexels.com/" target="_blank">Pexels</a></small>
-                    </p>
-                </div>
-            </div>
-        </footer>
+				<div class="row copyright">
+					<div class="col-md-12 text-center">
+						<p>
+							<small class="block">&copy;
+								Copyright &copy;
+								<script>document.write(new Date().getFullYear());</script> All rights reserved |
+								Developed by <a href="https://www.kdu.ac.lk/" target="_blank">General Sir John
+									Kotelawala Defence
+									University</a>
+						</p>
+					</div>
+				</div>
+			</footer>
     </div>
 
     <div class="gototop js-top">
