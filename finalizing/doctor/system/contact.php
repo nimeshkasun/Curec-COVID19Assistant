@@ -283,7 +283,7 @@
 
 			<div class="container">
 				<div class="row">
-					<div class="col-md-14 animate-box">
+					<div class="col-md-14 animate-box" id="start">
 						<h2>Patient Information.</h2>
 						<hr>
 
@@ -363,6 +363,39 @@
 										</div>
 									</div>
 								</form>
+
+								<br><br>
+								<div>
+								<h4> <b>Medical History</b> </h4>
+								<table class="table table-borderless">
+
+									<tbody>
+										<tr>
+											<td scope="row">Heart Diseases</td>
+											<td class="text-success"><?php echo $heartDis; ?></td>
+										</tr>
+										<tr>
+											<td scope="row">High Blood Pressure</td>
+											<td class="text-success"><?php echo $highBP; ?></td>
+										</tr>
+										<tr>
+											<td scope="row">Diabetes</td>
+											<td class="text-success"><?php echo $diabetes; ?></td>
+										</tr>
+										<tr>
+											<td scope="row">Lung Diseses</td>
+											<td class="text-success"><?php echo $lungDis; ?></td>
+										</tr>
+										<tr>
+											<th scope="row">Other Diseases</th>
+											<td class="text-success"><?php echo $otherDis; ?></td>
+										</tr>
+									</tbody>
+								</table>
+
+							</div>
+
+
 							</div>
 							<div class="col-md-8">
 
@@ -371,8 +404,8 @@
 										src="https://www.youtube.com/watch?v=s8TZvdiekAk"></iframe>
 								</div> -->
 
-								<div class="embed-responsive embed-responsive-16by9" style="height: 800px">
-									<div id='videos'>
+								<div style="height: 800px">
+									<div id='videos' >
 								        <div id='subscriber'></div>
 								        <div id='publisher'></div>
 								    </div>
@@ -492,7 +525,7 @@
 
 							</div>
 
-							<div class="col-md-3">
+							<!-- <div class="col-md-3">
 								<h4> <b>Medical History</b> </h4>
 								<table class="table table-borderless">
 
@@ -520,21 +553,23 @@
 									</tbody>
 								</table>
 
-							</div>
+							</div> -->
 							<form method="POST" action="submit.php">
-								<div class="col-md-2" reqired>
-										<h4> <b>Patient's Contact Info</b> </h4>
-										<input type="radio" id="hospitalize" name="docRec" value="hospitalize" required>
-									  	<label for="hospitalize">Hospitalize</label><br>
-									  	<input type="radio" id="selfqrn" name="docRec" value="selfqrn">
-									  	<label for="selfqrn">Self Quarantine</label><br>
-									  	<input type="radio" id="shouldcont" name="docRec" value="shouldcont">
-									  	<label for="shouldcont">Should Continue</label>
-
-										<br><br><br><br>
-										<button type="submit" name="btnSendMoh" class="btn btn-danger btn-lg" style="width: 100%">Send to MOH</button>
-										<button type="submit" name="btnNextPat" class="btn btn-primary btn-lg" style="width: 100%">Next Patient</button>
-										<button type="submit" name="btnFinish" class="btn btn-warning btn-lg" style="width: 100%">Finish & Exit</button>
+								<div class="row">
+									<div class="col-md-2" reqired>
+											<h4> <b>Patient's Contact Info</b> </h4>
+											<input type="radio" id="hospitalize" name="docRec" value="hospitalize" required>
+										  	<label for="hospitalize">Hospitalize</label><br>
+										  	<input type="radio" id="selfqrn" name="docRec" value="selfqrn">
+										  	<label for="selfqrn">Self Quarantine</label><br>
+										  	<input type="radio" id="shouldcont" name="docRec" value="shouldcont">
+										  	<label for="shouldcont">Should Continue</label>
+									</div>
+									<div class="col-md-2" reqired>
+											<button type="submit" name="btnSendMoh" class="btn btn-danger btn-lg" style="width: 100%">Send to MOH</button>
+											<button type="submit" name="btnNextPat" class="btn btn-primary btn-lg" style="width: 100%">Next Patient</button>
+											<button type="submit" name="btnFinish" class="btn btn-warning btn-lg" style="width: 100%">Finish & Exit</button>
+									</div>
 								</div>
 							</form>
 						</div>

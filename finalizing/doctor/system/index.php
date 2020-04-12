@@ -189,7 +189,7 @@
 										<i class="large material-icons">video_call</i>
 									</span>
 									<div class="desc">
-										<h3><a href="contact.php"> <b>Video Calls</b> </a></h3>
+										<h3><a href="contact.php#start"> <b>Video Calls</b> </a></h3>
 									</div>
 								</div>
 							</div>
