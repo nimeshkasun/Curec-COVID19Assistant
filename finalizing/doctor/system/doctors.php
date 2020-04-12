@@ -1,14 +1,11 @@
 <!DOCTYPE HTML>
 <html>
-<?php
-	include 'logincheck.php';
 
-?>
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Curec | Doctors Dashboard</title>
-	<link href="images/favicon.svg" rel="shortcut icon"/>
+	<title>Curec | COVID-19 Personal Assistant</title>
+	<link href="images/favicon.svg" rel="shortcut icon" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -68,49 +65,58 @@
 								<div class="row">
 									<div class="col-md-6">
 										<div id="colorlib-logo"><img src="images/logo.png" style="width: 30%;"></div>
+										<div class="menu-1">
+											<ul>
+												<li class="active"><a href="index.php">Home</a></li>
+												<li class="has-dropdown">
+													<a href="doctors.php">Doctors</a>
+												</li>
+												<li class="has-dropdown">
+													<a href="departments.php">Hospitals</a>
+												</li>
+											</ul>
+										</div>
 									</div>
 									<div class="col-md-3">
-										<div class="num">
+										<!-- <div class="num">
 											<span class="icon"><i class="icon-phone"></i></span>
 											<p><a href="#">111-222-333</a><br><a href="#">99-222-333</a></p>
-										</div>
+										</div> -->
 									</div>
 									<div class="col-md-3">
-										<div class="loc">
-											<span class="icon"><i class="icon-location"></i></span>
-											<p><a href="#">88 Route West 21th Street, Suite 721 New York NY 10016</a>
-											</p>
-										</div>
+
 									</div>
+
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="menu-wrap">
+				<!-- <div class="menu-wrap">
 					<div class="container">
 						<div class="row">
 							<div class="col-xs-8">
 								<div class="menu-1">
 									<ul>
-										<li><a href="index.php">Home</a></li>
-										<li class="has-dropdown active">
+										<li class="active"><a href="index.php">Home</a></li>
+										<li class="has-dropdown">
 											<a href="doctors.php">Doctors</a>
-
 										</li>
 										<li class="has-dropdown">
-											<a href="departments.php">Departments</a>
-
+											<a href="departments.php">Hospitals</a>
 										</li>
 										<li class="has-dropdown">
-											<a href="logout.php">Log Out</a>
+											<a href="./doctor/">Doctor Login</a>
+										</li>
+										<li class="has-dropdown">
+											<a href="./admin/">Admin Login</a>
 										</li>
 									</ul>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</nav>
 
@@ -282,12 +288,10 @@
 					<p>
 						<small class="block">&copy;
 							Copyright &copy;
-							<script>document.write(new Date().getFullYear());</script> All rights reserved | This
-							template is made with <i class="icon-heart" aria-hidden="true"></i> by <a
-								href="https://colorlib.com" target="_blank">KDU</a>
-							<small class="block">Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a>
-								,
-								<a href="https://www.pexels.com/" target="_blank">Pexels</a></small>
+							<script>document.write(new Date().getFullYear());</script> All rights reserved |
+							Developed by <a href="https://www.kdu.ac.lk/" target="_blank">General Sir John
+								Kotelawala Defence
+								University</a>
 					</p>
 				</div>
 			</div>

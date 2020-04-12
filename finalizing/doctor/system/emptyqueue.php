@@ -73,27 +73,51 @@
 								<div class="row">
 									<div class="col-md-6">
 										<div id="colorlib-logo"><img src="images/logo.png" style="width: 30%;"></div>
+										<div class="menu-1">
+											
+										</div>
 									</div>
 									<div class="col-md-3">
-										<div class="num">
+										<!-- <div class="num">
 											<span class="icon"><i class="icon-phone"></i></span>
 											<p><a href="#">111-222-333</a><br><a href="#">99-222-333</a></p>
-										</div>
+										</div> -->
 									</div>
 									<div class="col-md-3">
-										<div class="loc">
-											<span class="icon"><i class="icon-location"></i></span>
-											<p><a href="#">88 Route West 21th Street, Suite 721 New York NY 10016</a>
-											</p>
-										</div>
+
 									</div>
+
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				
-
+				<!-- <div class="menu-wrap">
+					<div class="container">
+						<div class="row">
+							<div class="col-xs-8">
+								<div class="menu-1">
+									<ul>
+										<li class="active"><a href="index.php">Home</a></li>
+										<li class="has-dropdown">
+											<a href="doctors.php">Doctors</a>
+										</li>
+										<li class="has-dropdown">
+											<a href="departments.php">Hospitals</a>
+										</li>
+										<li class="has-dropdown">
+											<a href="./doctor/">Doctor Login</a>
+										</li>
+										<li class="has-dropdown">
+											<a href="./admin/">Admin Login</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> -->
+			</div>
 		</nav>
 
 
