@@ -1,6 +1,6 @@
 <?php
     include 'logincheck.php';
-    include('php/DBconn.php');
+require_once '../../doctor/system/dbConn.php';
 $mohID = "";
 $firstname ="";
 $lastname = "";

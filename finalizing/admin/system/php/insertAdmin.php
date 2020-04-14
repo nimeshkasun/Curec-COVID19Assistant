@@ -1,5 +1,5 @@
 <?php
-include('DBconn.php');
+require_once '../../../doctor/system/dbConn.php';
 
 if (isset($_POST['insertAdmin'])){
     $firstname = $_POST['firstName'];

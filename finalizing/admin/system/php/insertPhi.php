@@ -1,5 +1,5 @@
 <?php
-include('DBconn.php');
+require_once '../../../doctor/system/dbConn.php';
 
 if (isset($_POST['insertPHI'])){
     $id = $_POST['phiID'];
