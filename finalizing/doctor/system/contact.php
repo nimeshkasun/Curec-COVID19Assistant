@@ -11,6 +11,7 @@
 
 	if($_SESSION["MID"] != ""){
 		$MID = $_SESSION["MID"];
+		$recordId = $_SESSION["RID"];
 		$sessionId = $_SESSION["SID"];
         $token = $_SESSION["TID"];
         echo "
@@ -20,14 +21,14 @@
 		$MID = "";
 		$sessionId = "";
         $token = "";
-        
+        $recordId="";
 	}
 	
-	$recordId="";
+	
 	$pID="";
 
 	if($_SESSION["MID"] == ""){
-		$result = $conn->query("SELECT RID, priority, status, sessionId, docToken FROM priority_queue WHERE status='1' ORDER BY priority DESC, RID ASC");
+		$result = $conn->query("SELECT RID, priority, status, sessionId, docToken FROM priority_queue WHERE status='1' ORDER BY priority ASC, RID ASC");
 		if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
 			    $recordId = $row['RID'];
@@ -314,19 +315,20 @@
 									<div class="row form-group">
 										<div class="col-md-12">
 											<?php
-												if($colorCode != "noColor"){
-													switch ($colorCode) {
-														case '1':
+												/*if($colorCode != "noColor"){*/
+												if($pID != ""){
+													switch ($pID) {
+														case '4':
 															echo "<button type='button' class='btn btn-danger btn-lg btn-block' style='width: 100%' disabled>Red
 														Noticed Patient</button>";
 															break;
 
-														case '2':
+														case '3':
 															echo "<button type='button' class='btn btn-warning btn-lg btn-block'style='width: 100%' disabled>Orange
 														Noticed Patient</button>";
 															break;
 
-														case '3':
+														case '2':
 															echo "<button type='button' class='btn btn-success btn-lg btn-block'style='width: 100%' disabled>Green
 														Noticed Patient</button>";
 															break;
