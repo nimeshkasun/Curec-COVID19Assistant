@@ -22,8 +22,8 @@
     </head>
     <body>
         <br>&nbsp;&nbsp;&nbsp;
-        <button type="button" class="btn btn-warning btn">
-        <a href="index.php">< Back</a></button>
+        <a href="index.php"><button type="button" class="btn btn-warning btn">
+        < Back</button></a>
 
 
         <div id="pcoded" class="pcoded">
@@ -62,7 +62,7 @@
                                                                   <?php
                                                                     require_once 'dbConn.php';
 
-                                                                    $result = $conn->query("SELECT member.Name, member.NIC, diagnose.Comment, diagnose.status, diagnose.timestamp, doctor.name, doctor.lastname, doctor.medicalRegID FROM diagnose, doctor, member WHERE diagnose.DID=doctor.DID AND diagnose.MID=member.MID ORDER BY DigID DESC");
+                                                                    $result = $conn->query("SELECT member.Name, member.NIC, diagnose.Comment, diagnose.status, diagnose.timestamp, doctor.name, doctor.lastname, doctor.medicalRegID FROM diagnose, doctor, member WHERE diagnose.DID=doctor.DID AND diagnose.MID=member.MID ORDER BY diagnose.timestamp DESC");
                                                                     if ($result->num_rows > 0) {
                                                                         while($row = $result->fetch_assoc()) {
                                                                             echo "<tr>
