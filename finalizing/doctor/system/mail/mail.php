@@ -22,9 +22,9 @@ $mail->Subject = 'RESTRICTED: Possible Patient Alert! | Curec Support';
 	$body .= "<thead style='text-align: center;'><tr><td style='border:none;' colspan='2'>";
 	$body .= "<a href='{$link}'><img src='{$logo}' alt='' width='20%'></a><br><hr width='100%'> <br>";
 	$body .= "</td></tr></thead><tbody><tr colspan='2'>";
-	$body .= "<td style='border:none;'><strong>You have been requested by <font style='color: blue';> Dr.{$docName} </font> and provided instructions to <font style='color: blue';> {$docDecisionDecoded} </font>the following patient who has been identified for possible COVID-19 infection through the Curec COVID-19 Personal Assistant System.</strong><br><br></td></td>";
-	$body .= "<tr><td style='border:none;'>Suspected Patient Details:<strong> <div style='width: 200px; padding: 5px; border: 2px solid red;'>
-	<table>
+	$body .= "<td style='border:none;'><strong> To: <font style='color: green';> MOH Office - {$mohName} </font> <br><br> You have been requested by <font style='color: blue';> Dr.{$docName} </font> and provided instructions to <font style='color: blue';> {$docDecisionDecoded} </font>the following patient who has been identified for possible COVID-19 infection through the Curec COVID-19 Personal Assistant System.</strong><br><br></td></td>";
+	$body .= "<tr><td style='border:none;'>Suspected Patient Details:<strong> <div style='width: 50%; padding: 5px; border: 2px solid red;'>
+	<table style='width: 100%;'>
 		<tr>
 			<td>Name</td>
 			<td>: {$pName}</td>
@@ -52,7 +52,7 @@ $mail->Subject = 'RESTRICTED: Possible Patient Alert! | Curec Support';
 	</table>
 	</div></strong><br><br>";
 	$body .= "</tr>";
-	$body .= "<tr><td>Regards,<br> Curec Support Team</td></tr>";
+	$body .= "<tr><td>Regards,<br> Curec Support Team <br> <a href='https://www.curec.edvicon.org'>https://www.curec.edvicon.org</a></td></tr>";
 	$body .= "<tr><td><br><hr width='100%'></td></tr>";
 	$body .= "<tr colspan='2' style='color:red;'><td>Disclaimer: <br>
 The content of this email is confidential and intended for the recipient specified in message only. It is strictly forbidden to share any part of this message with any third party, without a written consent of the sender. If you received this message by mistake, please reply to this message and follow with its deletion, so that we can ensure such a mistake does not occur in the future.<br><b>

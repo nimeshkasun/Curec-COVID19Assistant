@@ -1,8 +1,8 @@
 <?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$database = "covid19";
+	$servername = "tommy.heliohost.org";
+	$username = "edvicon_curecadmin";
+	$password = "KDUcurec34";
+	$database = "edvicon_curec";
 	if(mysqli_connect($servername, $username, $password, $database))
 	{
 		$conn = mysqli_connect($servername, $username, $password, $database);

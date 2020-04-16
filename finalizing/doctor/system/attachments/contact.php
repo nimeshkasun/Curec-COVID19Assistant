@@ -11,7 +11,6 @@
 
 	if($_SESSION["MID"] != ""){
 		$MID = $_SESSION["MID"];
-		$recordId = $_SESSION["RID"];
 		$sessionId = $_SESSION["SID"];
         $token = $_SESSION["TID"];
         echo "
@@ -21,17 +20,14 @@
 		$MID = "";
 		$sessionId = "";
         $token = "";
-        $recordId="";
-        $moId = "";
-		$mohEmail = "";
-		$mohName = "";
+        
 	}
 	
-	
+	$recordId="";
 	$pID="";
 
 	if($_SESSION["MID"] == ""){
-		$result = $conn->query("SELECT RID, priority, status, sessionId, docToken FROM priority_queue WHERE status='1' ORDER BY priority ASC, RID ASC");
+		$result = $conn->query("SELECT RID, priority, status, sessionId, docToken FROM priority_queue WHERE status='1' ORDER BY priority DESC, RID ASC");
 		if ($result->num_rows > 0) {
 			while($row = $result->fetch_assoc()) {
 			    $recordId = $row['RID'];
@@ -43,11 +39,6 @@
 				<script type='text/javascript'>var sessionId = '$sessionId';</script>
 				<script type='text/javascript'>var token = '$token';</script>";
 			}
-
-			
-
-		}else{
-			header('location: emptyqueue.php');
 		}
 
 		
@@ -90,7 +81,7 @@
 
 	
 
-	$result = $conn->query("SELECT Name, NIC, Gender, Age, City, phone, MOID FROM member WHERE MID='$MID'");
+	$result = $conn->query("SELECT Name, NIC, Gender, Age, City, phone FROM member WHERE MID='$MID'");
 	if ($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
 				//Patient Details
@@ -100,20 +91,7 @@
 		    $pAge = $row['Age'];  
 		    $pLocation = $row['City'];  
 		    $pPhoneNumber = $row['phone'];
-		    $moId = $row['MOID'];
 		}
-
-
-					$result = $conn->query("SELECT email, Colony FROM moh WHERE MOID='$moId'");
-					if ($result->num_rows > 0) {
-						while($row = $result->fetch_assoc()) {
-								//Patient Details
-						    $mohEmail = $row['email'];
-						    $mohName = $row['Colony'];
-						}
-					}
-
-
 	}else{
 		$pName = "No Data"; 
 		$pNic = "No Data"; 
@@ -122,9 +100,6 @@
 		$pLocation = "No Data"; 
 		$pPhoneNumber = "No Data"; 
 	}
-
-	$_SESSION["MOHNAME"] = $mohName;
-	$_SESSION["MOHEMAIL"] = $mohEmail;
 
 	$result = $conn->query("SELECT fever, cough, soreThroat, difficultBreathe, bodyArchPain, cold, lossOfSmell, diarrhoea, urineOutput, ArriveFromAbroad, dateifYes, contactSuspect, personAbroad, personHighrisk, personQuarantine, personWorkQuarantine, heartDiseace, bloodPressure, Diabetes, LungDisease, OtherDisease FROM record WHERE MID='$MID' AND RID='$recordId'");
 	if ($result->num_rows > 0) {
@@ -190,11 +165,12 @@
 	
 
 ?>
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Curec | Doctors Dashboard</title>
-	<link href="images/favicon.svg" rel="shortcut icon"/>
+	<link href="images/favicon.svg" rel="shortcut icon" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -238,9 +214,9 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
-	
+
 	<link href='css/app.css' rel='stylesheet' type='text/css'>
-    <script src='https://static.opentok.com/v2/js/opentok.min.js'></script>
+	<script src='https://static.opentok.com/v2/js/opentok.min.js'></script>
 </head>
 
 <body>
@@ -257,38 +233,26 @@
 								<div class="row">
 									<div class="col-md-6">
 										<div id="colorlib-logo"><img src="images/logo.png" style="width: 30%;"></div>
-										<div class="menu-1">
-											<ul>
-												<li class="active"><a href="index.php">Home</a></li>
-												<li class="has-dropdown">
-													<a href="doctors.php">Doctors</a>
-												</li>
-												<li class="has-dropdown">
-													<a href="departments.php">Hospitals</a>
-												</li>
-												<li class="has-dropdown">
-                                                    <button type="button" class="btn btn-primary btn">
-                                                    <a href="logout.php">Log out</a></button>
-                                                </li>
-											</ul>
+									</div>
+									<div class="col-md-3">
+										<div class="num">
+											<!-- <span class="icon"><i class="icon-phone"></i></span> -->
+											<!-- <p><a href="#">111-222-333</a><br><a href="#">99-222-333</a></p> -->
 										</div>
 									</div>
 									<div class="col-md-3">
-										<!-- <div class="num">
-											<span class="icon"><i class="icon-phone"></i></span>
-											<p><a href="#">111-222-333</a><br><a href="#">99-222-333</a></p>
-										</div> -->
+										<div class="loc">
+											<!-- <span class="icon"><i class="icon-location"></i></span> -->
+											<!-- <p><a href="#">88 Route West 21th Street, Suite 721 New York NY 10016</a> -->
+											</p>
+										</div>
 									</div>
-									<div class="col-md-3">
-
-									</div>
-
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<!-- <div class="menu-wrap">
+				<div class="menu-wrap">
 					<div class="container">
 						<div class="row">
 							<div class="col-xs-8">
@@ -302,17 +266,15 @@
 											<a href="departments.php">Hospitals</a>
 										</li>
 										<li class="has-dropdown">
-											<a href="./doctor/">Doctor Login</a>
+											<a href="logout.php">Log Out</a>
 										</li>
-										<li class="has-dropdown">
-											<a href="./admin/">Admin Login</a>
-										</li>
+
 									</ul>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div> -->
+				</div>
 			</div>
 		</nav>
 
@@ -320,7 +282,7 @@
 
 			<div class="container">
 				<div class="row">
-					<div class="col-md-14 animate-box" id="start">
+					<div class="col-md-14 animate-box">
 						<h2>Patient Information.</h2>
 						<hr>
 
@@ -337,25 +299,19 @@
 									<div class="row form-group">
 										<div class="col-md-12">
 											<?php
-												/*if($colorCode != "noColor"){*/
-												if($pID != ""){
-													switch ($pID) {
-														case '4':
+												if($colorCode != "noColor"){
+													switch ($colorCode) {
+														case '1':
 															echo "<button type='button' class='btn btn-danger btn-lg btn-block' style='width: 100%' disabled>Red
 														Noticed Patient</button>";
 															break;
 
-														case '3':
+														case '2':
 															echo "<button type='button' class='btn btn-warning btn-lg btn-block'style='width: 100%' disabled>Orange
 														Noticed Patient</button>";
 															break;
 
-														case '2':
-															echo "<button type='button' class='btn btn-success btn-lg btn-block'style='width: 100%' disabled>Green
-														Noticed Patient</button>";
-															break;
-
-														case '1':
+														case '3':
 															echo "<button type='button' class='btn btn-success btn-lg btn-block'style='width: 100%' disabled>Green
 														Noticed Patient</button>";
 															break;
@@ -399,46 +355,15 @@
 												</tbody>
 											</table>
 											<div class="text-center">
-												<!-- <button type="button" class="btn btn-success btn-sm" style="width: 45%">Answer
+												<button type="button" class="btn btn-success btn-sm"
+													style="width: 45%">Answer
 													Call</button>
-												<button type="button" class="btn btn-danger btn-sm" style="width: 45%">Hold Call</button> -->
+												<button type="button" class="btn btn-danger btn-sm"
+													style="width: 45%">Hold Call</button>
 											</div>
 										</div>
 									</div>
 								</form>
-
-								<br><br>
-								<div>
-								<h4> <b>Medical History</b> </h4>
-								<table class="table table-borderless">
-
-									<tbody>
-										<tr>
-											<td scope="row">Heart Diseases</td>
-											<td class="text-success"><?php echo $heartDis; ?></td>
-										</tr>
-										<tr>
-											<td scope="row">High Blood Pressure</td>
-											<td class="text-success"><?php echo $highBP; ?></td>
-										</tr>
-										<tr>
-											<td scope="row">Diabetes</td>
-											<td class="text-success"><?php echo $diabetes; ?></td>
-										</tr>
-										<tr>
-											<td scope="row">Lung Diseses</td>
-											<td class="text-success"><?php echo $lungDis; ?></td>
-										</tr>
-										<tr>
-											<th scope="row">Other Diseases</th>
-											<td class="text-success"><?php echo $otherDis; ?></td>
-										</tr>
-									</tbody>
-								</table>
-
-							</div>
-
-
 							</div>
 							<div class="col-md-8">
 
@@ -447,11 +372,11 @@
 										src="https://www.youtube.com/watch?v=s8TZvdiekAk"></iframe>
 								</div> -->
 
-								<div style="height: 800px">
-									<div id='videos' >
-								        <div id='subscriber'></div>
-								        <div id='publisher'></div>
-								    </div>
+								<div class="embed-responsive embed-responsive-16by9" style="height: 800px">
+									<div id='videos'>
+										<div id='subscriber'></div>
+										<div id='publisher'></div>
+									</div>
 									<script type='text/javascript' src='js/app.js'></script>
 								</div>
 
@@ -568,7 +493,7 @@
 
 							</div>
 
-							<!-- <div class="col-md-3">
+							<div class="col-md-3">
 								<h4> <b>Medical History</b> </h4>
 								<table class="table table-borderless">
 
@@ -596,63 +521,26 @@
 									</tbody>
 								</table>
 
-							</div> -->
+							</div>
 							<form method="POST" action="submit.php">
-								<div class="row">
-									<div class="col-md-2" reqired>
-											<h4> <b>Patient's Contact Info</b> </h4>
-											<input type="radio" id="hospitalize" onclick="myFunction(this)" name="docRec" value="hospitalize" required>
-										  	<label for="hospitalize">Hospitalize</label><br>
-										  	<input type="radio" id="selfqrn" onclick="myFunction(this)" name="docRec" value="selfqrn">
-										  	<label for="selfqrn">Self Quarantine</label><br>
-										  	<input type="radio" id="shouldcont" onclick="myFunction(this)" name="docRec" value="shouldcont">
-										  	<label for="shouldcont">Should Continue</label>
-										  	
-										  	<p id="mohMessageDetails"></p>
-									</div>
-									<div class="col-md-2" reqired>
-											<button type="submit" id="btnSendMOH" name="btnSendMoh" class="btn btn-danger btn-lg" style="width: 100%">Send to MOH</button>
-											<button type="submit" id="btnNextPat" name="btnNextPat" class="btn btn-primary btn-lg" style="width: 100%">Next Patient</button>
-											<button type="submit" id="btnFinish" name="btnFinish" class="btn btn-warning btn-lg" style="width: 100%">Finish & Exit</button>
+								<div class="col-md-2" reqired>
+									<h4> <b>Patient's Contact Info</b> </h4>
+									<input type="radio" id="hospitalize" name="docRec" value="hospitalize" required>
+									<label for="hospitalize">Hospitalize</label><br>
+									<input type="radio" id="selfqrn" name="docRec" value="selfqrn">
+									<label for="selfqrn">Self Quarantine</label><br>
+									<input type="radio" id="shouldcont" name="docRec" value="shouldcont">
+									<label for="shouldcont">Should Continue</label>
 
-									</div>
-									
+									<br><br><br><br>
+									<button type="submit" name="btnSendMoh" class="btn btn-danger btn-lg"
+										style="width: 100%">Send to MOH</button>
+									<button type="submit" name="btnNextPat" class="btn btn-primary btn-lg"
+										style="width: 100%">Next Patient</button>
+									<button type="submit" name="btnFinish" class="btn btn-warning btn-lg"
+										style="width: 100%">Finish & Exit</button>
 								</div>
 							</form>
-							<!-- <?php echo $moId, " ", $mohName, " ", $mohEmail; ?> -->
-							<?php echo "
-								<script type='text/javascript'>var mohName = '$mohName';</script>"
-							?>
-							<script>
-								function myFunction(clickVal) {
-								  var hos = clickVal.value;
-								  var slq = clickVal.value;
-								  var cont = clickVal.value;
-
-								  if(hos == "hospitalize"){
-								  	document.getElementById("btnSendMOH").disabled = false;
-								  	document.getElementById("btnNextPat").disabled = true;
-								  	document.getElementById("btnFinish").disabled = true;
-								  	var msg = document.getElementById("mohMessageDetails"); 
-								  	msg.innerHTML = "<br><br><font style='color:red;'> Email request will be sent to <b>" + mohName + " MOH Office</b> requesting this patient to <b> Hospitalize. </b></font>";
-								  }
-								  if(slq == "selfqrn"){
-								  	document.getElementById("btnSendMOH").disabled = false;
-								  	document.getElementById("btnNextPat").disabled = true;
-								  	document.getElementById("btnFinish").disabled = true;
-								  	var msg = document.getElementById("mohMessageDetails"); 
-								  	msg.innerHTML = "<br><br><font style='color:red;'> Email request will be sent to <b>" + mohName + " MOH Office</b> requesting this patient to <b> Self-Quarantine. </b></font>";
-								  }
-								  if(cont == "shouldcont"){
-								  	document.getElementById("btnSendMOH").disabled = true;
-								  	document.getElementById("btnNextPat").disabled = false;
-								  	document.getElementById("btnFinish").disabled = false;
-								  	var msg = document.getElementById("mohMessageDetails"); 
-								  	msg.innerHTML = "";
-								  }
-								}
-							</script>
-											
 						</div>
 					</div>
 				</div>
