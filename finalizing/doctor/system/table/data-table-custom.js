@@ -507,7 +507,7 @@ $(document).ready(function() {
 
     $('#order-table').DataTable({
         "order": [
-            [1, "desc"]
+            [4, "desc"]
         ]
     });
 
