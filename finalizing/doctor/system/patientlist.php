@@ -1,8 +1,10 @@
-<!DOCTYPE HTML>
-<html>
-
-<head>
-    <meta charset="utf-8">
+<!DOCTYPE html>
+<?php 
+    include 'logincheck.php';
+?>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Curec | Curec | COVID-19 Personal Assistant</title>
     <link href="images/favicon.svg" rel="shortcut icon"/>
@@ -11,269 +13,123 @@
     <meta name="keywords" content="" />
     <meta name="author" content="" />
 
-    <!-- Facebook and Twitter integration -->
-    <meta property="og:title" content="" />
-    <meta property="og:image" content="" />
-    <meta property="og:url" content="" />
-    <meta property="og:site_name" content="" />
-    <meta property="og:description" content="" />
-    <meta name="twitter:title" content="" />
-    <meta name="twitter:image" content="" />
-    <meta name="twitter:url" content="" />
-    <meta name="twitter:card" content="" />
+    <link rel="stylesheet" type="text/css" href="table/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="table/style.css">
+    <link rel="stylesheet" type="text/css" href="table/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" type="text/css" href="table/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" type="text/css" href="table/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="table/responsive.bootstrap4.min.css">
+    </head>
+    <body>
+        <br>&nbsp;&nbsp;&nbsp;
+        <button type="button" class="btn btn-warning btn">
+        <a href="index.php">< Back</a></button>
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="css/animate.css">
-    <!-- Icomoon Icon Fonts-->
-    <link rel="stylesheet" href="css/icomoon.css">
-    <!-- Bootstrap  -->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <!-- Magnific Popup -->
-    <link rel="stylesheet" href="css/magnific-popup.css">
-    <!-- Owl Carousel  -->
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <!-- Flexslider  -->
-    <link rel="stylesheet" href="css/flexslider.css">
-    <!-- Flaticons  -->
-    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
-    <!-- Theme style  -->
-    <link rel="stylesheet" href="css/style.css">
+        <div id="pcoded" class="pcoded">
+            <div class="pcoded-overlay-box"></div>
+            <div class="pcoded-container navbar-wrapper">
+                <div class="pcoded-main-container">
+                    <div class="pcoded-wrapper">
+                        <div class="pcoded-content">
+                            <div class="pcoded-inner-content">
+                                <div class="main-body">
+                                    <div class="page-wrapper">
+                                        <div class="page-body">
+                                        <!-- Body Begin -->
+                                           
+                                              <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5>Patient calls and Information</h5>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <div class="dt-responsive table-responsive">
+                                                            <table id="order-table" class="table table-striped table-bordered nowrap">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th>Patient Name</th>
+                                                                    <th>Patient NIC</th>
+                                                                    <th>Diagnosis</th>
+                                                                    <th>Status</th>
+                                                                    <th>Date/Time</th>
+                                                                    <th>Diagnosed Doctor</th>
+                                                                    <th>Medical Reg. ID</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody id="load_pratransactons">
+                                                                  <?php
+                                                                    require_once 'dbConn.php';
 
-    <!-- Modernizr JS -->
-    <script src="js/modernizr-2.6.2.min.js"></script>
-    <!-- FOR IE9 below -->
-    <!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
+                                                                    $result = $conn->query("SELECT member.Name, member.NIC, diagnose.Comment, diagnose.status, diagnose.timestamp, doctor.name, doctor.lastname, doctor.medicalRegID FROM diagnose, doctor, member WHERE diagnose.DID=doctor.DID AND diagnose.MID=member.MID ORDER BY DigID DESC");
+                                                                    if ($result->num_rows > 0) {
+                                                                        while($row = $result->fetch_assoc()) {
+                                                                            echo "<tr>
+                                                                                    <td>{$row['Name']}</td>
+                                                                                    <td>{$row['NIC']}</td>
+                                                                                    <td>{$row['Comment']}</td>
+                                                                                    <td>";
+                                                                                    $col=$row['status'];
+                                                                                    $status="";
+                                                                                    switch ($col) {
+                                                                                        case '1':
+                                                                                            $status="Red Noticed";
+                                                                                            break;
+                                                                                        case '2':
+                                                                                            $status="Orange Noticed";
+                                                                                            break;
+                                                                                        case '3':
+                                                                                            $status="Green Noticed";
+                                                                                            break;
+                                                                                        default:
+                                                                                            $status="Green Noticed";
+                                                                                            break;
+                                                                                    }
 
-</head>
+                                                                            echo "$status</td>
+                                                                                    <td>{$row['timestamp']}</td>
+                                                                                    <td>{$row['name']} {$row['lastname']}</td>
+                                                                                    <td>{$row['medicalRegID']}</td>
+                                                                                </tr>";
+                                                                        }
+                                                                    }
+                                                                ?>
 
-<body>
+                                                                </tbody>
+                                                                <tfoot>
+                                                                <tr>
+                                                                    <th>Patient Name</th>
+                                                                    <th>Patient NIC</th>
+                                                                    <th>Diagnosis</th>
+                                                                    <th>Status</th>
+                                                                    <th>Date/Time</th>
+                                                                    <th>Diagnosed Doctor</th>
+                                                                    <th>Medical Reg. ID</th>
+                                                                </tr>
+                                                                </tfoot>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-    <div class="colorlib-loader"></div>
-
-    <div id="page">
-        <nav class="colorlib-nav" role="navigation">
-            <div class="top-menu">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <div class="top">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div id="colorlib-logo"><img src="images/logo.png" style="width: 30%;"></div>
-                                        <div class="menu-1">
-                                            <ul>
-                                                <li class="active"><a href="index.php">Home</a></li>
-                                                <li class="has-dropdown">
-                                                    <a href="doctors.php">Doctors</a>
-                                                </li>
-                                                <li class="has-dropdown">
-                                                    <a href="departments.php">Hospitals</a>
-                                                </li>
-                                                <li class="has-dropdown">
-                                                    <button type="button" class="btn btn-primary btn">
-                                                    <a href="logout.php">Log out</a></button>
-                                                </li>
-                                            </ul>
+                                        <!-- Body End-->
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
-                                        <!-- <div class="num">
-                                            <span class="icon"><i class="icon-phone"></i></span>
-                                            <p><a href="#">111-222-333</a><br><a href="#">99-222-333</a></p>
-                                        </div> -->
                                     </div>
-                                    <div class="col-md-3">
-
-                                    </div>
-
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="menu-wrap">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-8">
-                                <div class="menu-1">
-                                    <ul>
-                                        <li class="active"><a href="index.php">Home</a></li>
-                                        <li class="has-dropdown">
-                                            <a href="doctors.php">Doctors</a>
-                                        </li>
-                                        <li class="has-dropdown">
-                                            <a href="departments.php">Hospitals</a>
-                                        </li>
-                                        <li class="has-dropdown">
-                                            <a href="./doctor/">Doctor Login</a>
-                                        </li>
-                                        <li class="has-dropdown">
-                                            <a href="./admin/">Admin Login</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
-        </nav>
-
-
-        <div id="colorlib-contact">
-
-            <div class="container">
-                <div class="row">
-                    <div class="row">
-                        <div class="col-md-4">
-
-                        </div>
-                        <div class="col-md-5">
-
-                            <h2>Patient calls and Information.</h2>
-                            <hr>
-                        </div>
-                        <div class="col-md-3">
-
-                        </div>
-
-                    </div>
-
-                    <div class="col-md-12 animate-box">
-                        <div class="row">
-                            <div class="col-md-4">
-
-                            </div>
-                            <div class="col-md-4">
-                                <form class="form-inline">
-                                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Choose Patient
-                                        Type :</label>
-                                    <select class="custom-select my-1 mr-sm-5" id="inlineFormCustomSelectPref">
-                                        <option selected>Choose...</option>
-                                        <option value="1">Red Noticed</option>
-                                        <option value="2">Orange Noticed</option>
-                                        <option value="3">Yellow Noticed</option>
-                                    </select>
-                                </form>
-                            </div>
-                            <div class="col-md-4">
-
-                            </div>
-                        </div>
-                        <hr>
-                    </div>
-
-
-
-
-                    <div class="col-md-12 animate-box">
-                        <div class="row">
-                            <br>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Age</th>
-                                        <th scope="col">Gender</th>
-                                        <th scope="col">Location</th>
-                                        <th scope="col">NIC</th>
-                                        <th scope="col">Contact Number</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
-        <footer id="colorlib-footer" role="contentinfo">
-				<div class="overlay"></div>
-
-				<div class="row copyright">
-					<div class="col-md-12 text-center">
-						<p>
-							<small class="block">&copy;
-								Copyright &copy;
-								<script>document.write(new Date().getFullYear());</script> All rights reserved |
-								Developed by <a href="https://www.kdu.ac.lk/" target="_blank">General Sir John
-									Kotelawala Defence
-									University</a>
-						</p>
-					</div>
-				</div>
-			</footer>
-    </div>
-
-    <div class="gototop js-top">
-        <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
-    </div>
-
-    <!-- jQuery -->
-    <script src="js/jquery.min.js"></script>
-    <!-- jQuery Easing -->
-    <script src="js/jquery.easing.1.3.js"></script>
-    <!-- Bootstrap -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Waypoints -->
-    <script src="js/jquery.waypoints.min.js"></script>
-    <!-- Stellar Parallax -->
-    <script src="js/jquery.stellar.min.js"></script>
-    <!-- Carousel -->
-    <script src="js/owl.carousel.min.js"></script>
-    <!-- Flexslider -->
-    <script src="js/jquery.flexslider-min.js"></script>
-    <!-- countTo -->
-    <script src="js/jquery.countTo.js"></script>
-    <!-- Magnific Popup -->
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/magnific-popup-options.js"></script>
-    <!-- Sticky Kit -->
-    <script src="js/sticky-kit.min.js"></script>
-    <!-- Google Map -->
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
-    <script src="js/google_map.js"></script>
-    <!-- Main -->
-    <script src="js/main.js"></script>
-
-</body>
-
+<script src="table/jquery.min.js"></script>
+<script src="table/jquery.dataTables.min.js"></script>
+<script src="table/dataTables.bootstrap4.min.js"></script>
+<script src="table/dataTables.responsive.min.js"></script>
+<script src="table/responsive.bootstrap4.min.js"></script>
+<script src="table/data-table-custom.js"></script>
+    </body>
 </html>
