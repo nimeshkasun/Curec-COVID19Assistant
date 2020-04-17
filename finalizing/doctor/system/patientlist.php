@@ -51,6 +51,7 @@
                                                                 <tr>
                                                                     <th>Patient Name</th>
                                                                     <th>Patient NIC</th>
+                                                                    <th>Contact Number</th>
                                                                     <th>Diagnosis</th>
                                                                     <th>Status</th>
                                                                     <th>Date/Time</th>
@@ -62,13 +63,32 @@
                                                                   <?php
                                                                     require_once 'dbConn.php';
 
-                                                                    $result = $conn->query("SELECT member.Name, member.NIC, diagnose.Comment, diagnose.status, diagnose.timestamp, doctor.name, doctor.lastname, doctor.medicalRegID FROM diagnose, doctor, member WHERE diagnose.DID=doctor.DID AND diagnose.MID=member.MID ORDER BY diagnose.timestamp DESC");
+                                                                    $result = $conn->query("SELECT member.Name, member.NIC, member.phone, diagnose.Comment, diagnose.status, diagnose.timestamp, doctor.name, doctor.lastname, doctor.medicalRegID FROM diagnose, doctor, member WHERE diagnose.DID=doctor.DID AND diagnose.MID=member.MID ORDER BY diagnose.timestamp DESC");
                                                                     if ($result->num_rows > 0) {
                                                                         while($row = $result->fetch_assoc()) {
                                                                             echo "<tr>
                                                                                     <td>{$row['Name']}</td>
                                                                                     <td>{$row['NIC']}</td>
-                                                                                    <td>{$row['Comment']}</td>
+                                                                                    <td>{$row['phone']}</td>
+                                                                                    <td>";
+                                                                                    $com=$row['Comment'];
+                                                                                    $comnt="";
+                                                                                    switch ($com) {
+                                                                                        case 'hospitalize':
+                                                                                            $comnt="Hospitalize";
+                                                                                            break;
+                                                                                        case 'selfqrn':
+                                                                                            $comnt="Self-Quarantine";
+                                                                                            break;
+                                                                                        case 'shouldcont':
+                                                                                            $comnt="Should Continue";
+                                                                                            break;
+                                                                                        default:
+                                                                                            $comnt="Should Continue";
+                                                                                            break;
+                                                                                    }
+
+                                                                            echo "$comnt</td>
                                                                                     <td>";
                                                                                     $col=$row['status'];
                                                                                     $status="";
@@ -101,6 +121,7 @@
                                                                 <tr>
                                                                     <th>Patient Name</th>
                                                                     <th>Patient NIC</th>
+                                                                    <th>Contact Number</th>
                                                                     <th>Diagnosis</th>
                                                                     <th>Status</th>
                                                                     <th>Date/Time</th>

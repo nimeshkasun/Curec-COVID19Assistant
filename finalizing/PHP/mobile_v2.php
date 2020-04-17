@@ -53,6 +53,7 @@ if(isset($_POST['type'])){
         $age  = $_POST['age'];
         $location  = $_POST['location'];
         $phone  = $_POST['phone'];
+        $MOID = $_POST['MOID'];
         $bloodType = $_POST['bloodType'];
         $Location_lat = $_POST['Location_lat'];
         $Location_lan = $_POST['Location_lan'];
@@ -61,7 +62,7 @@ if(isset($_POST['type'])){
 
         $LID = creat_user($nic,$Password);
         $db = new DbConnect;
-        $sql = "INSERT INTO `member`( `FID`, `Name`, `NIC`, `Gender`, `Age`, `Bloodtype`, `Location_lat`, `Location_lan`, `City`, `phone`, `LID`) VALUES ('$familyID','$name','$nic','$gender','$age','$bloodType','$Location_lat','$Location_lan','$location','$phone', '$LID')";
+        $sql = "INSERT INTO `member`( `FID`, `Name`, `NIC`, `Gender`, `Age`, `Bloodtype`, `Location_lat`, `Location_lan`, `City`, `phone`, `LID`, `MOID`) VALUES ('$familyID','$name','$nic','$gender','$age','$bloodType','$Location_lat','$Location_lan','$location','$phone', '$LID', '$MOID')";
 
         if(!$conn = $db->connect()){
             echo "SQL Error";

@@ -22,7 +22,7 @@ $mail->Subject = 'RESTRICTED: Possible Patient Alert! | Curec Support';
 	$body .= "<thead style='text-align: center;'><tr><td style='border:none;' colspan='2'>";
 	$body .= "<a href='{$link}'><img src='{$logo}' alt='' width='20%'></a><br><hr width='100%'> <br>";
 	$body .= "</td></tr></thead><tbody><tr colspan='2'>";
-	$body .= "<td style='border:none;'><strong> To: <font style='color: green';> MOH Office - {$mohName} </font> <br><br> You have been requested by <font style='color: blue';> Dr.{$docName} </font> and provided instructions to <font style='color: blue';> {$docDecisionDecoded} </font>the following patient who has been identified for possible COVID-19 infection through the Curec COVID-19 Personal Assistant System.</strong><br><br></td></td>";
+	$body .= "<td style='border:none;'><strong> To: <font style='color: green';> MOH Office - {$mohName} </font> <br><br> You have been requested by <font style='color: blue';> Dr.{$docName} </font> and given instructions to <font style='color: blue';> {$docDecisionDecoded} </font>the following patient who has been identified for potential COVID-19 infection through the Curec COVID-19 Personal Assistant System.</strong><br><br></td></td>";
 	$body .= "<tr><td style='border:none;'>Suspected Patient Details:<strong> <div style='width: 50%; padding: 5px; border: 2px solid red;'>
 	<table style='width: 100%;'>
 		<tr>
