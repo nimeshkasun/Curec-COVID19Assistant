@@ -56,6 +56,10 @@ include 'logincheck.php';
 
 	<script src="js/healthAPI.js"></script>
 
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  
 </head>
 
 <body>
@@ -157,7 +161,12 @@ include 'logincheck.php';
 											<center>
 												<h3><a href="contact.php#start"> <b>Video Calls</b> </a></h3>
 												<h5> Patients in Queue: </h5>
-												<p><?php echo $count; ?></p>
+												
+													<div class="dropdown" style="width: 20%; height: 20%;">
+													    <span class="label label-pill label-danger count" style="border-radius:10px; color:white;"></span>
+													    <ul class="dropdown-menu"></ul>
+													</div>
+												
 											</center>
 										</div>
 									</div>
@@ -284,6 +293,40 @@ include 'logincheck.php';
 	<script src="js/sticky-kit.min.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
+
+<script>
+$(document).ready(function(){
+ 
+ function load_unseen_notification(view = '')
+ {
+  $.ajax({
+   url:"noti/fetch.php",
+   method:"POST",
+   data:{view:view},
+   dataType:"json",
+   success:function(data)
+   {
+    $('.dropdown-menu').html(data.notification);
+    if(data.unseen_notification > 0)
+    {
+     $('.count').html(data.unseen_notification);
+     var a = new Audio()
+     a.src =   "noti/not3.wav"
+     a.play()
+    }
+   }
+  });
+ }
+ 
+ load_unseen_notification();
+ 
+ 
+ setInterval(function(){ 
+  load_unseen_notification();; 
+ }, 3000);
+ 
+});
+</script>
 
 </body>
 
