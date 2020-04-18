@@ -10,7 +10,8 @@ $mail->SMTPSecure = 'tls';
 $mail->SMTPAuth = true;
 require_once 'emailpass.php';
 //TO
-$mail->addAddress($email, 'MOH/ PHI');
+$mail->addAddress($email, 'MOH');
+$mail->addCC($email2, '1990');
 //From
 $mail->addReplyTo('curecassistant@gmail.com', 'Curec Support');
 $mail->setFrom('curecassistant@gmail.com', "Curec Support");
@@ -22,7 +23,7 @@ $mail->Subject = 'RESTRICTED: Possible Patient Alert! | Curec Support';
 	$body .= "<thead style='text-align: center;'><tr><td style='border:none;' colspan='2'>";
 	$body .= "<a href='{$link}'><img src='{$logo}' alt='' width='20%'></a><br><hr width='100%'> <br>";
 	$body .= "</td></tr></thead><tbody><tr colspan='2'>";
-	$body .= "<td style='border:none;'><strong> To: <font style='color: green';> MOH Office - {$mohName} </font> <br><br> You have been requested by <font style='color: blue';> Dr.{$docName} </font> and given instructions to <font style='color: blue';> {$docDecisionDecoded} </font>the following patient who has been identified for potential COVID-19 infection through the Curec COVID-19 Personal Assistant System.</strong><br><br></td></td>";
+	$body .= "<td style='border:none;'><strong> To: <font style='color: green';> {$toOffice} </font> <br><br> You have been requested by <font style='color: blue';> Dr.{$docName} </font> and given instructions to take necessary action on the following patient who has been identified for potential COVID-19 infection through the Curec COVID-19 Personal Assistant System. The patient has been categorized as: <font style='color: red';>{$docDecisionDecoded}</font><br><br>Doctor's Comment: {$docComment}</strong><br><br></td></td>";
 	$body .= "<tr><td style='border:none;'>Suspected Patient Details:<strong> <div style='width: 50%; padding: 5px; border: 2px solid red;'>
 	<table style='width: 100%;'>
 		<tr>

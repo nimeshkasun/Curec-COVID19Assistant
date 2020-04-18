@@ -53,7 +53,7 @@
                                                                     <th>Patient NIC</th>
                                                                     <th>Contact Number</th>
                                                                     <th>Diagnosis</th>
-                                                                    <th>Status</th>
+                                                                    <th>Doctor's Comment</th>
                                                                     <th>Date/Time</th>
                                                                     <th>Diagnosed Doctor</th>
                                                                     <th>Medical Reg. ID</th>
@@ -70,44 +70,8 @@
                                                                                     <td>{$row['Name']}</td>
                                                                                     <td>{$row['NIC']}</td>
                                                                                     <td>{$row['phone']}</td>
-                                                                                    <td>";
-                                                                                    $com=$row['Comment'];
-                                                                                    $comnt="";
-                                                                                    switch ($com) {
-                                                                                        case 'hospitalize':
-                                                                                            $comnt="Hospitalize";
-                                                                                            break;
-                                                                                        case 'selfqrn':
-                                                                                            $comnt="Self-Quarantine";
-                                                                                            break;
-                                                                                        case 'shouldcont':
-                                                                                            $comnt="Should Continue";
-                                                                                            break;
-                                                                                        default:
-                                                                                            $comnt="Should Continue";
-                                                                                            break;
-                                                                                    }
-
-                                                                            echo "$comnt</td>
-                                                                                    <td>";
-                                                                                    $col=$row['status'];
-                                                                                    $status="";
-                                                                                    switch ($col) {
-                                                                                        case '1':
-                                                                                            $status="Red Noticed";
-                                                                                            break;
-                                                                                        case '2':
-                                                                                            $status="Orange Noticed";
-                                                                                            break;
-                                                                                        case '3':
-                                                                                            $status="Green Noticed";
-                                                                                            break;
-                                                                                        default:
-                                                                                            $status="Green Noticed";
-                                                                                            break;
-                                                                                    }
-
-                                                                            echo "$status</td>
+                                                                                    <td>{$row['status']}</td></td>
+                                                                                    <td>{$row['Comment']}</td>
                                                                                     <td>{$row['timestamp']}</td>
                                                                                     <td>{$row['name']} {$row['lastname']}</td>
                                                                                     <td>{$row['medicalRegID']}</td>
@@ -123,7 +87,7 @@
                                                                     <th>Patient NIC</th>
                                                                     <th>Contact Number</th>
                                                                     <th>Diagnosis</th>
-                                                                    <th>Status</th>
+                                                                    <th>Doctor's Comment</th>
                                                                     <th>Date/Time</th>
                                                                     <th>Diagnosed Doctor</th>
                                                                     <th>Medical Reg. ID</th>

@@ -25,6 +25,7 @@
         $moId = "";
 		$mohEmail = "";
 		$mohName = "";
+		$email1990 = "";
 	}
 	
 	
@@ -568,54 +569,32 @@
 
 							</div>
 
-							<!-- <div class="col-md-3">
-								<h4> <b>Medical History</b> </h4>
-								<table class="table table-borderless">
-
-									<tbody>
-										<tr>
-											<td scope="row">Heart Diseases</td>
-											<td class="text-success"><?php echo $heartDis; ?></td>
-										</tr>
-										<tr>
-											<td scope="row">High Blood Pressure</td>
-											<td class="text-success"><?php echo $highBP; ?></td>
-										</tr>
-										<tr>
-											<td scope="row">Diabetes</td>
-											<td class="text-success"><?php echo $diabetes; ?></td>
-										</tr>
-										<tr>
-											<td scope="row">Lung Diseses</td>
-											<td class="text-success"><?php echo $lungDis; ?></td>
-										</tr>
-										<tr>
-											<th scope="row">Other Diseases</th>
-											<td class="text-success"><?php echo $otherDis; ?></td>
-										</tr>
-									</tbody>
-								</table>
-
-							</div> -->
 							<form method="POST" action="submit.php">
 								<div class="row">
 									<div class="col-md-2" reqired>
 											<h4> <b>Patient's Contact Info</b> </h4>
-											<input type="radio" id="hospitalize" onclick="myFunction(this)" name="docRec" value="hospitalize" required>
-										  	<label for="hospitalize">Hospitalize</label><br>
-										  	<input type="radio" id="selfqrn" onclick="myFunction(this)" name="docRec" value="selfqrn">
-										  	<label for="selfqrn">Self Quarantine</label><br>
-										  	<input type="radio" id="shouldcont" onclick="myFunction(this)" name="docRec" value="shouldcont">
-										  	<label for="shouldcont">Should Continue</label>
+											<input type="radio" id="cat1" onclick="myFunction(this)" name="docRec" value="cat1" required>
+										  	<label for="cat1">Category 01</label><br>
+										  	<input type="radio" id="cat2" onclick="myFunction(this)" name="docRec" value="cat2">
+										  	<label for="cat2">Category 02</label><br>
+										  	<input type="radio" id="cat3" onclick="myFunction(this)" name="docRec" value="cat3">
+										  	<label for="cat3">Category 03</label><br>
+										  	<input type="radio" id="cat4" onclick="myFunction(this)" name="docRec" value="cat4">
+										  	<label for="cat4">Category 04</label><br>
+										  	<input type="radio" id="cat5" onclick="myFunction(this)" name="docRec" value="cat5">
+										  	<label for="cat5">Category 05</label>
 										  	
 										  	<p id="mohMessageDetails"></p>
 									</div>
 									<div class="col-md-2" reqired>
-											<button type="submit" id="btnSendMOH" name="btnSendMoh" class="btn btn-danger btn-lg" style="width: 100%">Send to MOH</button>
-											<button type="submit" id="btnNextPat" name="btnNextPat" class="btn btn-primary btn-lg" style="width: 100%">Next Patient</button>
-											<button type="submit" id="btnFinish" name="btnFinish" class="btn btn-warning btn-lg" style="width: 100%">Finish & Exit</button>
-
+											<textarea name="docComment" rows="10" cols="29"></textarea>
 									</div>
+									
+								</div>
+								<div class="row">
+											<button type="submit" id="btnNextPat" name="btnNextPat" class="btn btn-success btn-lg" style="width: 45%">Next Patient</button>
+											<button type="submit" id="btnFinish" name="btnFinish" class="btn btn-primary btn-lg" style="width: 45%">Finish & Exit</button>
+
 									
 								</div>
 							</form>
@@ -625,30 +604,31 @@
 							?>
 							<script>
 								function myFunction(clickVal) {
-								  var hos = clickVal.value;
-								  var slq = clickVal.value;
-								  var cont = clickVal.value;
+								  var cat1 = clickVal.value;
+								  var cat2 = clickVal.value;
+								  var cat3 = clickVal.value;
+								  var cat4 = clickVal.value;
+								  var cat5 = clickVal.value;
 
-								  if(hos == "hospitalize"){
-								  	document.getElementById("btnSendMOH").disabled = false;
-								  	document.getElementById("btnNextPat").disabled = true;
-								  	document.getElementById("btnFinish").disabled = true;
+								  if(cat1 == "cat1"){
 								  	var msg = document.getElementById("mohMessageDetails"); 
-								  	msg.innerHTML = "<br><br><font style='color:red;'> Email request will be sent to <b>" + mohName + " MOH Office</b> requesting this patient to <b> Hospitalize. </b></font>";
+								  	msg.innerHTML = "<br><font style='color:red;'>Mild symptoms, without contact or travel history.</font>";
 								  }
-								  if(slq == "selfqrn"){
-								  	document.getElementById("btnSendMOH").disabled = false;
-								  	document.getElementById("btnNextPat").disabled = true;
-								  	document.getElementById("btnFinish").disabled = true;
+								  if(cat2 == "cat2"){
 								  	var msg = document.getElementById("mohMessageDetails"); 
-								  	msg.innerHTML = "<br><br><font style='color:red;'> Email request will be sent to <b>" + mohName + " MOH Office</b> requesting this patient to <b> Self-Quarantine. </b></font>";
+								  	msg.innerHTML = "<br><font style='color:red;'>Severe symptoms other than shortness of breath or chest pain; no contact history.</font><br><br><font style='color:red;'>Emails: <b>1990</b></font>";
 								  }
-								  if(cont == "shouldcont"){
-								  	document.getElementById("btnSendMOH").disabled = true;
-								  	document.getElementById("btnNextPat").disabled = false;
-								  	document.getElementById("btnFinish").disabled = false;
+								  if(cat3 == "cat3"){
 								  	var msg = document.getElementById("mohMessageDetails"); 
-								  	msg.innerHTML = "";
+								  	msg.innerHTML = "<br><font style='color:red;'>Shortness of breath/ chest pain without contact history.</font><br><br><font style='color:red;'> Emails: <b>1990</b></font>";
+								  }
+								  if(cat3 == "cat4"){
+								  	var msg = document.getElementById("mohMessageDetails"); 
+								  	msg.innerHTML = "<br><font style='color:red;'>Travel/ contact history present, no symptoms.</font><br><br><font style='color:red;'> Emails: <b>" + mohName + " MOH Office</b></font>";
+								  }
+								  if(cat3 == "cat5"){
+								  	var msg = document.getElementById("mohMessageDetails"); 
+								  	msg.innerHTML = "<br><font style='color:red;'>Travel/ contact history present; symptoms present.</font><br><br><font style='color:red;'> Emails: <b>" + mohName + " MOH Office, 1990</b></font>";
 								  }
 								}
 							</script>
