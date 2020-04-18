@@ -11,9 +11,6 @@ $email = "";
 $password = "";
 if($_POST && array_key_exists("action", $_POST)){
 
-    // CARRY OUT SANITIZATION AND DATA VALIDATION HERE!!!!!!!!!
-
-    // CARRY OUT RELAVANT ACTION
     switch($_POST['action'])
     {
         case "search":
@@ -35,7 +32,7 @@ if($_POST && array_key_exists("action", $_POST)){
             if ($res<1){
                 echo "<script>alert('MOH not found for Given ID')</script>";
             }
-            //echo "<script>alert('Search Function')</script>";
+
 
             break;
 

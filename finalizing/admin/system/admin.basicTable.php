@@ -2,12 +2,12 @@
 <?php
     include 'logincheck.php';
 ?>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->
+    <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="">
+       <html class="no-js lt-ie9 lt-ie8" lang="">
+        <html class="no-js lt-ie9" lang="">
+
 <html class="no-js" lang="">
-<!--<![endif]-->
+
 
 <head>
   <meta charset="utf-8">
@@ -32,12 +32,11 @@
 
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
-  <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+
 
 </head>
 
 <body>
-  <!-- Left Panel -->
 
 
   <aside id="left-panel" class="left-panel">
@@ -61,7 +60,7 @@
           </li>
 
           <h3 class="menu-title">Page Roles</h3>
-          <!-- /.menu-title -->
+
           <li class="menu-item-has-children dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i
                 class="menu-icon fa fa-stethoscope"></i>Doctor</a>
@@ -117,20 +116,14 @@
           </li>
 
         </ul>
-      </div><!-- /.navbar-collapse -->
+      </div>
     </nav>
-  </aside><!-- /#left-panel -->
+  </aside>
 
-
-  <!-- Left Panel -->
-
-
-  <!-- Right Panel -->
 
   <div id="right-panel" class="right-panel">
 
-    <!-- Header-->
-    <!-- Header-->
+
     <header id="header" class="header">
 
       <div class="header-menu">
@@ -260,8 +253,7 @@
         </div>
       </div>
 
-    </header><!-- /header -->
-    <!-- Header-->
+    </header>
 
     <div class="breadcrumbs">
       <div class="col-sm-4">
@@ -409,13 +401,10 @@
           <div class="col-lg-1"></div>
 
         </div>
-      </div><!-- .animated -->
-    </div><!-- .content -->
+      </div>
+    </div>
 
-
-  </div><!-- /#right-panel -->
-
-  <!-- Right Panel -->
+  </div>
 
 
   <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>

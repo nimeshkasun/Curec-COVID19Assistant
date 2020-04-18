@@ -12,9 +12,7 @@ $password = "";
 $designation="";
 if($_POST && array_key_exists("action", $_POST)){
 
-    // CARRY OUT SANITIZATION AND DATA VALIDATION HERE!!!!!!!!!
 
-    // CARRY OUT RELAVANT ACTION
     switch($_POST['action'])
     {
         case "search":
@@ -35,7 +33,7 @@ if($_POST && array_key_exists("action", $_POST)){
             if ($res<1){
                 echo "<script>alert('Admin ID Invalid')</script>";
             }
-            //echo "<script>alert('Search Function')</script>";
+
 
             break;
 
@@ -86,15 +84,11 @@ else {
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
-    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+
 
 </head>
 
 <body>
-
-
-    <!-- Left Panel -->
-
 
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
