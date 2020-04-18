@@ -11,16 +11,8 @@ require_once '../../../doctor/system/dbConn.php';
         $email = $_POST['email'];
         $password = $_POST['password'];
         
-        // echo $medicalID;
-        // echo $firstName;
-        // echo $lastName;
-        // echo $nic;
-        // echo $workingAres;
-        // echo $telephone;
-        // echo $email;
-        // echo $password;
+
       $sql = "INSERT INTO `doctor`(`name`, `lastname`, `phone`, `medicalRegID`, `nic`, `workArea`, `email`, `password`,`status`) VALUES ('$firstName','$lastName','$telephone','$medicalID','$nic','$workingAres','$email','$password',1)";
-     // $sql = "INSERT INTO `doctor`( `name`, `lastname`, `phone` , `medicalRegID`, `nic`, `workArea`, `email`, `password`,`status`) VALUES (\'savindu\',\'bandara\',\'0764650666\',\'hdasj\',\'981121864v\',\'Matara\',\'bsavindu1998@gmail.com\',\'1234\',1)";  
       $insertResult = mysqli_query($connection,$sql);
 
         if ($insertResult){
@@ -44,7 +36,6 @@ if (isset($_POST['drUpdate'])){
     $password = $_POST['password'];
 
     $sql = "UPDATE `doctor` SET `name`='$firstName',`lastname`='$lastName',`phone`='$telephone',`nic`='$nic',`workArea`='$workingAres',`email`='$email',`password`='$password' WHERE `medicalRegID`='$medicalID'";
-   //UPDATE `doctor` SET `DID`=[value-1],`name`=[value-2],`lastname`=[value-3],`phone`=[value-4],`status`=[value-5],`medicalRegID`=[value-6],`nic`=[value-7],`workArea`=[value-8],`email`=[value-9],`password`=[value-10] WHERE 1
     $insertResult = mysqli_query($connection,$sql);
 
     if ($insertResult){
@@ -72,6 +63,5 @@ if (isset($_POST['drDelete'])){
     }
 
 }
-
 
 ?>

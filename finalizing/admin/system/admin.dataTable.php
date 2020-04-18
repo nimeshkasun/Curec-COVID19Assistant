@@ -33,8 +33,6 @@
 
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
-  <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
-
 </head>
 
 <body>
@@ -60,7 +58,7 @@
           </li>
 
           <h3 class="menu-title">Page Roles</h3>
-          <!-- /.menu-title -->
+
           <li class="menu-item-has-children dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i
                 class="menu-icon fa fa-stethoscope"></i>Doctor</a>
@@ -104,7 +102,7 @@
             </ul>
           </li>
 
-          <h3 class="menu-title">Data Comings</h3><!-- /.menu-title -->
+          <h3 class="menu-title">Data Comings</h3>
 
           <li class="menu-item-has-children dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i
@@ -116,20 +114,14 @@
           </li>
 
         </ul>
-      </div><!-- /.navbar-collapse -->
+      </div>
     </nav>
-  </aside><!-- /#left-panel -->
+  </aside>
 
 
-  <!-- Left Panel -->
-
-
-  <!-- Right Panel -->
 
   <div id="right-panel" class="right-panel">
 
-    <!-- Header-->
-    <!-- Header-->
     <header id="header" class="header">
 
       <div class="header-menu">
@@ -259,8 +251,8 @@
         </div>
       </div>
 
-    </header><!-- /header -->
-    <!-- Header-->
+    </header>
+
 
     <div class="breadcrumbs">
       <div class="col-sm-4">

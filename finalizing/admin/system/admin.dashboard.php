@@ -2,9 +2,9 @@
 <?php
     include 'logincheck.php';
 ?>
-<!--[if gt IE 8]><!-->
+
 <html class="no-js" lang="">
-<!--<![endif.]-->
+
 
 <head>
     <meta charset="utf-8">
@@ -24,20 +24,19 @@
     <link rel="stylesheet" href="assets/css/themify-icons.css">
     <link rel="stylesheet" href="assets/css/flag-icon.min.css">
     <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
-    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
     <link rel="stylesheet" href="assets/scss/style.css">
     <link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
-    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+
 
 </head>
 
 <body>
 
 
-    <!-- Left Panel -->
+
 
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
@@ -116,17 +115,15 @@
                     </li>
 
                 </ul>
-            </div><!-- /.navbar-collapse -->
+            </div>
         </nav>
-    </aside><!-- /#left-panel -->
+    </aside>
 
-    <!-- Left Panel -->
 
-    <!-- Right Panel -->
 
     <div id="right-panel" class="right-panel">
 
-        <!-- Header-->
+
         <header id="header" class="header">
 
             <div class="header-menu">
@@ -259,8 +256,7 @@
                 </div>
             </div>
 
-        </header><!-- /header -->
-        <!-- Header-->
+        </header>
 
         <div class="breadcrumbs">
             <div class="col-sm-4">
@@ -515,9 +511,8 @@
                         </li>
                     </ul>
                 </div>
-                <!--/social-box-->
+
             </div>
-            <!--/.col-->
 
 
             <div class="col-lg-3 col-md-6">
@@ -695,25 +690,14 @@
                 </div>
             </div>
 
-            <!-- <div class="col-xl-6">
-                <div class="card" >
-                    <div class="card-header">
-                        <h4>World</h4>
-                    </div>
-                    <div class="Vector-map-js">
-                        <div id="vmap" class="vmap" style="height: 265px;"></div>
-                    </div>
-                </div>
-              
-            </div> -->
 
 
 
 
-        </div> <!-- .content -->
-    </div><!-- /#right-panel -->
 
-    <!-- Right Panel -->
+        </div>
+    </div>
+
 
     <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>

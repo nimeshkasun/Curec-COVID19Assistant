@@ -13,9 +13,6 @@ require_once '../../doctor/system/dbConn.php';
     $password = "";
 if($_POST && array_key_exists("action", $_POST)){
 
-    // CARRY OUT SANITIZATION AND DATA VALIDATION HERE!!!!!!!!!
-
-    // CARRY OUT RELAVANT ACTION
     switch($_POST['action'])
     {
         case "search":
@@ -37,7 +34,6 @@ if($_POST && array_key_exists("action", $_POST)){
             if ($res<1){
                 echo "<script>alert('Doctor not found for Given ID')</script>";
             }
-            //echo "<script>alert('Search Function')</script>";
 
             break;
 
@@ -63,7 +59,7 @@ else {
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="">
-<!--<![endif]-->
+
 
 <head>
     <meta charset="utf-8">
@@ -84,21 +80,16 @@ else {
     <link rel="stylesheet" href="assets/css/flag-icon.min.css">
     <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
 
-    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
+
     <link rel="stylesheet" href="assets/scss/style.css">
     <link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
-    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 
 </head>
 
 <body>
-
-
-    <!-- Left Panel -->
-
 
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
@@ -120,7 +111,7 @@ else {
 
                     </li>
 
-                    <h3 class="menu-title">Page Roles</h3><!-- /.menu-title -->
+                    <h3 class="menu-title">Page Roles</h3>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false"> <i class="menu-icon fa fa-stethoscope"></i>Doctor</a>
@@ -176,19 +167,14 @@ else {
                     </li>
 
                 </ul>
-            </div><!-- /.navbar-collapse -->
+            </div>
         </nav>
-    </aside><!-- /#left-panel -->
-
-    <!-- Left Panel -->
+    </aside>
 
 
-    <!-- Right Panel -->
 
     <div id="right-panel" class="right-panel">
 
-        <!-- Header-->
-        <!-- Header-->
         <header id="header" class="header">
 
             <div class="header-menu">
@@ -321,8 +307,7 @@ else {
                 </div>
             </div>
 
-        </header><!-- /header -->
-        <!-- Header-->
+        </header>
 
         <div class="breadcrumbs">
             <div class="col-sm-4">
@@ -453,9 +438,7 @@ else {
                 </div>
 
 
-            </div><!-- /#right-panel -->
-
-            <!-- Right Panel -->
+            </div>
 
             <script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
@@ -492,13 +475,13 @@ else {
             <script type="text/javascript">
                 function performAction(action)
                 {
-                    // ASSIGN THE ACTION
+
                     var action = action;
 
-                    // UPDATE THE HIDDEN FIELD
+
                     document.getElementById("action").value = action;
 
-                    // SUBMIT THE FORM
+
                     document.drForm.submit();
                 }
             </script>
@@ -507,7 +490,7 @@ else {
 
             <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
             <script>
-                // Initialize Firebase
+               
                 var config = {
                     apiKey: "AIzaSyA6swDC9X6ngehYczHLzxsk_Pck-b20ikY",
                     authDomain: "nathan-james-web.firebaseapp.com",
@@ -529,12 +512,12 @@ else {
             <script type="text/javascript">
                 function ClearFields()
                 {
-                    //document.getElementById("action").value = action;
+
                     document.getElementById("medicalid").value = "";
                     document.getElementById("firstname").value = "";
                     document.getElementById("lastname").value ="";
                     document.getElementById("nic").value ="";
-                    document.getElementById("workarea").value = ""; //telenumber email password
+                    document.getElementById("workarea").value = "";
                     document.getElementById("tele").value = "";
                     document.getElementById("email").value = "";
                     document.getElementById("pw").value = "";
