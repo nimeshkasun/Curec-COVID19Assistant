@@ -94,7 +94,7 @@
 				/*$email = 'nimesh.ekanayaka7@gmail.com';*/
 				
 				
-				$sql = "INSERT INTO diagnose(DID, MID, Comment, status) VALUES ('$did', '$mid', '$docComment', '$docDecisionDecoded')";
+				$sql = "INSERT INTO diagnose(DID, RID, Comment, status) VALUES ('$did', '$rid', '$docComment', '$docDecisionDecoded')";
 				$_SESSION["MID"] = "";
 				$_SESSION["RID"] = "";
 				$_SESSION["SID"] = "";
@@ -200,7 +200,7 @@
 				/*$email = 'nimesh.ekanayaka7@gmail.com';*/
 				
 				
-				$sql = "INSERT INTO diagnose(DID, MID, Comment, status) VALUES ('$did', '$mid', '$docComment', '$docDecisionDecoded')";
+				$sql = "INSERT INTO diagnose(DID, RID, Comment, status) VALUES ('$did', '$rid', '$docComment', '$docDecisionDecoded')";
 				$_SESSION["MID"] = "";
 				$_SESSION["RID"] = "";
 				$_SESSION["SID"] = "";

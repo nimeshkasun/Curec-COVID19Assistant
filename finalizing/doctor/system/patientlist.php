@@ -63,7 +63,7 @@
                                                                   <?php
                                                                     require_once 'dbConn.php';
 
-                                                                    $result = $conn->query("SELECT member.Name, member.NIC, member.phone, diagnose.Comment, diagnose.status, diagnose.timestamp, doctor.name, doctor.lastname, doctor.medicalRegID FROM diagnose, doctor, member WHERE diagnose.DID=doctor.DID AND diagnose.MID=member.MID ORDER BY diagnose.timestamp DESC");
+                                                                    $result = $conn->query("SELECT member.Name, member.NIC, member.phone, diagnose.Comment, diagnose.status, diagnose.timestamp, doctor.name, doctor.lastname, doctor.medicalRegID FROM diagnose, doctor, member,record WHERE diagnose.DID=doctor.DID AND diagnose.RID=record.RID AND record.MID=member.MID ORDER BY diagnose.timestamp DESC");
                                                                     if ($result->num_rows > 0) {
                                                                         while($row = $result->fetch_assoc()) {
                                                                             echo "<tr>
