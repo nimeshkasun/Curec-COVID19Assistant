@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Curec - Track Map</title>
+	<link href="images/favicon.svg" rel="shortcut icon" />
+
+	<!-- Global stylesheets -->
+	<link href="../../../../../../../../../fonts.googleapis.com/css1381.css?family=Roboto:400,300,100,500,700,900"
+		rel="stylesheet" type="text/css">
+	<link href="css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/bootstrap_limitless.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/layout.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/components.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/colors.min.css" rel="stylesheet" type="text/css">
+	<!-- /global stylesheets -->
+
+	<!-- Core JS files -->
+	<script src="js/main/jquery.min.js"></script>
+	<script src="js/plugins/extensions/jquery_ui/widgets.min.js"></script>
+	<script src="js/main/bootstrap.bundle.min.js"></script>
+	<script src="js/plugins/loaders/blockui.min.js"></script>
+	<!-- /core JS files -->
+
+	<!-- Theme JS files -->
+
+	<script src="js/plugins/forms/inputs/typeahead/typeahead.bundle.min.js"></script>
+	<script src="js/plugins/ui/prism.min.js"></script>
+	<script src="js/plugins/forms/styling/uniform.min.js"></script>
+
+	<script src="assets/js/app.js"></script>
+	<script src="js/demo_pages/form_inputs.js"></script>
+
+	<!-- /theme JS files -->
+
+
+</head>
+
+<body class="sidebar-xs">
+
+	<!-- Main navbar -->
+	<div class="navbar-expand-md navbar-dark">
+
+		<div class="navbar-brand">
+			<a href="index.html" class="d-inline-block">
+				<img src="images/logo_lightnew.png" alt="">
+			</a>
+		</div>
+
+		<div class=" d-flex align-items-right float-right">
+			<a href="./index.html" class="navbar-nav-link align-items-right"
+					data-toggle="">Logout<i class="icon-switch ml-2"></i>
+			</a>
+		</div>
+	</div>
+	<!-- /main navbar -->
+	<!-- /main navbar -->
+
+
+	<!-- Page content -->
+	<div class="page-content">
+
+		<!-- Main content -->
+		<div class="content-wrapper">
+
+			<!-- Content area -->
+			<div class="content">
+				<div class="row">
+
+					<div class="col-xl-8">
+						<!-- Traffic sources -->
+						<div class="card">
+							<div class="card-header header-elements-inline">
+								<h5 class="card-title">Track on Map</h5>
+							</div>
+
+							<div class="card-body">
+								<div class="form-group">
+									<div id="us2" class="map-container"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xl-4">
+
+						<!-- Search field -->
+						<div class="card">
+							<div class="card-body">
+								<h5 class="mb-3">Search Patients</h5>
+
+								<form>
+
+									<div class="form-group form-group-float">
+										<select id="searchdrop" class="form-control form-control-uniform" data-fouc>
+											<option value="" selected="Filter Options"
+												class="form-control form-control-uniform" disabled>Filter Options
+											</option>
+											<option value="Nic">NIC</option>
+											<option value="Contact">Contact Number</option>
+											<option value="ID">Patient ID</option>
+										</select>
+									</div>
+
+									<div class="row">
+										<div class="col-lg-12">
+											<div class="input-group">
+												<input type="text" id="Searchtxt" name="Searchtxt"
+													class="form-control form-control-lg alpha-grey" value=""
+													placeholder="Search">
+
+												<span class="input-group-append">
+													<button class="btn btn-primary btn-lg" id="Search" name="Search"
+														type="button">Search<i class="icon-search4 ml-2"></i></button>
+												</span>
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<!-- /search field -->
+
+						<div class="row">
+							<div class="col-xl-12">
+								<div class="card">
+
+									<div class="card-header header-elements-inline">
+										<h5 class="card-title">Patient Infomation</h5>
+									</div>
+
+									<div class="table-responsive">
+										<table class="table">
+											<tbody>
+												<tr>
+													<td>NIC Number</td>
+													<td id="nictxt"></td>
+												</tr>
+												<tr>
+													<td>Name</td>
+													<td id="nametxt"></td>
+												</tr>
+												<tr>
+													<td>Age</td>
+													<td id="agetxt"></td>
+												</tr>
+												<tr>
+													<td>Gender</td>
+													<td id="gendertxt"></td>
+												</tr>
+												<tr>
+													<td>Hometown</td>
+													<td id="citytxt"></td>
+												</tr>
+												<td>Contact Number</td>
+												<td id="phonetxt"></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!-- /content area -->
+
+		</div>
+		<!-- /main content -->
+
+	</div>
+	<!-- /page content -->
+
+
+	<script lang="javascript">
+		document.getElementById("Search").addEventListener("click", myFunction);
+		var map;
+		var markers = [];
+		// Adds a marker to the map and push to the array.
+		var activeWindow;
+		function addMarker(location, nums, times) {
+			var infowindow = new google.maps.InfoWindow({
+				content: '<h1 class="firstHeading">' + times + '</h1>'
+			});
+			var marker = new google.maps.Marker({
+				position: location,
+				label: nums,
+				map: map
+			});
+			marker.addListener('click', function () {
+				
+				//Close active window if exists
+				if (activeWindow != null) activeWindow.close();
+
+				//Open new window
+				infowindow.open(map, marker);
+
+				//Store new window in global variable
+				activeWindow = infowindow;
+			});
+			markers.push(marker);
+		}
+
+		// Sets the map on all markers in the array.
+		function setMapOnAll(map) {
+			for (var i = 0; i < markers.length; i++) {
+				markers[i].setMap(map);
+			}
+		}
+
+		// Removes the markers from the map, but keeps them in the array.
+		function clearMarkers() {
+			setMapOnAll(null);
+		}
+
+		// Shows any markers currently in the array.
+		function showMarkers() {
+			setMapOnAll(map);
+		}
+
+		// Deletes all markers in the array by removing references to them.
+		function deleteMarkers() {
+			clearMarkers();
+			markers = [];
+		}
+
+		function initMap() {
+			map = new google.maps.Map(document.getElementById('us2'), {
+				zoom: 6,//lat: 6.927079, lng: 79.861244
+				center: new google.maps.LatLng(7.8731, 80.7718),
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			});
+
+		}
+
+
+		function myFunction() {
+			var drop = document.getElementById("searchdrop");
+			var dropval = drop.options[drop.selectedIndex].value;
+			var searchtxt = document.getElementById("Searchtxt").value;
+			deleteMarkers();
+
+			if (!((dropval == null || dropval == "") || (searchtxt == null || searchtxt == ""))) {
+				//window.alert("Drop = " + dropval + " value = " +searchtxt);
+				$.ajax({
+					url: 'PHP/data.php',
+					method: 'post',
+					data: 'searchtxt=' + searchtxt + '&type=' + dropval
+				}).done(function (res) {
+					console.log(res);
+					res = JSON.parse(res);
+					console.log(res);
+					var num = 1;
+					var nic;
+					var name;
+					var age;
+					var gender;
+					var city;
+					var phone;
+					res.forEach(function (res) {
+						var lat = res.lat;
+						var lan = res.lan;
+						nic = res.NIC;
+						name = res.Name;
+						age = res.Age;
+						gender = res.Gender;
+						city = res.City;
+						phone = res.phone;
+						var timestamp = res.timestamp;
+
+						addMarker(new google.maps.LatLng(lat, lan),num.toString(),timestamp);
+
+						num++;
+					})
+					
+					$('#nictxt').empty();
+					$('#nametxt').empty();
+					$('#agetxt').empty();
+					$('#gendertxt').empty();
+					$('#citytxt').empty();
+					$('#phonetxt').empty();
+
+					$('#nictxt').append(nic);
+					$('#nametxt').append(name);
+					$('#agetxt').append(age);
+					$('#gendertxt').append(gender);
+					$('#citytxt').append(city);
+					$('#phonetxt').append(phone);
+
+				});
+			} else {
+				window.alert("Empty Fields");
+			}
+		}
+
+	</script>
+
+	<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC9C8vBTbvSRT_TB3prrYq2RqWz6D4lSPo&callback=initMap">
+		</script>
+
+</body>
+
+</html>
