@@ -298,7 +298,7 @@ if(isset($_POST['type'])){
 		$stmt = $conn->prepare("SELECT record.RID, record.timestamp, `fever`, `cough`, `soreThroat`, `difficultBreathe`, `bodyArchPain`, `cold`, `lossOfSmell`, `diarrhoea`, `urineOutput`, `ArriveFromAbroad`, `dateifYes`, `contactSuspect`, `personAbroad`, `personHighrisk`, `personQuarantine`, `personWorkQuarantine`, `heartDiseace`, `bloodPressure`, `Diabetes`, `LungDisease`, `OtherDisease`, `priority`, `Comment`, diagnose.status, `name`, `lastname`, `phone`, `medicalRegID`, `nic`, `workArea` FROM record
         LEFT JOIN diagnose ON record.RID=diagnose.RID
         LEFT JOIN doctor ON doctor.DID=diagnose.DID
-        WHERE record.MID ='$MID' ");
+        WHERE record.MID ='$MID' ORDER BY record.timestamp DESC");
 		$stmt->execute();
 		$rec = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		echo json_encode($rec);

@@ -5,8 +5,7 @@
     <link rel="icon" href="images/favicon.svg">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Curec | COVID-19 Personal Assistant</title>
-    <link href="images/favicon.svg" rel="shortcut icon" />
+    <title>Curec</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -74,21 +73,30 @@
                                         <div id="colorlib-logo"><a href="index.html">Cu<span>Rec</span></a>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <!-- <div class="num">
 											<span class="icon"><i class="icon-phone"></i></span>
 											<p><a href="#">111-222-333</a><br><a href="#">99-222-333</a></p>
 										</div> -->
                                     </div>
-                                    <div class="col-md-2 ">
+                                    <div class="col-md-3">
                                         <ul>
                                             <li class="has-dropdown">
-                                                <a href="departments.html">Login</a>
+                                                <a>Login</a>
                                                 <ul class="dropdown">
                                                     <li><a href="#">Patient</a>
                                                     </li>
-                                                    <li><a href="doctor/">Doctor</a></li>
-                                                    <li><a href="admin/">Admin</a></li>
+                                                    <li><a href="./doctor/">Doctor</a></li>
+                                                    <li><a href="./admin/">Admin</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="has-dropdown">
+                                                <a>Language</a>
+                                                <ul class="dropdown">
+                                                    <li><a href="#">English</a>
+                                                    </li>
+                                                    <li><a href="#">Sinhala</a></li>
+                                                    <li><a href="#">Other</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -169,8 +177,9 @@
                                         <label class="col-md-5 control-label" for="radios">Fever</label>
                                         <div class="col-md-4">
                                             <label class="radio-inline" for="radios-0">
-                                                <input type="radio" name="radios" id="radios-0" value="1"
-                                                    checked="checked">
+                                                <input type="radio" name="radios" id="radios-0" value="1">
+                                                <!-- <input type="radio" name="radios" id="radios-0" value="1"
+                                                    checked="checked"> -->
                                                 Yes
                                             </label>
                                             <label class="radio-inline" for="radios-1">
@@ -187,12 +196,11 @@
                                         <label class="col-md-5 control-label" for="radios">Cough</label>
                                         <div class="col-md-4">
                                             <label class="radio-inline" for="radios-2">
-                                                <input type="radio" name="radios" id="radios-0" value="1"
-                                                    checked="checked">
+                                                <input type="radio" name="radios0" id="radios-0" value="1">
                                                 Yes
                                             </label>
                                             <label class="radio-inline" for="radios-3">
-                                                <input type="radio" name="radios" id="radios-1" value="2">
+                                                <input type="radio" name="radios0" id="radios-1" value="2">
                                                 No
                                             </label>
 
@@ -204,13 +212,12 @@
                                     <div class="form-group">
                                         <label class="col-md-5 control-label" for="radios">Sore Throat</label>
                                         <div class="col-md-4">
-                                            <label class="radio-inline" for="radios-4">
-                                                <input type="radio" name="radios" id="radios-0" value="1"
-                                                    checked="checked">
+                                            <label class="radio-inline" for="radios-2">
+                                                <input type="radio" name="radios1" id="radios-0" value="1">
                                                 Yes
                                             </label>
-                                            <label class="radio-inline" for="radios-5">
-                                                <input type="radio" name="radios" id="radios-1" value="2">
+                                            <label class="radio-inline" for="radios-3">
+                                                <input type="radio" name="radios1" id="radios-1" value="2">
                                                 No
                                             </label>
 
@@ -224,12 +231,11 @@
                                             Pain</label>
                                         <div class="col-md-5">
                                             <label class="radio-inline" for="radios-6">
-                                                <input type="radio" name="radios" id="radios-0" value="1"
-                                                    checked="checked">
+                                                <input type="radio" name="radios2" id="radios-0" value="1">
                                                 Yes
                                             </label>
                                             <label class="radio-inline" for="radios-7">
-                                                <input type="radio" name="radios" id="radios-1" value="2">
+                                                <input type="radio" name="radios2" id="radios-1" value="2">
                                                 No
                                             </label>
                                         </div>
@@ -241,12 +247,11 @@
                                         <label class="col-md-5 control-label" for="radios">Cold</label>
                                         <div class="col-md-4">
                                             <label class="radio-inline" for="radios-8">
-                                                <input type="radio" name="radios" id="radios-0" value="1"
-                                                    checked="checked">
+                                                <input type="radio" name="radios3" id="radios-0" value="1">
                                                 Yes
                                             </label>
                                             <label class="radio-inline" for="radios-9">
-                                                <input type="radio" name="radios" id="radios-1" value="2">
+                                                <input type="radio" name="radios3" id="radios-1" value="2">
                                                 No
                                             </label>
 
@@ -259,12 +264,11 @@
                                         <label class="col-md-5 control-label" for="radios">Loss of Smell</label>
                                         <div class="col-md-4">
                                             <label class="radio-inline" for="radios-10">
-                                                <input type="radio" name="radios" id="radios-0" value="1"
-                                                    checked="checked">
+                                                <input type="radio" name="radios4" id="radios-0" value="1">
                                                 Yes
                                             </label>
                                             <label class="radio-inline" for="radios-11">
-                                                <input type="radio" name="radios" id="radios-1" value="2">
+                                                <input type="radio" name="radios4" id="radios-1" value="2">
                                                 No
                                             </label>
 
@@ -277,12 +281,11 @@
                                         <label class="col-md-5 control-label" for="radios">Diarrhoea</label>
                                         <div class="col-md-4">
                                             <label class="radio-inline" for="radios-12">
-                                                <input type="radio" name="radios" id="radios-0" value="1"
-                                                    checked="checked">
+                                                <input type="radio" name="radios5" id="radios-0" value="1">
                                                 Yes
                                             </label>
                                             <label class="radio-inline" for="radios-13">
-                                                <input type="radio" name="radios" id="radios-1" value="2">
+                                                <input type="radio" name="radios5" id="radios-1" value="2">
                                                 No
                                             </label>
 
@@ -295,12 +298,11 @@
                                         <label class="col-md-5 control-label" for="radios">Urine Output</label>
                                         <div class="col-md-5">
                                             <label class="radio-inline" for="radios-14">
-                                                <input type="radio" name="radios" id="radios-0" value="1"
-                                                    checked="checked">
+                                                <input type="radio" name="radios6" id="radios-0" value="1">
                                                 Normal
                                             </label>
                                             <label class="radio-inline" for="radios-15">
-                                                <input type="radio" name="radios" id="radios-1" value="2">
+                                                <input type="radio" name="radios6" id="radios-1" value="2">
                                                 Reduced
                                             </label>
 
@@ -316,12 +318,11 @@
                                             Abroad</label>
                                         <div class="col-md-4">
                                             <label class="radio-inline" for="radios-16">
-                                                <input type="radio" name="radios" id="radios-0" value="1"
-                                                    checked="checked">
+                                                <input type="radio" name="radios7" id="radios-0" value="1">
                                                 Yes
                                             </label>
                                             <label class="radio-inline" for="radios-17">
-                                                <input type="radio" name="radios" id="radios-1" value="2">
+                                                <input type="radio" name="radios7" id="radios-1" value="2">
                                                 No
                                             </label>
 
@@ -340,27 +341,23 @@
                                     </div>
                                     <br><br>
                                 </form>
-
-
                             </div>
 
                             <form action="">
                                 <div class="col-md-6">
                                     <h5>Second Side</h5>
                                     <h4><b>Have you come in contact with ,</b> </h4>
-
                                     <!-- Multiple Radios (inline) -->
                                     <div class="form-group">
                                         <label class="col-md-8 control-label" for="radios">A Covid-19 patient/ a person
                                             suspected to have covid-19</label>
                                         <div class="col-md-3">
                                             <label class="radio-inline" for="radios-0">
-                                                <input type="radio" name="radios" id="radios-0" value="1"
-                                                    checked="checked">
+                                                <input type="radio" name="radios8" id="radios-0" value="1">
                                                 Yes
                                             </label>
                                             <label class="radio-inline" for="radios-1">
-                                                <input type="radio" name="radios" id="radios-1" value="2">
+                                                <input type="radio" name="radios8" id="radios-1" value="2">
                                                 No
                                             </label>
 
@@ -374,12 +371,11 @@
                                             ?</label>
                                         <div class="col-md-3">
                                             <label class="radio-inline" for="radios-0">
-                                                <input type="radio" name="radios" id="radios-0" value="1"
-                                                    checked="checked">
+                                                <input type="radio" name="radios9" id="radios-0" value="1">
                                                 Yes
                                             </label>
                                             <label class="radio-inline" for="radios-1">
-                                                <input type="radio" name="radios" id="radios-1" value="2">
+                                                <input type="radio" name="radios9" id="radios-1" value="2">
                                                 No
                                             </label>
 
@@ -393,12 +389,11 @@
                                             area?</label>
                                         <div class="col-md-3">
                                             <label class="radio-inline" for="radios-0">
-                                                <input type="radio" name="radios" id="radios-0" value="1"
-                                                    checked="checked">
+                                                <input type="radio" name="radios10" id="radios-0" value="1">
                                                 Yes
                                             </label>
                                             <label class="radio-inline" for="radios-1">
-                                                <input type="radio" name="radios" id="radios-1" value="2">
+                                                <input type="radio" name="radios10" id="radios-1" value="2">
                                                 No
                                             </label>
 
@@ -413,12 +408,11 @@
                                             camp?</label>
                                         <div class="col-md-3">
                                             <label class="radio-inline" for="radios-0">
-                                                <input type="radio" name="radios" id="radios-0" value="1"
-                                                    checked="checked">
+                                                <input type="radio" name="radios11" id="radios-0" value="1">
                                                 Yes
                                             </label>
                                             <label class="radio-inline" for="radios-1">
-                                                <input type="radio" name="radios" id="radios-1" value="2">
+                                                <input type="radio" name="radios11" id="radios-1" value="2">
                                                 No
                                             </label>
 
@@ -433,12 +427,11 @@
                                             camp,Tourist industry,Airport or Harbour?</label>
                                         <div class="col-md-3">
                                             <label class="radio-inline" for="radios-0">
-                                                <input type="radio" name="radios" id="radios-0" value="1"
-                                                    checked="checked">
+                                                <input type="radio" name="radios12" id="radios-0" value="1">
                                                 Yes
                                             </label>
                                             <label class="radio-inline" for="radios-1">
-                                                <input type="radio" name="radios" id="radios-1" value="2">
+                                                <input type="radio" name="radios12" id="radios-1" value="2">
                                                 No
                                             </label>
                                         </div>
@@ -452,12 +445,11 @@
                                         <label class="col-md-8 control-label" for="radios">Heart Diseases</label>
                                         <div class="col-md-3">
                                             <label class="radio-inline" for="radios-0">
-                                                <input type="radio" name="radios" id="radios-0" value="1"
-                                                    checked="checked">
+                                                <input type="radio" name="radios13" id="radios-0" value="1">
                                                 Yes
                                             </label>
                                             <label class="radio-inline" for="radios-1">
-                                                <input type="radio" name="radios" id="radios-1" value="2">
+                                                <input type="radio" name="radios13" id="radios-1" value="2">
                                                 No
                                             </label>
                                         </div>
@@ -468,12 +460,11 @@
                                         <label class="col-md-8 control-label" for="radios">High Blood Pressure</label>
                                         <div class="col-md-3">
                                             <label class="radio-inline" for="radios-0">
-                                                <input type="radio" name="radios" id="radios-0" value="1"
-                                                    checked="checked">
+                                                <input type="radio" name="radios14" id="radios-0" value="1">
                                                 Yes
                                             </label>
                                             <label class="radio-inline" for="radios-1">
-                                                <input type="radio" name="radios" id="radios-1" value="2">
+                                                <input type="radio" name="radios14" id="radios-1" value="2">
                                                 No
                                             </label>
                                         </div>
@@ -484,12 +475,11 @@
                                         <label class="col-md-8 control-label" for="radios">Diabetes</label>
                                         <div class="col-md-3">
                                             <label class="radio-inline" for="radios-0">
-                                                <input type="radio" name="radios" id="radios-0" value="1"
-                                                    checked="checked">
+                                                <input type="radio" name="radios15" id="radios-0" value="1">
                                                 Yes
                                             </label>
                                             <label class="radio-inline" for="radios-1">
-                                                <input type="radio" name="radios" id="radios-1" value="2">
+                                                <input type="radio" name="radios15" id="radios-1" value="2">
                                                 No
                                             </label>
                                         </div>
@@ -500,12 +490,11 @@
                                         <label class="col-md-8 control-label" for="radios">Lung Diseases</label>
                                         <div class="col-md-3">
                                             <label class="radio-inline" for="radios-0">
-                                                <input type="radio" name="radios" id="radios-0" value="1"
-                                                    checked="checked">
+                                                <input type="radio" name="radios16" id="radios-0" value="1">
                                                 Yes
                                             </label>
                                             <label class="radio-inline" for="radios-1">
-                                                <input type="radio" name="radios" id="radios-1" value="2">
+                                                <input type="radio" name="radios16" id="radios-1" value="2">
                                                 No
                                             </label>
                                         </div>
@@ -516,18 +505,17 @@
                                         <label class="col-md-8 control-label" for="radios">Other Diseases.</label>
                                         <div class="col-md-3">
                                             <label class="radio-inline" for="radios-0">
-                                                <input type="radio" name="radios" id="radios-0" value="1"
-                                                    checked="checked">
+                                                <input type="radio" name="radios17" id="radios-0" value="1">
                                                 Yes
                                             </label>
                                             <label class="radio-inline" for="radios-1">
-                                                <input type="radio" name="radios" id="radios-1" value="2">
+                                                <input type="radio" name="radios17" id="radios-1" value="2">
                                                 No
                                             </label>
                                         </div>
                                     </div>
                                     <br>
-                                    <center><button type="button" class="btn btn-success btn-lg">Success</button>
+                                    <center><button type="button" class="btn btn-success btn-lg">Proceed</button>
                                     </center>
                             </form>
                         </div>

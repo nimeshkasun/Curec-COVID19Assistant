@@ -386,7 +386,7 @@ h1, h2, h3, h4, h5, h6, figure {
             color: #d9534f; }
 
 .breadcrumbs {
-  height: 400px !important;
+  height: 100px !important;
   display: block;
   width: 100%;
   overflow: hidden; }
@@ -395,7 +395,7 @@ h1, h2, h3, h4, h5, h6, figure {
     .breadcrumbs .slides li .slider-text {
       display: table;
       opacity: 0;
-      min-height: 400px !important;
+      min-height: 150px !important;
       z-index: 9; }
       .breadcrumbs .slides li .slider-text > .slider-text-inner {
         display: table-cell;

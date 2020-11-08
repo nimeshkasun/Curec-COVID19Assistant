@@ -95,10 +95,14 @@
 				
 				
 				$sql = "INSERT INTO diagnose(DID, RID, Comment, status) VALUES ('$did', '$rid', '$docComment', '$docDecisionDecoded')";
-				$_SESSION["MID"] = "";
+				/*$_SESSION["MID"] = "";
 				$_SESSION["RID"] = "";
 				$_SESSION["SID"] = "";
-				$_SESSION["TID"] = "";
+				$_SESSION["TID"] = "";*/
+				unset($_SESSION["MID"]);
+				unset($_SESSION["RID"]);
+				unset($_SESSION["SID"]);
+				unset($_SESSION["TID"]);
 				if(mysqli_query($conn,$sql)){
 					$delete = "DELETE FROM priority_queue WHERE RID='$rid'";
 					if(mysqli_query($conn,$delete)){
@@ -201,10 +205,14 @@
 				
 				
 				$sql = "INSERT INTO diagnose(DID, RID, Comment, status) VALUES ('$did', '$rid', '$docComment', '$docDecisionDecoded')";
-				$_SESSION["MID"] = "";
+				/*$_SESSION["MID"] = "";
 				$_SESSION["RID"] = "";
 				$_SESSION["SID"] = "";
-				$_SESSION["TID"] = "";
+				$_SESSION["TID"] = "";*/
+				unset($_SESSION["MID"]);
+				unset($_SESSION["RID"]);
+				unset($_SESSION["SID"]);
+				unset($_SESSION["TID"]);
 				if(mysqli_query($conn,$sql)){
 					$delete = "DELETE FROM priority_queue WHERE RID='$rid'";
 					if(mysqli_query($conn,$delete)){

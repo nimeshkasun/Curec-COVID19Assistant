@@ -12,4 +12,28 @@
 	{
 		echo "DB Conn Error";
 	}
+
+
+           /*     $dbtype     = "mysql";
+                $dbhost     = "tommy.heliohost.org";
+                $dbname     = "edvicon_curec";
+                $dbuser     = "edvicon_curecadmin";
+                $dbpass     = "KDUcurec34";
+                $dbpath     = "c:/test.db";      
+
+                switch($dbtype){
+                  case "mysql":
+                    $dbconn = "mysql:host=$dbhost;dbname=$dbname";
+                    break;
+
+                  case "sqlite":
+                    $dbconn = "sqlite:$dbpath";
+                    break;
+
+                  case "postgresql":
+                    $dbconn = "pgsql:host=$dbhost dbname=$dbname";
+                    break;
+                }        
+
+                $conn = new PDO($dbconn,$dbuser,$dbpass);	*/
 ?>

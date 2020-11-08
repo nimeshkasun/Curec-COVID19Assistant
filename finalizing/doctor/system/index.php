@@ -322,6 +322,8 @@ $(document).ready(function(){
      var a = new Audio()
      a.src =   "noti/not3.wav"
      a.play()
+    }else{
+    	$('.count').html('0');
     }
    }
   });
