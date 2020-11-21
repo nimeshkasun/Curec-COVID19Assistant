@@ -1,8 +1,12 @@
 <?php
-	$servername = "tommy.heliohost.org";
+	/*$servername = "tommy.heliohost.org";
 	$username = "edvicon_curecadmin";
 	$password = "KDUcurec34";
-	$database = "edvicon_curec";
+	$database = "edvicon_curec";*/
+  $servername = "kdu.curec.life";
+  $username = "curecadm_curecadmin";
+  $password = "KDUcurec34";
+  $database = "curecadm_curec";
 	if(mysqli_connect($servername, $username, $password, $database))
 	{
 		$conn = mysqli_connect($servername, $username, $password, $database);
