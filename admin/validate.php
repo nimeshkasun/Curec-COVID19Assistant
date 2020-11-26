@@ -18,7 +18,7 @@ if(isset($_POST['logIn']))
 			}
 		}
 
-		if($password == $pw){
+		if(password_verify($password, $pw)){
 			session_start();
 			$_SESSION["AID"] = $aid;
 			$_SESSION["loggedInAdmin"] = "true";
