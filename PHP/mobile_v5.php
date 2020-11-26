@@ -87,7 +87,8 @@ if(isset($_POST['type'])){
             echo "Empty fields";
         }
         else {
-            $sql = "SELECT * FROM login WHERE Username='$username' and Password='$password'";
+            //$sql = "SELECT * FROM login WHERE Username='$username' and Password='$password'";
+            $sql = "SELECT * FROM login WHERE Username='$username'";
             $db = new DbConnect;
             if(!$conn = $db->connect())
                 {
@@ -98,15 +99,21 @@ if(isset($_POST['type'])){
                     $stmt = $conn->prepare($sql);
                     $stmt->execute();
                     $UID ="";
+                    $tempPass ="";
                     $myObj2 = new \stdClass();
                     if($result = $stmt->fetchAll(PDO::FETCH_ASSOC))
                         {
                             foreach ($result as $rows) {
                                     $UID =$rows['LID'];
+                                    $tempPass =$rows['Password'];
                                 }
-                                $myObj2->Status = "1";
-                                $myObj2->LID = $UID;
-                                //echo "Login Succesfull ! $UID";
+
+                                if(password_verify($password, $tempPass)){
+                                    $myObj2->Status = "1";
+                                    $myObj2->LID = $UID;
+                                }else{
+                                    $myObj2->Status = "0";
+                                }
                         }
                         else {
                             $myObj2->Status = "0";
