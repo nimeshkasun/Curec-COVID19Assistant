@@ -24,7 +24,8 @@ if(isset($_POST['logIn']))
 			}
 		}
 
-		if($password == $pw){
+		/*if($password == $pw){*/
+		if(password_verify($password, $pw)){
 			session_start();
 			$_SESSION["DID"] = $did;
 			$_SESSION["MID"] = "";

@@ -15,7 +15,8 @@
 
     function creat_user($nic,$Password){
         $db = new DbConnect;
-        $sql = "INSERT INTO  `login`( `Username`, `Password`) VALUES ('$nic','$Password')";
+        $hashed = password_hash($Password, PASSWORD_BCRYPT);
+        $sql = "INSERT INTO  `login`( `Username`, `Password`) VALUES ('$nic','$hashed')";
 
         if(!$conn = $db->connect()){
             echo "SQL Error";
