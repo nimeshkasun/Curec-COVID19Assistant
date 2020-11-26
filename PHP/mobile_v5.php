@@ -15,8 +15,7 @@
 
     function creat_user($nic,$Password){
         $db = new DbConnect;
-        $hashed = password_hash($Password, PASSWORD_BCRYPT);
-        $sql = "INSERT INTO  `login`( `Username`, `Password`) VALUES ('$nic','$hashed')";
+        $sql = "INSERT INTO  `login`( `Username`, `Password`) VALUES ('$nic','$Password')";
 
         if(!$conn = $db->connect()){
             echo "SQL Error";
@@ -87,8 +86,7 @@ if(isset($_POST['type'])){
             echo "Empty fields";
         }
         else {
-            //$sql = "SELECT * FROM login WHERE Username='$username' and Password='$password'";
-            $sql = "SELECT * FROM login WHERE Username='$username'";
+            $sql = "SELECT * FROM login WHERE Username='$username' and Password='$password'";
             $db = new DbConnect;
             if(!$conn = $db->connect())
                 {
@@ -99,21 +97,15 @@ if(isset($_POST['type'])){
                     $stmt = $conn->prepare($sql);
                     $stmt->execute();
                     $UID ="";
-                    $tempPass ="";
                     $myObj2 = new \stdClass();
                     if($result = $stmt->fetchAll(PDO::FETCH_ASSOC))
                         {
                             foreach ($result as $rows) {
                                     $UID =$rows['LID'];
-                                    $tempPass =$rows['Password'];
                                 }
-
-                                if(password_verify($password, $tempPass)){
-                                    $myObj2->Status = "1";
-                                    $myObj2->LID = $UID;
-                                }else{
-                                    $myObj2->Status = "0";
-                                }
+                                $myObj2->Status = "1";
+                                $myObj2->LID = $UID;
+                                //echo "Login Succesfull ! $UID";
                         }
                         else {
                             $myObj2->Status = "0";
