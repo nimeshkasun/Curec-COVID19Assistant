@@ -3,10 +3,10 @@
 	$username = "edvicon_curecadmin";
 	$password = "KDUcurec34";
 	$database = "edvicon_curec";*/
-  $servername = "kdu.curec.life";
-  $username = "curecadm_curecadmin";
+  $servername = "localhost";
+  $username = "cureclif_curecadmin";
   $password = "KDUcurec34";
-  $database = "curecadm_curec";
+  $database = "cureclif_curec";
 	if(mysqli_connect($servername, $username, $password, $database))
 	{
 		$conn = mysqli_connect($servername, $username, $password, $database);
