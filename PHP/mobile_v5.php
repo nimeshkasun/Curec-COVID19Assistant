@@ -302,7 +302,7 @@ if(isset($_POST['type'])){
     if($_POST['type']=="load_moh") {
 		$db = new DbConnect;
 		$conn = $db->connect();
-		$stmt = $conn->prepare("SELECT `MOID`, `officernumber`, `Colony` FROM `moh`");
+		$stmt = $conn->prepare("SELECT `MOID`, `officernumber`, `Colony` FROM `moh` ORDER BY `Colony`");
 		$stmt->execute();
 		$rec = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		echo json_encode($rec);
