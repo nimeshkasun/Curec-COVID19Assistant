@@ -43,17 +43,21 @@ $mail->Subject = 'RESTRICTED: Possible Patient Alert! | Curec Support';
 			<td>: {$pAge}</td>
 		</tr>
 		<tr>
-			<td>Location</td>
+			<td>Hometown</td>
 			<td>: {$pLocation}</td>
 		</tr>
 		<tr>
 			<td>Phone Number</td>
-			<td>: <a href='tel:+94{$pPhoneNumber}'>{$pPhoneNumber}</td>
+			<td>: <a href='tel:+94{$pPhoneNumber}'>{$pPhoneNumber}</a></td>
+		</tr>
+		<tr>
+			<td>Last Known Location</td>
+			<td>: <a href='https://www.google.com/maps/search/?api=1&query={$latitude},{$longitude}'>{$latitude},{$longitude}</a> on {$lastKnown}</td>
 		</tr>
 	</table>
 	</div></strong><br><br>";
 	$body .= "</tr>";
-	$body .= "<tr><td>Regards,<br> Curec Support Team <br> <a href='https://www.curec.edvicon.org'>https://www.curec.edvicon.org</a></td></tr>";
+	$body .= "<tr><td>Regards,<br> Curec Support Team <br> <a href='https://www.curec.life'>https://www.curec.life</a></td></tr>";
 	$body .= "<tr><td><br><hr width='100%'></td></tr>";
 	$body .= "<tr colspan='2' style='color:red;'><td>Disclaimer: <br>
 The content of this email is confidential and intended for the recipient specified in message only. It is strictly forbidden to share any part of this message with any third party, without a written consent of the sender. If you received this message by mistake, please reply to this message and follow with its deletion, so that we can ensure such a mistake does not occur in the future.<br><b>

@@ -4,6 +4,9 @@
 		$did = $_SESSION["DID"];
 		$mid = $_SESSION["MID"];
 		$rid = $_SESSION["RID"];
+		$latitude =	$_SESSION["LATITUDE"];	
+		$longitude = $_SESSION["LONGITUDE"];	
+		$lastKnown = $_SESSION["LASTKNOWN"];	
 		$mohName = $_SESSION["MOHNAME"];
 		$mohEmail = $_SESSION["MOHEMAIL"];
 		$email1990 = "nimesh.ekanayaka7@gmail.com";

@@ -98,7 +98,29 @@
 	
 
 
-	
+	//get last known location for emailing
+	$result = $conn->query("SELECT * FROM location WHERE MID='$MID' AND MID IN ( SELECT MAX(LID) FROM location GROUP BY MID );");
+	$latitude = "";
+	$longitude = "";
+	$lastKnown = "";
+
+	$result = $conn->query("SELECT * FROM location WHERE lid IN ( SELECT MAX(lid) FROM location WHERE mid='$MID' GROUP BY mid );");
+		if ($result->num_rows > 0) {
+			while($row = $result->fetch_assoc()) {
+					//Patient Details
+			    $latitude = $row['lat']; 
+			    $longitude = $row['lan'];  
+			    $lastKnown = $row['timestamp']; 
+			}
+			$_SESSION["LATITUDE"] = $latitude;	
+			$_SESSION["LONGITUDE"] = $longitude;	
+			$_SESSION["LASTKNOWN"] = $lastKnown;	
+		}else{
+			$_SESSION["LATITUDE"] = "Unknown";	
+			$_SESSION["LONGITUDE"] = "Unknown";		
+			$_SESSION["LASTKNOWN"] = "Unknown";	
+		}
+
 
 	$result = $conn->query("SELECT Name, NIC, Gender, Age, City, phone, MOID FROM member WHERE MID='$MID'");
 	if ($result->num_rows > 0) {
