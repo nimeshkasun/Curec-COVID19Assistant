@@ -194,12 +194,21 @@ if(isset($_POST['type'])){
         $lung =  $_POST['lung'];
         $other =  $_POST['other'];
         $priority =  $_POST['priority'];
+        
+        if(empty($CariveAbroadDate)){
+            $CariveAbroadDate="null";
+        }else{
+            $CariveAbroadDate="'".$CariveAbroadDate."'";
+        }
 
         $db = new DbConnect;
-        $sql = "INSERT INTO `record`(`MID`, `SID`, `fever`, `cough`, `soreThroat`, `difficultBreathe`, `bodyArchPain`, `cold`, `lossOfSmell`, `diarrhoea`, `urineOutput`, `ArriveFromAbroad`, `dateifYes`, `contactSuspect`, `personAbroad`, `personHighrisk`, `personQuarantine`, `personWorkQuarantine`, `heartDiseace`, `bloodPressure`, `Diabetes`, `LungDisease`, `OtherDisease`, `priority`) VALUES ('$MID','$SID','$Fever','$Cough','$SoreThroat','$SOB','$BodyPain','$Cold','$LossSmell','$Diarrhoea','$Urine','$CariveAbroad','$CariveAbroadDate','$CsuspectedPerson', '$CPcameAbroad','$CriskArea','$CquarantineCamp','$Cworking','$heart','$highBlood','$Diabetes','$lung', '$other', '$priority')";
+        $sql = "INSERT INTO `record`(`MID`, `SID`, `fever`, `cough`, `soreThroat`, `difficultBreathe`, `bodyArchPain`, `cold`, `lossOfSmell`, `diarrhoea`, `urineOutput`, `ArriveFromAbroad`, `dateifYes`, `contactSuspect`, `personAbroad`, `personHighrisk`, `personQuarantine`, `personWorkQuarantine`, `heartDiseace`, `bloodPressure`, `Diabetes`, `LungDisease`, `OtherDisease`, `priority`) VALUES ('$MID','$SID','$Fever','$Cough','$SoreThroat','$SOB','$BodyPain','$Cold','$LossSmell','$Diarrhoea','$Urine','$CariveAbroad',$CariveAbroadDate,'$CsuspectedPerson', '$CPcameAbroad','$CriskArea','$CquarantineCamp','$Cworking','$heart','$highBlood','$Diabetes','$lung', '$other', '$priority')";
 
-        if(!$conn = $db->connect()){
-            echo "SQL Error 0";
+         if(!$conn = $db->connect()){
+            $myObj4 = new \stdClass();
+            $myObj4->Status = "0";
+            $myJSON4 = json_encode($myObj4);
+            echo "$myJSON4";
             exit();
         }
         else {
