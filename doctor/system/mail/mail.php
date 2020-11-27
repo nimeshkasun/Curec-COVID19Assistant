@@ -52,7 +52,7 @@ $mail->Subject = 'RESTRICTED: Possible Patient Alert! | Curec Support';
 		</tr>
 		<tr>
 			<td>Last Known Location</td>
-			<td>: <a href='https://www.google.com/maps/search/?api=1&query={$latitude},{$longitude}'>{$latitude},{$longitude}</a> on {$lastKnown}</td>
+			<td>: <a href='https://www.google.com/maps/search/?api=1&query={$latitude},{$longitude}'>Click for Directions</a> on {$lastKnown}</td>
 		</tr>
 	</table>
 	</div></strong><br><br>";
