@@ -6,7 +6,7 @@
 		$rid = $_SESSION["RID"];
 		$mohName = $_SESSION["MOHNAME"];
 		$mohEmail = $_SESSION["MOHEMAIL"];
-		$email1990 = "kdusouthern34@gmail.com";
+		$email1990 = "nimesh.ekanayaka7@gmail.com";
 
 		require_once 'dbConn.php';
 			if(isset($_POST['btnNextPat'])){
