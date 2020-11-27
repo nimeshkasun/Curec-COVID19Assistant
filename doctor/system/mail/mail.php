@@ -10,8 +10,8 @@ $mail->SMTPSecure = 'tls';
 $mail->SMTPAuth = true;
 require_once 'emailpass.php';
 //TO
-$mail->addAddress('cureckdu@gmail.com', 'MOH');
-$mail->addCC('cureckdu@gmail.com', '1990');
+$mail->addAddress($email, 'MOH');
+$mail->addCC($email2, '1990');
 //From
 $mail->addReplyTo('info@curec.life', 'Curec Support');
 $mail->setFrom('info@curec.life', "Curec Support");

@@ -6,7 +6,7 @@
 	$Username = "info@curec.life";
 	
 	//Password to use for SMTP authentication
-	$mail->Password = "Pin@2020";
+	$mail->Password = "KDUcurec34";
 //Dont change --end
 
 ?>
