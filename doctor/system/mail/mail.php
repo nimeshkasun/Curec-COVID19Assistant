@@ -10,11 +10,11 @@ $mail->SMTPSecure = 'tls';
 $mail->SMTPAuth = true;
 require_once 'emailpass.php';
 //TO
-$mail->addAddress($email, 'MOH');
-$mail->addCC($email2, '1990');
+$mail->addAddress('cureckdu@gmail.com', 'MOH');
+$mail->addCC('cureckdu@gmail.com', '1990');
 //From
-$mail->addReplyTo('curecassistant@gmail.com', 'Curec Support');
-$mail->setFrom('curecassistant@gmail.com', "Curec Support");
+$mail->addReplyTo('info@curec.life', 'Curec Support');
+$mail->setFrom('info@curec.life', "Curec Support");
 $mail->Subject = 'RESTRICTED: Possible Patient Alert! | Curec Support';
 	$logo = 'https://lh3.googleusercontent.com/bL45GGf_HG2OGl0qTn9gTjHHEKKN6OqygcMtJgJ7GWxe14KA_Iw-NOT6TeN4cUC-KYbXzDdb9NmBoskUtGDIz0BhXxGioRzqIEjiIrERebYDEOyyiW39TS3YvuMHVfQeh0RlllTO=w800-h376-no';
     $link = '#';
