@@ -4,7 +4,7 @@ $mail = new PHPMailer;
 $mail->isSMTP();
 $mail->SMTPDebug = 0;
 $mail->Debugoutput = 'html';
-$mail->Host = 'smtp.gmail.com';
+$mail->Host = 'mail.curec.life';
 $mail->Port = 587;
 $mail->SMTPSecure = 'tls';
 $mail->SMTPAuth = true;
