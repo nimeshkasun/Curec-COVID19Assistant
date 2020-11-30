@@ -142,7 +142,7 @@
         "bool"
     ],
     "RedirectToHttps": [
-        false,
+        true,
         "bool"
     ],
     "SocketConnectTimeoutSeconds": [
