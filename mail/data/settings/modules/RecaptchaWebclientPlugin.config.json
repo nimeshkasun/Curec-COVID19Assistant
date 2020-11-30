@@ -1,0 +1,30 @@
+{
+    "Disabled": [
+        true,
+        "bool"
+    ],
+    "PublicKey": [
+        "",
+        "string"
+    ],
+    "PrivateKey": [
+        "",
+        "string"
+    ],
+    "LimitCount": [
+        0,
+        "int"
+    ],
+    "IncludeInMobile": [
+        true,
+        "bool"
+    ],
+    "IncludeInDesktop": [
+        true,
+        "bool"
+    ],
+    "RequestMethod": [
+        "post",
+        "string"
+    ]
+}

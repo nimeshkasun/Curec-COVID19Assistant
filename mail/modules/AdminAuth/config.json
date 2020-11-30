@@ -1,0 +1,11 @@
+{
+    "Disabled": [
+		false,
+		"bool"
+	],
+    "SuperadminWhitelistIp": [
+        [
+        ],
+        "array"
+    ]	
+}
