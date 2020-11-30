@@ -4,11 +4,11 @@
         "string"
     ],
     "AdminLogin": [
-        "superadmin",
+        "mailadmin",
         "string"
     ],
     "AdminPassword": [
-        "",
+        "$2y$07$MTYwNjcwNDQ3Ni4zMzU3MeSI4GAXCHJjGCbf2XPpP7iAKP3QzLlee",
         "string"
     ],
     "AdminLanguage": [
@@ -29,15 +29,15 @@
         "string"
     ],
     "DBName": [
-        "",
+        "cureclif_mail",
         "string"
     ],
     "DBLogin": [
-        "root",
+        "cureclif_mailadmin",
         "string"
     ],
     "DBPassword": [
-        "",
+        "Curec_Nimesh@1996",
         "string"
     ],
     "UseSlaveConnection": [
@@ -77,11 +77,11 @@
         "bool"
     ],
     "EnableLogging": [
-        false,
+        true,
         "bool"
     ],
     "EnableEventLogging": [
-        false,
+        true,
         "bool"
     ],
     "LoggingLevel": [
@@ -142,7 +142,7 @@
         "bool"
     ],
     "RedirectToHttps": [
-        true,
+        false,
         "bool"
     ],
     "SocketConnectTimeoutSeconds": [
