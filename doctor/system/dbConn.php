@@ -6,9 +6,9 @@
 
   /*$servername = "curec.life";*/
   $servername = "localhost";
-  $username = "cureclif_curecadmin";
+  $username = "edvicon_curecadmin";
   $password = "KDUcurec34";
-  $database = "cureclif_curec";
+  $database = "edvicon_curec";
 	if(mysqli_connect($servername, $username, $password, $database))
 	{
 		$conn = mysqli_connect($servername, $username, $password, $database);
