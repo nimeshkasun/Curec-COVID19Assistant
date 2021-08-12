@@ -1,6 +1,6 @@
 <?php 
 	class DbConnect {
-		private $host = 'tommy.heliohost.org';
+		private $host = 'localhost';
 		private $dbName = 'edvicon_curec';
 		private $user = 'edvicon_curecadmin';
 		private $pass = 'KDUcurec34';
