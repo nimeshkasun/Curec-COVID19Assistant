@@ -4,8 +4,8 @@
 
     use OpenTok\OpenTok;
 
-    $apiKey = "46665872";
-    $apiSecret = "1072db3cd6bc2e0a6d194a98d4a3995857944cb4";
+    $apiKey = "47306234";
+    $apiSecret = "2608c02ab9d0c629a29caadbee84294f4130af50";
 
     $opentok = new OpenTok($apiKey, $apiSecret);
 
