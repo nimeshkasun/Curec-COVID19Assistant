@@ -5,8 +5,8 @@ $mail->isSMTP();
 $mail->SMTPDebug = 0;
 $mail->Debugoutput = 'html';
 $mail->Host = 'mail.curec.life';
-$mail->Port = 465;
-$mail->SMTPSecure = 'ssl';
+$mail->Port = 587;
+$mail->SMTPSecure = 'tls';
 $mail->SMTPAuth = true;
 require_once 'emailpass.php';
 //TO
